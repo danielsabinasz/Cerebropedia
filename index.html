@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Cerebropedia</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- Jstree -->
+    <link href="js/libs/jstree/themes/proton/style.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Cerebropedia</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <!--<li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Help</a>
+                </li>-->
+            </ul>
+            <div class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" id="query" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </div>
+    </nav>
+</header>
+
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar" style="overflow: auto;">
+            <div id="jstree"></div>
+        </nav>
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+            <h1 id="title">Cerebropedia</h1>
+
+            <div class="container-fluid">
+
+                <div class="row" style="height: 400px;">
+                    <div class="col-5">
+                        <h3 style="text-align: center;">3D view</h3>
+                        <div id="brain3d" style="height: 100%;">
+
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <h3 style="text-align: center;">Horizontal section / Coronal section / Sagittal section</h3>
+                        <iframe id="brain_mri" style="height: 100%; width: 100%; border: none;" src="neuroglancer/#!{'layers':{'humanbrain.nii.gz':{'type':'image'_'source':'nifti://http://cerebropedia.org/models/humanbrain.nii.gz'}}_'navigation':{'pose':{'position':{'voxelSize':[0.4000000059604645_0.4000000059604645_0.4000000059604645]_'voxelCoordinates':[1.3749885559082031_-43.6250114440918_56.3749885559082]}}_'zoomFactor':0.8}_'showSlices':false_'showScaleBar':false}">
+
+                        </iframe>
+                    </div>
+
+                </div>
+
+                <div class="row" style="height: 50px;">
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <div id="wikipedia" style="height: 100%;">
+                            <p>
+                                Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate
+                                through the hierarchical anatomical structure of the brain with ease.
+                                It is primarily intended for students and researchers who want to explore the brain
+                                and make sense of the large vocabulary used in brain anatomy, which includes many synonyms
+                                for the same regions, partially overlapping regions and regions nested within other regions.
+
+                                Cerebropedia contains the entire Harvard-Oxford Atlas and all
+                                <a href="https://en.wikipedia.org/wiki/Brodmann_area" target="_blank">Brodmann areas</a>.
+                            </p>
+
+                            <p>
+                                On the left-hand side, you see a tree structure of brain regions.
+                                You can expand regions to view their subregions, and select a region of interest.
+
+                                Once you select a brain region, you'll see an interactive 3D model of that region,
+                                which is better suited to get a sense of where the region lies than the
+                                usual 2D images. You can view this 3D model at deliberate angles by clicking
+                                on it and moving your mouse. Moreover, you can zoom into the model by scrolling.
+
+                                In addition to the 3D model, coronal, saggital and axial cuts through the region are presented
+                                on MRI images extracted from the <a href="https://bigbrain.loris.ca" target="_blank">Big Brain dataset</a>,
+                                which have an ultra-high resolution of 10 micrometers, allowing you to zoom into the region
+                                of interest by scrolling.
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/libs/popper.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+
+<script src="js/libs/jstree/jstree.min.js"></script>
+
+<script src="js/libs/three/three.js"></script>
+
+<script src="js/libs/three/OrbitControls.js"></script>
+
+<script src="js/libs/three/STLLoader.js"></script>
+<script src="js/libs/three/VTKLoader.js"></script>
+
+<script src="js/libs/three/Detector.js"></script>
+<script src="js/libs/three/stats.min.js"></script>
+
+
+<script src="js/libs/openseadragon/openseadragon.min.js"></script>
+
+
+<script src="js/brain3d.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
