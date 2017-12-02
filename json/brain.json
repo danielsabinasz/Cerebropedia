@@ -1,0 +1,877 @@
+[
+    {
+        "text": "Forebrain / Prosencephalon",
+        "wiki": ["Forebrain", "Prosencephalon"],
+        "state": {
+            "opened": true
+        },
+        "children": [
+            {
+                "text": "Endbrain / Cerebrum / Telencephalon",
+                "wiki": ["Cerebrum", "Telencephalon"],
+                "state": {
+                    "opened": true
+                },
+                "children": [
+                    {
+                        "text": "Cerebral cortex",
+                        "wiki": "Cerebral_cortex",
+                        "state": {
+                            "opened": true
+                        },
+                        "children": [
+                            {
+                                "text": "Neocortex",
+                                "wiki": "Neocortex",
+                                "state": {
+                                    "opened": true
+                                },
+                                "children": [
+                                    {
+                                        "text": "Frontal Lobe",
+                                        "wiki": "Frontal_lobe",
+                                        "children": [
+                                            {
+                                                "text": "Prefrontal Cortex",
+                                                "wiki": "Prefrontal_cortex",
+                                                "children": [
+                                                    {
+                                                        "text": "Frontal Pole",
+                                                        "model": "harvard_oxford_cort/1"
+                                                    },
+                                                    {
+                                                        "text": "Frontal Orbital Cortex",
+                                                        "model": "harvard_oxford_cort/33",
+                                                        "wiki": "Orbitofrontal_cortex",
+                                                        "children": [
+                                                            {
+                                                                "text": "Brodmann Area 11",
+                                                                "model": "brodmann/11",
+                                                                "wiki": "Brodmann_area_11"
+                                                            },
+                                                            {
+                                                                "text": "Brodmann Area 12",
+                                                                "model": "brodmann/12",
+                                                                "wiki": "Brodmann_area_12"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "text": "Paracingulate Gyrus",
+                                                        "model": "harvard_oxford_cort/28"
+                                                    },
+                                                    {
+                                                        "text": "Dorsolateral prefrontal cortex",
+                                                        "wiki": "Dorsolateral_prefrontal_cortex",
+                                                        "children": [
+                                                            {
+                                                                "text": "Brodmann Area 9",
+                                                                "model": "brodmann/9",
+                                                                "wiki": "Brodmann_area_9"
+                                                            },
+                                                            {
+                                                                "text": "Brodmann Area 46",
+                                                                "model": "brodmann/46",
+                                                                "wiki": "Brodmann_area_46"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "text": "Anterior prefrontal cortex / Brodmann Area 10",
+                                                        "model": "brodmann/10",
+                                                        "wiki": "Brodmann_area_10"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Frontal eye fields / Brodmann Area 8",
+                                                "model": "brodmann/8",
+                                                "wiki": "Brodmann_area_8",
+                                                "children": [
+                                                    {
+                                                        "text": "Frontal eye fields",
+                                                        "wiki": "Frontal_eye_fields"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Frontal Medial Cortex",
+                                                "model": "harvard_oxford_cort/25"
+                                            },
+                                            {
+                                                "text": "Frontal Gyrus",
+                                                "wiki": "Frontal_gyrus",
+                                                "children": [
+                                                    {
+                                                        "text": "Superior Frontal Gyrus",
+                                                        "model": "harvard_oxford_cort/3",
+                                                        "wiki": "Superior_frontal_gyrus"
+                                                    },
+                                                    {
+                                                        "text": "Middle Frontal Gyrus",
+                                                        "model": "harvard_oxford_cort/4",
+                                                        "wiki": "Middle_frontal_gyrus"
+                                                    },
+                                                    {
+                                                        "text": "Inferior Frontal Gyrus",
+                                                        "wiki": "Inferior_frontal_gyrus",
+                                                        "children": [
+                                                            {
+                                                                "text": "Pars Triangularis / Brodmann Area 45",
+                                                                "model": "harvard_oxford_cort/5",
+                                                                "wiki": "Brodmann_area_45"
+                                                            },
+                                                            {
+                                                                "text": "Pars Opercularis / Brodmann Area 44",
+                                                                "model": "harvard_oxford_cort/6",
+                                                                "wiki": "Brodmann_area_44"
+                                                            },
+                                                            {
+                                                                "text": "Pars Orbitalis / Brodmann Area 47",
+                                                                "model": "brodmann/47",
+                                                                "wiki": ["Orbital_part_of_inferior_frontal_gyrus", "Brodmann_area_47"]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Precentral Gyrus",
+                                                "model": "harvard_oxford_cort/7",
+                                                "wiki": "Precentral_gyrus",
+                                                "children": [
+                                                    {
+                                                        "text": "Primary Motor Cortex / Brodmann Area 4",
+                                                        "model": "brodmann/4",
+                                                        "wiki": ["Primary_motor_cortex", "Brodmann_area_4"]
+                                                    },
+                                                    {
+                                                        "text": "Brodmann Area 6",
+                                                        "model": "brodmann/6",
+                                                        "wiki": "Brodmann_area_6",
+                                                        "children": [
+                                                            {
+                                                                "text": "Premotor cortex",
+                                                                "wiki": "Premotor_cortex"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Supplementary Motor Cortex / Juxtapositional Lobule Cortex",
+                                                "model": "harvard_oxford_cort/26",
+                                                "wiki": "Supplementary_motor_area"
+                                            },
+                                            {
+                                                "text": "Frontal Operculum Cortex",
+                                                "model": "harvard_oxford_cort/41",
+                                                "wiki": "Operculum_(brain)"
+                                            },
+                                            {
+                                                "text": "Central Operculum Cortex",
+                                                "model": "harvard_oxford_cort/42",
+                                                "wiki": "Operculum_(brain)"
+                                            },
+                                            {
+                                                "text": "Subgenual area / Brodmann Area 25",
+                                                "model": "brodmann/25",
+                                                "wiki": "Brodmann_area_25"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": "Temporal Lobe",
+                                        "wiki": "Temporal_lobe",
+                                        "children": [
+                                            {
+                                                "text": "Temporal Pole / Brodmann Area 38",
+                                                "model": "harvard_oxford_cort/8",
+                                                "wiki": "Brodmann_area_38"
+                                            },
+                                            {
+                                                "text": "Anterior temporal lobe / Brodmann Area 15",
+                                                "model": "brodmann/15",
+                                                "wiki": "Brodmann_area_15"
+                                            },
+                                            {
+                                                "text": "Parainsular area / Brodmann Area 52",
+                                                "model": "brodmann/52",
+                                                "wiki": "Brodmann_area_52"
+                                            },
+                                            {
+                                                "text": "Entorhinal cortex",
+                                                "wiki": "Entorhinal_cortex",
+                                                "children": [
+                                                    {
+                                                        "text": "Ventral entorhinal cortex / Brodmann Area 28",
+                                                        "model": "brodmann/28",
+                                                        "wiki": "Brodmann_area_28"
+                                                    },
+                                                    {
+                                                        "text": "Dorsal entorhinal cortex / Brodmann Area 34",
+                                                        "model": "brodmann/34",
+                                                        "wiki": "Brodmann_area_34"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Perirhinal cortex",
+                                                "wiki": "Perirhinal_cortex",
+                                                "children": [
+                                                    {
+                                                        "text": "Brodmann Area 35",
+                                                        "wiki": "Brodmann_area_35",
+                                                        "model": "brodmann/35"
+                                                    },
+                                                    {
+                                                        "text": "Ectorhinal area / Brodmann Area 36",
+                                                        "wiki": "Brodmann_area_36",
+                                                        "model": "brodmann/36"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Temporal Gyrus",
+                                                "children": [
+                                                    {
+                                                        "text": "Superior Temporal Gyrus",
+                                                        "wiki": "Superior_temporal_gyrus",
+                                                        "children": [
+                                                            {
+                                                                "text": "anterior division",
+                                                                "model": "harvard_oxford_cort/9"
+                                                            },
+                                                            {
+                                                                "text": "posterior division",
+                                                                "model": "harvard_oxford_cort/10"
+                                                            },
+                                                            {
+                                                                "text": "Auditory Cortex",
+                                                                "wiki": "Auditory_cortex",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "Heschl's Gyrus",
+                                                                        "wiki": "Transverse_temporal_gyrus",
+                                                                        "model": "harvard_oxford_cort/45"
+                                                                    },
+                                                                    {
+                                                                        "text": "Brodmann Area 41",
+                                                                        "model": "brodmann/41",
+                                                                        "wiki": "Brodmann_area_41_%26_42"
+                                                                    },
+                                                                    {
+                                                                        "text": "Brodmann Area 42",
+                                                                        "model": "brodmann/42",
+                                                                        "wiki": "Brodmann_area_41_%26_42"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "text": "Brodmann Area 22",
+                                                                "model": "brodmann/22",
+                                                                "wiki": "Brodmann_area_22"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "text": "Middle Temporal Gyrus / Brodmann Area 21",
+                                                        "wiki": ["Middle_temporal_gyrus", "Brodmann_area_21"],
+                                                        "children": [
+                                                            {
+                                                                "text": "anterior division",
+                                                                "model": "harvard_oxford_cort/11"
+                                                            },
+                                                            {
+                                                                "text": "posterior division",
+                                                                "model": "harvard_oxford_cort/12"
+                                                            },
+                                                            {
+                                                                "text": "temporooccipital part",
+                                                                "model": "harvard_oxford_cort/13"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "text": "Inferior Temporal Gyrus / Brodmann Area 20",
+                                                        "wiki": ["Inferior_temporal_gyrus", "Brodmann_area_20"],
+                                                        "children": [
+                                                            {
+                                                                "text": "anterior division",
+                                                                "model": "harvard_oxford_cort/14"
+                                                            },
+                                                            {
+                                                                "text": "posterior division",
+                                                                "model": "harvard_oxford_cort/15"
+                                                            },
+                                                            {
+                                                                "text": "temporooccipital part",
+                                                                "model": "harvard_oxford_cort/16"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Fusiform Gyrus",
+                                                "wiki": "Fusiform_gyrus",
+                                                "children": [
+                                                    {
+                                                        "text": "Temporal Fusiform Cortex, anterior division",
+                                                        "model": "harvard_oxford_cort/37"
+                                                    },
+                                                    {
+                                                        "text": "Temporal Fusiform Cortex, posterior division",
+                                                        "model": "harvard_oxford_cort/38"
+                                                    },
+                                                    {
+                                                        "text": "Temporal Occipital Fusiform Cortex",
+                                                        "model": "harvard_oxford_cort/39"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Brodmann Area 37",
+                                                "model": "brodmann/37",
+                                                "wiki": "Brodmann_area_37"
+                                            },
+                                            {
+                                                "text": "Planum Polare",
+                                                "model": "harvard_oxford_cort/44"
+                                            },
+                                            {
+                                                "text": "Planum Temporale",
+                                                "model": "harvard_oxford_cort/46",
+                                                "wiki": "Planum_temporale"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": "Parietal Lobe",
+                                        "wiki": "Parietal_lobe",
+                                        "children": [
+                                            {
+                                                "text": "Postcentral Gyrus",
+                                                "model": "harvard_oxford_cort/17",
+                                                "wiki": "Postcentral_gyrus",
+                                                "children": [
+                                                    {
+                                                        "text": "Brodmann Area 1",
+                                                        "model": "brodmann/1"
+                                                    },
+                                                    {
+                                                        "text": "Brodmann Area 2",
+                                                        "model": "brodmann/2"
+                                                    },
+                                                    {
+                                                        "text": "Primary Somatosensory Cortex / Brodmann Area 3",
+                                                        "model": "brodmann/3"
+                                                    },
+                                                    {
+                                                        "text": "Primary gustatory cortex / Brodmann Area 43",
+                                                        "model": "brodmann/43"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Superior Parietal Lobule",
+                                                "model": "harvard_oxford_cort/18",
+                                                "wiki": "Superior_parietal_lobule",
+                                                "children": [
+                                                    {
+                                                        "text": "Precuneus",
+                                                        "wiki": "Precuneus",
+                                                        "model": "harvard_oxford_cort/31"
+                                                    },
+                                                    {
+                                                        "text": "Somatosensory Association Cortex / Brodmann Area 5",
+                                                        "wiki": "Brodmann_area_5",
+                                                        "model": "brodmann/5"
+                                                    },
+                                                    {
+                                                        "text": "Visuo-Motor Coordination / Brodmann Area 7",
+                                                        "wiki": "Brodmann_area_7",
+                                                        "model": "brodmann/7"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Supramarginal Gyrus / Brodmann Area 40",
+                                                "wiki": ["Supramarginal_gyrus", "Brodmann_area_40"],
+                                                "children": [
+                                                    {
+                                                        "text": "anterior division",
+                                                        "model": "harvard_oxford_cort/19"
+                                                    },
+                                                    {
+                                                        "text": "posterior division",
+                                                        "model": "harvard_oxford_cort/20"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Angular Gyrus / Brodmann Area 39",
+                                                "wiki": ["Angular_gyrus", "Brodmann_area_39"],
+                                                "model": "harvard_oxford_cort/21"
+                                            },
+                                            {
+                                                "text": "Parietal Operculum Cortex",
+                                                "wiki": "Operculum_(brain)",
+                                                "model": "harvard_oxford_cort/43"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": "Occipital Lobe",
+                                        "wiki": "Occipital_lobe",
+                                        "children": [
+                                            {
+                                                "text": "Superolateral Occipital Lobe",
+                                                "children": [
+
+                                                    {
+                                                        "text": "Occipital Pole",
+                                                        "model": "harvard_oxford_cort/48"
+                                                    },
+                                                    {
+                                                        "text": "Lateral Occipital Cortex",
+                                                        "children": [
+
+                                                            {
+                                                                "text": "superior division",
+                                                                "model": "harvard_oxford_cort/22"
+                                                            },
+                                                            {
+                                                                "text": "inferior division",
+                                                                "model": "harvard_oxford_cort/23"
+                                                            },
+
+                                                            {
+                                                                "text": "Secondary visual cortex (V2) / Brodmann Area 18",
+                                                                "model": "brodmann/18",
+                                                                "wiki": ["Visual_cortex#V2", "Brodmann_area_18"]
+                                                            },
+                                                            {
+                                                                "text": "Associative visual cortex (V3, V4, V5) / Brodmann Area 19",
+                                                                "model": "brodmann/19",
+                                                                "wiki": "Brodmann_area_19",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "Third visual cortex (V3)",
+                                                                        "wiki": "Visual_cortex#Third_visual_cortex.2C_including_area_V3"
+                                                                    },
+                                                                    {
+                                                                        "text": "V4",
+                                                                        "wiki": "Visual_cortex#V4"
+                                                                    },
+                                                                    {
+                                                                        "text": "Middle temporal visual area (V5)",
+                                                                        "wiki": "Visual_cortex#Middle_temporal_visual_area_.28V5.29"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Medial/Inferior Occipital Lobe",
+                                                "children": [
+
+                                                    {
+                                                        "text": "Primary visual cortex (V1) / Brodmann Area 17 / ~Striate cortex",
+                                                        "model": "brodmann/17",
+                                                        "wiki": "Visual_cortex#Primary_visual_cortex_.28V1.29"
+                                                    },
+                                                    {
+                                                        "text": "Cuneus",
+                                                        "wiki": "Cuneus",
+                                                        "model": "harvard_oxford_cort/32"
+                                                    },
+                                                    {
+                                                        "text": "Lingual Gyrus",
+                                                        "model": "harvard_oxford_cort/36",
+                                                        "wiki": "Lingual_gyrus"
+                                                    },
+                                                    {
+                                                        "text": "Calcarine Sulcus / Calcarine Fissure",
+                                                        "wiki": "Calcarine_sulcus"
+                                                    }
+                                                ]
+                                            },
+
+                                            {
+                                                "text": "Intracalcarine Cortex",
+                                                "model": "harvard_oxford_cort/24"
+                                            },
+                                            {
+                                                "text": "Supracalcarine Cortex",
+                                                "model": "harvard_oxford_cort/47"
+                                            },
+                                            {
+                                                "text": "Occipital Fusiform Gyrus",
+                                                "model": "harvard_oxford_cort/40"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": "Lateral sulcus",
+                                        "wiki": "Lateral_sulcus",
+                                        "children": [
+                                            {
+                                                "text": "Insular Cortex",
+                                                "wiki": "Insular_cortex",
+                                                "model": "harvard_oxford_cort/2",
+                                                "children": [
+                                                    {
+                                                        "text": "Brodmann Area 13",
+                                                        "wiki": "Brodmann_area_13",
+                                                        "model": "brodmann/13"
+                                                    },
+                                                    {
+                                                        "text": "Brodmann Area 14",
+                                                        "wiki": "Brodmann_area_14",
+                                                        "model": "brodmann/14"
+                                                    },
+                                                    {
+                                                        "text": "Brodmann Area 16",
+                                                        "wiki": "Brodmann_area_16",
+                                                        "model": "brodmann/16"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+
+                            {
+                                "text": "Allocortex",
+                                "wiki": "Allocortex",
+                                "children": [
+
+                                    {
+                                        "text": "Piriform cortex / Brodmann Area 27",
+                                        "model": "brodmann/27",
+                                        "wiki": ["Piriform_cortex", "Brodmann_area_27"]
+                                    }
+                                ]
+                            }
+
+                        ]
+                    },
+                    {
+                        "text": "Basal ganglia",
+                        "wiki": "Basal_ganglia",
+                        "children": [
+                            {
+                                "text": "Striatum",
+                                "wiki": "Striatum",
+                                "children": [
+                                    {
+                                        "text": "Dorsal striatum",
+                                        "children": [
+                                            {
+                                                "text": "Caudate nucleus",
+                                                "wiki": "Caudate_nucleus",
+                                                "children": [
+                                                    {
+                                                        "text": "Left Caudate",
+                                                        "model": "harvard_oxford_sub/5"
+                                                    },
+                                                    {
+                                                        "text": "Right Caudate",
+                                                        "model": "harvard_oxford_sub/16"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Putamen",
+                                                "wiki": "Putamen",
+                                                "children": [
+                                                    {
+                                                        "text": "Left putamen",
+                                                        "model": "harvard_oxford_sub/6"
+                                                    },
+                                                    {
+                                                        "text": "Right putamen",
+                                                        "model": "harvard_oxford_sub/17"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": "Ventral striatum",
+                                        "children": [
+                                            {
+                                                "text": "Nucleus Accumbens",
+                                                "wiki": "Nucleus_accumbens",
+                                                "children": [
+                                                    {
+                                                        "text": "Left Accumbens",
+                                                        "model": "harvard_oxford_sub/11"
+                                                    },
+                                                    {
+                                                        "text": "Right Accumbens",
+                                                        "model": "harvard_oxford_sub/21"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Olfactory Tubercle",
+                                                "wiki": "Olfactory_tubercle"
+                                            }
+                                        ]
+                                    }
+
+                                ]
+                            },
+                            {
+                                "text": "Globus Pallidus / Paleostriatum / Dorsal Pallidum",
+                                "wiki": "Globus_pallidus",
+                                "children": [
+                                    {
+                                        "text": "Left Pallidum",
+                                        "model": "harvard_oxford_sub/7"
+                                    },
+                                    {
+                                        "text": "Right Pallidum",
+                                        "model": "harvard_oxford_sub/18"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "Limbic lobe",
+                "wiki": "Limbic_lobe",
+                "children": [
+                    {
+                        "text": "Amygdala",
+                        "wiki": "Amygdala",
+                        "children": [
+                            {
+                                "text": "Left Amygdala",
+                                "model": "harvard_oxford_sub/10"
+                            },
+                            {
+                                "text": "Right Amygdala",
+                                "model": "harvard_oxford_sub/20"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Hippocampus",
+                        "wiki": "Hippocampus",
+                        "children": [
+                            {
+                                "text": "Left Hippocampus",
+                                "model": "harvard_oxford_sub/9"
+                            },
+                            {
+                                "text": "Right Hippocampus",
+                                "model": "harvard_oxford_sub/19"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Parahippocampal Gyrus",
+                        "wiki": "Parahippocampal_gyrus",
+                        "children": [
+
+                            {
+                                "text": "anterior division",
+                                "model": "harvard_oxford_cort/34"
+                            },
+                            {
+                                "text": "posterior division",
+                                "model": "harvard_oxford_cort/35"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Fornix",
+                        "wiki": "Fornix_(neuroanatomy)"
+                    },
+                    {
+                        "text": "Mammillary Bodies",
+                        "wiki": "Mammillary_body"
+                    },
+                    {
+                        "text": "Cingulate Cortex",
+                        "wiki": "Cingulate_cortex",
+                        "children": [
+                            {
+                                "text": "Anterior Cingulate Cortex",
+                                "wiki": "Anterior_cingulate_cortex",
+                                "model": "harvard_oxford_cort/29",
+                                "children": [
+                                    {
+                                        "text": "Ventral anterior cingulate cortex / Brodmann Area 24",
+                                        "wiki": "Brodmann_area_24",
+                                        "model": "brodmann/24"
+                                    },
+                                    {
+                                        "text": "Dorsal anterior cingulate cortex / Brodmann Area 32",
+                                        "wiki": "Brodmann_area_32",
+                                        "model": "brodmann/32"
+                                    },
+                                    {
+                                        "text": "Brodmann Area 33",
+                                        "wiki": "Brodmann_area_33",
+                                        "model": "brodmann/33"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "Posterior Cingulate Cortex",
+                                "wiki": "Posterior_cingulate",
+                                "model": "harvard_oxford_cort/30",
+                                "children": [
+                                    {
+                                        "text": "Ventral posterior cingulate cortex / Brodmann Area 23",
+                                        "model": "brodmann/23",
+                                        "wiki": "Brodmann_area_23"
+                                    },
+                                    {
+                                        "text": "Dorsal posterior cingulate cortex / Brodmann Area 31",
+                                        "model": "brodmann/31",
+                                        "wiki": "Brodmann_area_31"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "Retrosplenial cortex",
+                                "wiki": "Retrosplenial_cortex",
+                                "children": [
+                                    {
+                                        "text": "Ectosplenial portion of retrosplenial region / Brodmann Area 26",
+                                        "model": "brodmann/26"
+                                    },
+                                    {
+                                        "text": "Brodmann Area 29",
+                                        "model": "brodmann/29",
+                                        "wiki": "Brodmann_area_29"
+                                    },
+                                    {
+                                        "text": "Brodmann Area 30",
+                                        "model": "brodmann/30"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Subcallosal Cortex",
+                        "wiki": "Subcallosal_area",
+                        "model": "harvard_oxford_cort/27"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "text": "Between Brain / Diencephalon",
+        "wiki": "Diencephalon",
+        "children": [
+            {
+                "text": "Thalamus",
+                "wiki": "Thalamus",
+                "children": [
+                    {
+                        "text": "Left Thalamus",
+                        "model": "harvard_oxford_sub/4"
+                    },
+                    {
+                        "text": "Right Thalamus",
+                        "model": "harvard_oxford_sub/15"
+                    },
+                    {
+                        "text": "Lateral Geniculate Nucleus (LGN)",
+                        "wiki": "Lateral_geniculate_nucleus"
+                    }
+                ]
+            },
+            {
+                "text": "Epithalamus",
+                "wiki": "Epithalamus"
+            },
+            {
+                "text": "Hypothalamus",
+                "wiki": "Hypothalamus"
+            }
+        ]
+    },
+    {
+        "text": "Brainstem",
+        "wiki": "Brainstem",
+        "model": "harvard_oxford_sub/8",
+        "children": [
+            {
+                "text": "Reticular Formation",
+                "wiki": "Reticular_formation"
+            },
+            {
+                "text": "Midbrain / Mesencephalon",
+                "wiki": "Midbrain",
+                "children": [
+                    {
+                        "text": "Tectum",
+                        "wiki": "Tectum"
+                    },
+                    {
+                        "text": "Tegmentum",
+                        "wiki": "Tegmentum"
+                    }
+                ]
+            },
+            {
+                "text": "Hindbrain / Rhombencephalon",
+                "wiki": "Hindbrain",
+                "children": [
+                    {
+                        "text": "Metencephalon",
+                        "wiki": "Metencephalon",
+                        "children": [
+                            {
+                                "text": "Pons",
+                                "wiki": "Pons"
+                            },
+                            {
+                                "text": "Cerebellum",
+                                "wiki": "Cerebellum"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "Medulla Oblongata / Myelencephalon",
+                        "wiki": ["Medulla_oblongata", "Mycelencephalon"]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "text": "Ventricles",
+        "wiki": "Ventricular_system",
+        "children": [
+            {
+                "text": "Lateral Ventricles",
+                "wiki": "Lateral_ventricles",
+                "children": [
+                    {
+                        "text": "Left Lateral Ventrical",
+                        "model": "harvard_oxford_sub/3"
+                    },
+                    {
+                        "text": "Right Lateral Ventrical",
+                        "model": "harvard_oxford_sub/14"
+                    }
+                ]
+            }
+        ]
+    }
+]
