@@ -49,7 +49,7 @@
                                                     },
                                                     {
                                                         "text": "Superior Frontal Sulcus",
-                                                        "model": "Superior_frontal_sulcus"
+                                                        "wiki": "Superior_frontal_sulcus"
                                                     },
                                                     {
                                                         "text": "Middle Frontal Gyrus (9, 10, 46)",
@@ -76,7 +76,7 @@
 
                                                     {
                                                         "text": "Inferior Frontal Sulcus",
-                                                        "model": "Inferior_frontal_sulcus"
+                                                        "wiki": "Inferior_frontal_sulcus"
                                                     },
 
                                                     {

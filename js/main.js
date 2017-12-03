@@ -4,7 +4,7 @@ var jstree;
 /**
  * Define a list of well differentiable colors
  */
-var colors = [0xe6194b, 0x3cb44b, 0xffe119, 0x0082c8, 0xf58231, 0x911eb4, 0x46f0f0, 0xf032e6, 0xd2f53c, 0xfabebe, 0x008080, 0xe6beff, 0xaa6e28, 0xfffac8, 0x800000, 0xaaffc3, 0x808000, 0xffd8b1, 0x000080, 0x808080, 0xffffff, 0x000000];
+var colors = [0x0082c8, 0x3cb44b, 0xffe119, 0xe6194b, 0xf58231, 0x911eb4, 0x46f0f0, 0xf032e6, 0xd2f53c, 0xfabebe, 0x008080, 0xe6beff, 0xaa6e28, 0xfffac8, 0x800000, 0xaaffc3, 0x808000, 0xffd8b1, 0x000080, 0x808080, 0xffffff, 0x000000];
 
 /**
  * Returns a list of jstree nodes that have to be visualized
@@ -152,11 +152,10 @@ function load_3d_nodes(node_ids) {
         }
     }
 
-    var zoom_factor = 0.8;
+    var zoom_factor = 0.4;
     var neuroglancer_url = "neuroglancer/#!{'layers':{'humanbrain.nii.gz':{'type':'image'_'source':'nifti://http://cerebropedia.org/models/humanbrain.nii.gz'}" + region_urls + "}_'navigation':{'pose':{'position':{'voxelSize':[0.4000000059604645_0.4000000059604645_0.4000000059604645]_'voxelCoordinates':[1.3749885559082031_-43.6250114440918_56.3749885559082]}}_'zoomFactor':" + zoom_factor + "}_'perspectiveOrientation':[0.3255828022956848_0.8877503275871277_-0.27015501260757446_-0.18141505122184753]_'perspectiveZoom':3_'showSlices':false_'showScaleBar':false}"
-    $("#brain_mri").attr("src", neuroglancer_url);
-    console.log(neuroglancer_url);
-
+    $("#mri_link").attr("href", neuroglancer_url);
+    $("#mri_link").css("visibility", "visible");
 
     previously_selected = node_ids.slice(0);
 }
@@ -238,3 +237,22 @@ $.getJSON("json/brain.json", function(json) {
         tileSources: "http://localhost/hdd/bigbrain.loris.ca/BigBrainRelease.2015/2D_Final_Sections/Axial/Png/Thumbnail/pm2835o.png"
     });*/
 });
+
+// Rotate checkbox
+$("#rotate").click(function() {
+    console.log("set auto rotate", this.checked);
+    brain3d.setAutoRotate(this.checked);
+});
+
+// Opacity slider
+$( function() {
+    $( "#opacity" ).slider({
+
+        slide: function( event, ui ) {
+            brain3d.setOpacity(ui.value/100.0);
+        },
+
+        value: 20
+
+    });
+} );

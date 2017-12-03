@@ -17,6 +17,9 @@
     <!-- Jstree -->
     <link href="js/libs/jstree/themes/proton/style.min.css" rel="stylesheet">
 
+    <!-- JQuery UI -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
     <meta name="description" content="Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate through the hierarchical anatomical structure of the brain with ease. It is primarily intended for students and researchers who want to explore the brain and make sense of the large vocabulary used in brain anatomy, which includes many synonyms for the same regions, partially overlapping regions and regions nested within other regions.">
 </head>
 
@@ -59,60 +62,130 @@
         <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
             <h1 id="title">Cerebropedia</h1>
 
-            <div class="container-fluid">
+            <div class="d-flex flex-row" style="height: 500px;">
 
-                <div class="row" style="height: 400px;">
-                    <div class="col-5">
-                        <h3 style="text-align: center;">3D view</h3>
-                        <div id="brain3d" style="height: 100%;">
+                <div class="d-flex flex-column" style="flex: 1;">
 
+                    <div class="d-flex flex-row" style="flex: 1;">
+
+                        <div class="d-flex flex-column" style="flex: 1;">
+                            <b>Left lateral view</b>
+                            <div style="flex: 1">
+                                <div id="container_left_lateral" style="height: 90%;">
+
+                                </div>
+                            </div>
                         </div>
+                        <div class="d-flex flex-column" style="flex: 1;">
+                            <b>Dorsal view</b>
+                            <div style="flex: 1">
+                                <div id="container_dorsal" style="height: 90%;">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column" style="flex: 1;">
+                            <b>Anterior view</b>
+                            <div style="flex: 1">
+                                <div id="container_anterior" style="height: 90%;">
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="col">
-                        <h3 style="text-align: center;">Horizontal section / Coronal section / Sagittal section</h3>
-                        <iframe id="brain_mri" class="row" style="width: 100%; height: 400px; border: none;" src="neuroglancer/#!{'layers':{'humanbrain.nii.gz':{'type':'image'_'source':'nifti://http://cerebropedia.org/models/humanbrain.nii.gz'}}_'navigation':{'pose':{'position':{'voxelSize':[0.4000000059604645_0.4000000059604645_0.4000000059604645]_'voxelCoordinates':[1.3749885559082031_-43.6250114440918_56.3749885559082]}}_'zoomFactor':0.8}_'showSlices':false_'showScaleBar':false}">
+                    <div class="d-flex flex-row" style="flex: 1;">
 
-                        </iframe>
+                        <div class="d-flex flex-column" style="flex: 1;">
+                            <b>Right lateral view</b>
+                            <div style="flex: 1">
+                                <div id="container_right_lateral" style="height: 90%;">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column" style="flex: 1;">
+                            <b>Ventral view</b>
+                            <div style="flex: 1">
+                                <div id="container_ventral" style="height: 90%;">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column" style="flex: 1;">
+                            <b>Posterior view</b>
+                            <div style="flex: 1">
+                                <div id="container_posterior" style="height: 90%;">
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+
 
                 </div>
 
-                <div class="row" style="height: 50px;">
 
-                </div>
-
-                <div class="row">
-
-                    <div class="col">
-                        <div id="wikipedia" style="height: 100%;">
-                            <p>
-                                Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate
-                                through the hierarchical anatomical structure of the brain with ease.
-                                It is primarily intended for students and researchers who want to explore the brain
-                                and make sense of the large vocabulary used in brain anatomy, which includes many synonyms
-                                for the same regions, partially overlapping regions and regions nested within other regions.
-
-                                Cerebropedia contains the entire Harvard-Oxford Atlas and all
-                                <a href="https://en.wikipedia.org/wiki/Brodmann_area" target="_blank">Brodmann areas</a>.
-                            </p>
-
-                            <p>
-                                On the left-hand side, you see a tree structure of brain regions.
-                                You can expand regions to view their subregions, and select a region of interest.
-
-                                Once you select a brain region, you'll see an interactive 3D model of that region,
-                                which is better suited to get a sense of where the region lies than the
-                                usual 2D images. You can view this 3D model at deliberate angles by clicking
-                                on it and moving your mouse. Moreover, you can zoom into the model by scrolling.
-
-                                In addition to the 3D model, horizontal, coronal, and saggital cuts through the region are presented
-                                on MRI images extracted from the <a href="https://bigbrain.loris.ca" target="_blank">Big Brain dataset</a>.
-                                You can navigate through the sections by clicking on a target location or by scrolling. Try it.
-
-                            </p>
+                <div class="d-flex flex-column" style="flex: 1;">
+                    <div class="d-flex flex-row justify-content-between">
+                        <b style="flex: 1;">3D view</b>
+                        <div style="flex: 1;" class="">
+                            <a href="" id="mri_link" target="_blank" style="visibility: hidden;">MRI</a>
+                        </div>
+                        <div style="flex: 1;" class="">
+                            Rotate: <input type="checkbox" checked id="rotate">
+                        </div>
+                        <div style="flex: 2;" class="d-flex flex-row justify-content-between">
+                            <div style="flex: 1;">Opacity:</div>
+                            <div id="opacity" style="flex: 2;"></div>
+                        </div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div id="container_3d" style="height: 100%;">
 
                         </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col">
+                    <div id="wikipedia">
+                        <p>
+                            Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate
+                            through the hierarchical anatomical structure of the brain with ease.
+                            It is primarily intended for students and researchers who want to explore the brain
+                            and make sense of the large vocabulary used in brain anatomy, which includes many synonyms
+                            for the same regions, partially overlapping regions and regions nested within other regions.
+
+                            Cerebropedia contains the entire Harvard-Oxford Atlas and all
+                            <a href="https://en.wikipedia.org/wiki/Brodmann_area" target="_blank">Brodmann areas</a>.
+                        </p>
+
+                        <p>
+                            On the left-hand side, you see a tree structure of brain regions.
+                            You can expand regions to view their subregions, and select a region of interest.
+
+                            Once you select a brain region, you'll see an interactive 3D model of that region,
+                            which is better suited to get a sense of where the region lies than the
+                            usual 2D images. You can view this 3D model at deliberate angles by clicking
+                            on it and moving your mouse. Moreover, you can zoom into the model by scrolling.
+
+                            In addition to the 3D model, horizontal, coronal, and saggital cuts through the region are presented
+                            on MRI images extracted from the <a href="https://bigbrain.loris.ca" target="_blank">Big Brain dataset</a>.
+                            You can navigate through the sections by clicking on a target location or by scrolling. Try it.
+
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -125,6 +198,7 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="js/libs/popper.min.js"></script>
 <script src="bootstrap/bootstrap.min.js"></script>
 
@@ -142,6 +216,6 @@
 
 
 <script src="js/brain3d.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js?1"></script>
 </body>
 </html>
