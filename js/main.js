@@ -151,11 +151,11 @@ function load_3d_nodes(node_ids) {
             }
         }
     }
-    console.log(region_urls);
 
     var zoom_factor = 0.8;
     var neuroglancer_url = "neuroglancer/#!{'layers':{'humanbrain.nii.gz':{'type':'image'_'source':'nifti://http://cerebropedia.org/models/humanbrain.nii.gz'}" + region_urls + "}_'navigation':{'pose':{'position':{'voxelSize':[0.4000000059604645_0.4000000059604645_0.4000000059604645]_'voxelCoordinates':[1.3749885559082031_-43.6250114440918_56.3749885559082]}}_'zoomFactor':" + zoom_factor + "}_'perspectiveOrientation':[0.3255828022956848_0.8877503275871277_-0.27015501260757446_-0.18141505122184753]_'perspectiveZoom':3_'showSlices':false_'showScaleBar':false}"
     $("#brain_mri").attr("src", neuroglancer_url);
+    console.log(neuroglancer_url);
 
 
     previously_selected = node_ids.slice(0);
@@ -166,8 +166,11 @@ function load_3d_nodes(node_ids) {
  */
 var tree_index_by_id = {};
 var tree_index_by_wiki = {};
+console.log("Load the JSON");
 $.getJSON("json/brain.json", function(json) {
     brain_data = json;
+
+    console.log("Here comes the JSON");
 
     // Build tree
     jstree = $("#jstree");

@@ -76,7 +76,7 @@ var brain3d = (function() {
         controls.noPan = false;
         controls.staticMoving = true;
         controls.dynamicDampingFactor = 0.3;
-        controls.autoRotate = true;
+        controls.autoRotate = false;
 
     }
 
