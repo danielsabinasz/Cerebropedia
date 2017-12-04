@@ -31,12 +31,6 @@
                                         "text": "Frontal Lobe",
                                         "wiki": "Frontal_lobe",
                                         "children": [
-
-                                            {
-                                                "text": "Frontal Pole",
-                                                "model": "harvard_oxford_cort/1"
-                                            },
-
                                             {
                                                 "text": "Prefrontal Cortex",
                                                 "wiki": "Prefrontal_cortex",
@@ -381,14 +375,42 @@
                                     },
 
                                     {
+                                        "text": "Parietal Occipital",
+                                        "children": [
+                                            {
+                                                "text": "Parietal Occipital Sulcus",
+                                                "wiki": "Parieto-occipital_sulcus"
+                                            }
+                                        ]
+                                    },
+
+                                    {
                                         "text": "Occipital Lobe",
                                         "wiki": "Occipital_lobe",
                                         "children": [
+                                            {
+                                                "text": "Calcarine Sulcus / Calcarine Fissure",
+                                                "wiki": "Calcarine_sulcus"
+                                            },
 
                                             {
-                                                "text": "Occipital Pole",
-                                                "model": "harvard_oxford_cort/48"
+                                                "text": "Occipital Fusiform Gyrus",
+                                                "wiki": "Fusiform_gyrus",
+                                                "model": "harvard_oxford_cort/40",
+                                                "children": [
+                                                    {
+                                                        "text": "V4",
+                                                        "wiki": "Visual_cortex#V4"
+                                                    }
+                                                ]
                                             },
+
+                                            {
+                                                "text": "Primary visual cortex / V1 / Striate cortex (17)",
+                                                "model": "brodmann/17",
+                                                "wiki": "Visual_cortex#Primary_visual_cortex_.28V1.29"
+                                            },
+
                                             {
                                                 "text": "Lateral Occipital Cortex",
                                                 "children": [
@@ -403,22 +425,18 @@
                                                     },
 
                                                     {
-                                                        "text": "Lateral Occipital Gyrus / Secondary Visual Cortex / V2 (18, 19)",
+                                                        "text": "Secondary Visual Cortex / V2 (18)",
                                                         "model": "brodmann/18",
                                                         "wiki": ["Visual_cortex#V2", "Brodmann_area_18"]
                                                     },
                                                     {
-                                                        "text": "Associative Visual Cortex / V3, V4, V5 / 19",
+                                                        "text": "Associative Visual Cortex / V3, V4, V5 (19)",
                                                         "model": "brodmann/19",
                                                         "wiki": "Brodmann_area_19",
                                                         "children": [
                                                             {
                                                                 "text": "Third Visual Cortex (V3)",
                                                                 "wiki": "Visual_cortex#Third_visual_cortex.2C_including_area_V3"
-                                                            },
-                                                            {
-                                                                "text": "V4",
-                                                                "wiki": "Visual_cortex#V4"
                                                             },
                                                             {
                                                                 "text": "Middle Temporal Visual Area (V5)",
@@ -440,23 +458,9 @@
                                             },
 
                                             {
-                                                "text": "Primary visual cortex / V1 / Striate cortex (17)",
-                                                "model": "brodmann/17",
-                                                "wiki": "Visual_cortex#Primary_visual_cortex_.28V1.29"
-                                            },
-                                            {
                                                 "text": "Cuneus",
                                                 "wiki": "Cuneus",
                                                 "model": "harvard_oxford_cort/32"
-                                            },
-                                            {
-                                                "text": "Lingual Gyrus",
-                                                "model": "harvard_oxford_cort/36",
-                                                "wiki": "Lingual_gyrus"
-                                            },
-                                            {
-                                                "text": "Calcarine Sulcus / Calcarine Fissure",
-                                                "wiki": "Calcarine_sulcus"
                                             },
 
                                             {
@@ -466,24 +470,32 @@
                                             {
                                                 "text": "Supracalcarine Cortex",
                                                 "model": "harvard_oxford_cort/47"
-                                            },
-                                            {
-                                                "text": "Occipital Fusiform Gyrus",
-                                                "model": "harvard_oxford_cort/40"
                                             }
                                         ]
                                     },
 
                                     {
+                                        "text": "Temporal Occipital",
+                                        "children": [
+                                            {
+                                                "text": "Temporal Occipital Fusiform Gyrus",
+                                                "wiki": "Fusiform_gyrus",
+                                                "model": "harvard_oxford_cort/39"
+                                            },
+
+                                            {
+                                                "text": "Lingual Gyrus",
+                                                "model": "harvard_oxford_cort/36",
+                                                "wiki": "Lingual_gyrus"
+                                            }
+                                        ]
+                                    },
+
+
+                                    {
                                         "text": "Temporal Lobe",
                                         "wiki": "Temporal_lobe",
                                         "children": [
-                                            {
-                                                "text": "Temporal Pole (38)",
-                                                "model": "harvard_oxford_cort/8",
-                                                "wiki": "Brodmann_area_38"
-                                            },
-
                                             {
                                                 "text": "Superior Temporal Gyrus",
                                                 "wiki": "Superior_temporal_gyrus",
@@ -576,7 +588,7 @@
 
 
                                             {
-                                                "text": "Fusiform Gyrus",
+                                                "text": "Temporal Fusiform Gyrus",
                                                 "wiki": "Fusiform_gyrus",
                                                 "children": [
                                                     {
@@ -586,10 +598,6 @@
                                                     {
                                                         "text": "Temporal Fusiform Cortex, posterior division",
                                                         "model": "harvard_oxford_cort/38"
-                                                    },
-                                                    {
-                                                        "text": "Temporal Occipital Fusiform Cortex",
-                                                        "model": "harvard_oxford_cort/39"
                                                     }
                                                 ]
                                             },
@@ -832,6 +840,10 @@
                             {
                                 "text": "posterior division",
                                 "model": "harvard_oxford_cort/35"
+                            },
+                            {
+                                "text": "Parahippocampal Place Area",
+                                "wiki": "Parahippocampal_gyrus#Scene_recognition"
                             }
                         ]
                     },

@@ -116,12 +116,11 @@ var brain3d = (function() {
     }
 
     function onWindowResize() {
-        /*for (var view in views) {
-
+        for (var view in views) {
             cameras[view].aspect = $(containers[view]).width() / $(containers[view]).height();
             cameras[view].updateProjectionMatrix();
-            renderers[view].setSize( $(containers[view]).width()*0.85, $(containers[view]).height()*0.85 );
-        }*/
+            renderers[view].setSize( $(containers[view]).width(), $(containers[view]).height() );
+        }
 
 
 

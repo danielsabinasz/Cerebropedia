@@ -62,34 +62,37 @@
         <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
             <h1 id="title">Cerebropedia</h1>
 
-            <div class="d-flex flex-row" style="height: 500px;">
+            <div class="d-flex flex-row margin-bottom" style="height: 500px;">
 
                 <div class="d-flex flex-column" style="flex: 1;">
 
-                    <div class="d-flex flex-row" style="flex: 1;">
+                    <div class="d-flex flex-row margin-bottom" style="flex: 1;">
 
-                        <div class="d-flex flex-column" style="flex: 1;">
-                            <b>Left lateral view</b>
-                            <div style="flex: 1">
-                                <div id="container_left_lateral" style="height: 90%;">
-
+                        <div class="card d-flex flex-column margin-right" style="flex: 1;">
+                            <div style="flex: 1; position: relative;">
+                                <div id="container_left_lateral" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-column" style="flex: 1;">
-                            <b>Dorsal view</b>
-                            <div style="flex: 1">
-                                <div id="container_dorsal" style="height: 90%;">
-
-                                </div>
+                            <div class="card-body" style="flex: 0;">
+                                <figcaption class="figure-caption text-center">Left lateral view</figcaption>
                             </div>
                         </div>
-                        <div class="d-flex flex-column" style="flex: 1;">
-                            <b>Anterior view</b>
-                            <div style="flex: 1">
-                                <div id="container_anterior" style="height: 90%;">
-
+                        <div class="card d-flex flex-column margin-right" style="flex: 1;">
+                            <div style="flex: 1; position: relative;">
+                                <div id="container_dorsal" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
+                            </div>
+                            <div class="card-body" style="flex: 0;">
+                                <figcaption class="figure-caption text-center">Dorsal view</figcaption>
+                            </div>
+                        </div>
+                        <div class="card d-flex flex-column margin-right" style="flex: 1;">
+                            <div style="flex: 1; position: relative;">
+                                <div id="container_anterior" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+                                </div>
+                            </div>
+                            <div class="card-body" style="flex: 0;">
+                                <figcaption class="figure-caption text-center">Anterior view</figcaption>
                             </div>
                         </div>
 
@@ -97,28 +100,31 @@
 
                     <div class="d-flex flex-row" style="flex: 1;">
 
-                        <div class="d-flex flex-column" style="flex: 1;">
-                            <b>Right lateral view</b>
-                            <div style="flex: 1">
-                                <div id="container_right_lateral" style="height: 90%;">
-
+                        <div class="card d-flex flex-column margin-right" style="flex: 1;">
+                            <div style="flex: 1; position: relative;">
+                                <div id="container_right_lateral" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-column" style="flex: 1;">
-                            <b>Ventral view</b>
-                            <div style="flex: 1">
-                                <div id="container_ventral" style="height: 90%;">
-
-                                </div>
+                            <div class="card-body" style="flex: 0;">
+                                <figcaption class="figure-caption text-center">Right lateral view</figcaption>
                             </div>
                         </div>
-                        <div class="d-flex flex-column" style="flex: 1;">
-                            <b>Posterior view</b>
-                            <div style="flex: 1">
-                                <div id="container_posterior" style="height: 90%;">
-
+                        <div class="card d-flex flex-column margin-right" style="flex: 1;">
+                            <div style="flex: 1; position: relative;">
+                                <div id="container_ventral" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
+                            </div>
+                            <div class="card-body" style="flex: 0;">
+                                <figcaption class="figure-caption text-center">Ventral view</figcaption>
+                            </div>
+                        </div>
+                        <div class="card d-flex flex-column margin-right" style="flex: 1;">
+                            <div style="flex: 1; position: relative;">
+                                <div id="container_posterior" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+                                </div>
+                            </div>
+                            <div class="card-body" style="flex: 0;">
+                                <figcaption class="figure-caption text-center">Posterior view</figcaption>
                             </div>
                         </div>
 
@@ -129,37 +135,52 @@
                 </div>
 
 
-                <div class="d-flex flex-column" style="flex: 1;">
-                    <div class="d-flex flex-row justify-content-between">
-                        <b style="flex: 1;">3D view</b>
-                        <div style="flex: 1;" class="">
-                            <a href="" id="mri_link" target="_blank" style="visibility: hidden;">MRI</a>
-                        </div>
-                        <div style="flex: 1;" class="">
-                            Rotate: <input type="checkbox" checked id="rotate">
-                        </div>
-                        <div style="flex: 2;" class="d-flex flex-row justify-content-between">
-                            <div style="flex: 1;">Opacity:</div>
-                            <div id="opacity" style="flex: 2;"></div>
-                        </div>
-                    </div>
-                    <div style="flex: 1;">
-                        <div id="container_3d" style="height: 100%;">
+                <div class="d-flex flex-column align-items-stretch" style="flex: 1;">
 
+                    <div class="card d-flex flex-column margin-bottom" style="flex: 1;">
+                        <div style="flex: 1; position: relative;">
+                            <div id="container_3d" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+                            </div>
+                        </div>
+                        <div class="card-body" style="flex: 0;">
+                            <figcaption class="figure-caption text-center">3D view</figcaption>
                         </div>
                     </div>
-                    <div class="d-flex flex-row justify-content-between">
 
+
+                    <div class="card d-flex flex-column">
+                        <div class="card-body">
+                            <div class="d-flex flex-row justify-content-between">
+                                <div style="flex: 1;" class="margin-right">
+                                    Rotate:
+                                    <div>
+                                        <input type="checkbox" checked id="rotate">
+                                    </div>
+                                </div>
+                                <div style="flex: 1;" class="margin-right">
+                                    Opacity:
+                                    <div id="opacity" style="flex: 2;"></div>
+                                </div>
+                                <div style="flex: 1">
+                                    MRI Image:
+                                    <div>
+                                        <a href="" id="mri_link" target="_blank">click here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
 
+            <div class="card">
+                <div class="card-body">
+                    <div id="wikipedia_images" class="d-flex justify-content-around margin-bottom align-items-end">
 
-            <div class="row">
-
-                <div class="col">
-                    <div id="wikipedia">
+                    </div>
+                    <div id="wikipedia_text">
                         <p>
                             Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate
                             through the hierarchical anatomical structure of the brain with ease.
@@ -188,6 +209,7 @@
 
                     </div>
                 </div>
+
             </div>
 
         </main>
@@ -216,6 +238,6 @@
 
 
 <script src="js/brain3d.js?1"></script>
-<script src="js/main.js?1"></script>
+<script src="js/main.js?3"></script>
 </body>
 </html>

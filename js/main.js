@@ -34,6 +34,23 @@ function select_node(node_id) {
 }
 
 /**
+ * Fix Wikipedia links
+ */
+function fix_wikipedia_links(links) {
+    for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        var link_wiki = link.href.split("/").slice(-1)[0];
+        if (link_wiki in tree_index_by_wiki) {
+            var node = tree_index_by_wiki[link_wiki];
+            link.href = "javascript:select_node('" + node.id + "')";
+        } else {
+            link.href = "https://en.wikipedia.org/wiki/" + link_wiki;
+            link.target = "_blank";
+        }
+    }
+}
+
+/**
  * Loads a node into the active view
  */
 function load_node_details(node) {
@@ -41,9 +58,11 @@ function load_node_details(node) {
     $("#title").html(node.text);
 
     // Load wiki article
-    $("#wikipedia").html("");
+    $("#wikipedia_text").html("");
+    $("#wikipedia_images").html("");
     if (typeof(node.original.wiki) != "undefined") {
-        $("#wikipedia").html("<div style='text-align: center;'><img src='img/Spinner.svg'></div>");
+
+        $("#wikipedia_text").html("<div style='text-align: center;'><img src='img/Spinner.svg'></div>");
 
         var wiki;
         if (typeof(node.original.wiki) == "string") {
@@ -51,6 +70,7 @@ function load_node_details(node) {
         } else {
             wiki = node.original.wiki[0];
         }
+        wiki = wiki.split("#")[0];
         $.ajax({
             type: "GET",
             url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=" + wiki + "&callback=?",
@@ -61,24 +81,52 @@ function load_node_details(node) {
 
                 var markup = data.parse.text["*"];
                 var blurb = $('<div></div>').html(markup);
+
+                fix_wikipedia_links($(blurb).find('a'));
+
+
                 var text = $(blurb).find('p');
+                var images = $(blurb).find('img');
+                //images.css("margin-left", "10px");
+                //images.css("margin-right", "10px");
 
-                var links = $(text).find('a');
-                for (var i = 0; i < links.length; i++) {
-                    var link = links[i];
-                    var link_wiki = link.href.split("/").slice(-1)[0];
-                    if (link_wiki in tree_index_by_wiki) {
-                        var node = tree_index_by_wiki[link_wiki];
-                        link.href = "javascript:select_node('" + node.id + "')";
-                        //console.log(node);
-                    } else {
-                        link.href = "https://en.wikipedia.org/wiki/" + link_wiki;
-                        link.target = "_blank";
-                    }
-                }
+                //console.log("image",image);
 
-                $('#wikipedia').html(text);
-                $('#wikipedia').append("<p><a href='http://en.wikipedia.org/wiki/" + wiki + "' target='_blank'>Read the whole article on Wikipedia.</a></p>")
+                $('#wikipedia_images').html("");
+                images.each(function(i, image) {
+
+                    /*
+                            <img class="card-img-top">
+                            <div class="card-body" style="flex: 0;">
+                                <figcaption class="figure-caption text-center">Posterior view</figcaption>
+                            </div>
+                     */
+
+                    var card = document.createElement("div");
+                    $(card).css("width", "300px");
+                    $(card).css("text-align", "center");
+
+                    //$(image).addClass("img-thumbnail");
+                    $(image).addClass("mx-auto");
+
+                    var card_body = document.createElement("div");
+                    $(card_body).addClass("card-body");
+
+                    var figcaption_text = $(image).parent().parent().find('div').html();
+                    var figcaption = document.createElement("figcaption");
+                    $(figcaption).addClass("figure-caption text-center");
+                    $(figcaption).html(figcaption_text);
+                    $(card_body).append(figcaption);
+
+
+                    $(card).append(image);
+                    $(card).append(card_body);
+                    $('#wikipedia_images').append(card);
+                })
+                $('#wikipedia_text').html("");
+                $(text[text.length-1]).append(" <a href='http://en.wikipedia.org/wiki/" + wiki + "' target='_blank'>[Read more]</a>")
+
+                $('#wikipedia_text').append(text);
 
             },
             error: function (errorMessage) {
