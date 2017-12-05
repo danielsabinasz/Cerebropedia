@@ -60,7 +60,6 @@
         </nav>
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
-            <h1 id="title">Cerebropedia</h1>
 
             <div class="d-flex flex-row margin-bottom" style="height: 500px;">
 
@@ -175,12 +174,10 @@
             </div>
 
 
-            <div class="card">
-                <div class="card-body">
-                    <div id="wikipedia_images" class="d-flex justify-content-around margin-bottom align-items-end">
+            <div class="d-flex flex-row margin-bottom">
+                <div class="card" style="flex: 2;">
 
-                    </div>
-                    <div id="wikipedia_text">
+                    <div class="card-body" id="wikipedia_text">
                         <p>
                             Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate
                             through the hierarchical anatomical structure of the brain with ease.
@@ -209,7 +206,12 @@
 
                     </div>
                 </div>
+                <div class="card margin-left" id="wikipedia_images_card" style="flex: 1; display: none;">
 
+                    <div id="wikipedia_images" class="card-body d-flex flex-column">
+
+                    </div>
+                </div>
             </div>
 
         </main>
@@ -238,6 +240,6 @@
 
 
 <script src="js/brain3d.js?1"></script>
-<script src="js/main.js?3"></script>
+<script src="js/main.js?4"></script>
 </body>
 </html>

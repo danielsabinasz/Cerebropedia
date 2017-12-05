@@ -506,7 +506,14 @@
                                                     },
                                                     {
                                                         "text": "posterior division",
-                                                        "model": "harvard_oxford_cort/10"
+                                                        "model": "harvard_oxford_cort/10",
+                                                        "children": [
+                                                            {
+                                                                "text": "Wernicke's Area (22)",
+                                                                "model": "brodmann/22",
+                                                                "wiki": "Brodmann_area_22"
+                                                            }
+                                                        ]
                                                     },
                                                     {
                                                         "text": "Auditory Cortex",
@@ -528,11 +535,6 @@
                                                                 "wiki": "Brodmann_area_41_%26_42"
                                                             }
                                                         ]
-                                                    },
-                                                    {
-                                                        "text": "Wernicke's Area (22)",
-                                                        "model": "brodmann/22",
-                                                        "wiki": "Brodmann_area_22"
                                                     }
                                                 ]
                                             },
@@ -592,6 +594,10 @@
                                                 "wiki": "Fusiform_gyrus",
                                                 "children": [
                                                     {
+                                                        "text": "Fusiform Face Area",
+                                                        "wiki": "Fusiform_face_area"
+                                                    },
+                                                    {
                                                         "text": "Temporal Fusiform Cortex, anterior division",
                                                         "model": "harvard_oxford_cort/37"
                                                     },
@@ -604,7 +610,7 @@
 
                                             {
                                                 "text": "Medial Temporal Lobe (27, 28, 34, 35, 36)",
-                                                "wiki": "Medial_temporal_lobe"
+                                                "wiki": "Temporal_lobe"
                                             },
 
                                             {
@@ -612,6 +618,13 @@
                                                 "model": "brodmann/15",
                                                 "wiki": "Brodmann_area_15"
                                             },
+
+                                            {
+                                                "text": "37",
+                                                "model": "brodmann/37",
+                                                "wiki": "Brodmann_area_37"
+                                            },
+
                                             {
                                                 "text": "Parainsular Area (52)",
                                                 "model": "brodmann/52",
@@ -648,11 +661,6 @@
                                                         "model": "brodmann/36"
                                                     }
                                                 ]
-                                            },
-                                            {
-                                                "text": "37",
-                                                "model": "brodmann/37",
-                                                "wiki": "Brodmann_area_37"
                                             },
                                             {
                                                 "text": "Planum Polare",

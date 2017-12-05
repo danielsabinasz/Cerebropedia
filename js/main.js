@@ -86,7 +86,7 @@ function load_node_details(node) {
 
 
                 var text = $(blurb).find('p');
-                var images = $(blurb).find('img');
+                var images = $(blurb).find('.infobox img');
                 //images.css("margin-left", "10px");
                 //images.css("margin-right", "10px");
 
@@ -103,7 +103,6 @@ function load_node_details(node) {
                      */
 
                     var card = document.createElement("div");
-                    $(card).css("width", "300px");
                     $(card).css("text-align", "center");
 
                     //$(image).addClass("img-thumbnail");
@@ -118,11 +117,17 @@ function load_node_details(node) {
                     $(figcaption).html(figcaption_text);
                     $(card_body).append(figcaption);
 
-
                     $(card).append(image);
                     $(card).append(card_body);
                     $('#wikipedia_images').append(card);
                 })
+
+                if (images.length > 0) {
+                    $('#wikipedia_images_card').show();
+                } else {
+                    $('#wikipedia_images_card').hide();
+                }
+
                 $('#wikipedia_text').html("");
                 $(text[text.length-1]).append(" <a href='http://en.wikipedia.org/wiki/" + wiki + "' target='_blank'>[Read more]</a>")
 
