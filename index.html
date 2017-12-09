@@ -20,6 +20,9 @@
     <!-- JQuery UI -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
+    <!-- Bootstrap slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css">
+
     <meta name="description" content="Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate through the hierarchical anatomical structure of the brain with ease. It is primarily intended for students and researchers who want to explore the brain and make sense of the large vocabulary used in brain anatomy, which includes many synonyms for the same regions, partially overlapping regions and regions nested within other regions.">
 </head>
 
@@ -59,11 +62,11 @@
             <div id="jstree"></div>
         </nav>
 
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3 main">
 
-            <div class="d-flex flex-row margin-bottom" style="height: 500px;">
+            <div class="d-flex flex-row" style="height: 100%;">
 
-                <div class="d-flex flex-column" style="flex: 1;">
+                <div class="d-flex flex-column" style="flex: 2;">
 
                     <div class="d-flex flex-row margin-bottom" style="flex: 1;">
 
@@ -72,62 +75,59 @@
                                 <div id="container_left_lateral" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
                             </div>
-                            <div class="card-body" style="flex: 0;">
-                                <figcaption class="figure-caption text-center">Left lateral view</figcaption>
-                            </div>
+                            <figcaption class="figure-caption text-center">Left lateral view</figcaption>
                         </div>
                         <div class="card d-flex flex-column margin-right" style="flex: 1;">
                             <div style="flex: 1; position: relative;">
                                 <div id="container_dorsal" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
                             </div>
-                            <div class="card-body" style="flex: 0;">
-                                <figcaption class="figure-caption text-center">Dorsal view</figcaption>
-                            </div>
+                            <figcaption class="figure-caption text-center">Dorsal view</figcaption>
                         </div>
                         <div class="card d-flex flex-column margin-right" style="flex: 1;">
                             <div style="flex: 1; position: relative;">
                                 <div id="container_anterior" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
                             </div>
-                            <div class="card-body" style="flex: 0;">
-                                <figcaption class="figure-caption text-center">Anterior view</figcaption>
-                            </div>
+                            <figcaption class="figure-caption text-center">Anterior view</figcaption>
                         </div>
 
                     </div>
 
-                    <div class="d-flex flex-row" style="flex: 1;">
+                    <div class="d-flex flex-row margin-bottom" style="flex: 1;">
 
                         <div class="card d-flex flex-column margin-right" style="flex: 1;">
                             <div style="flex: 1; position: relative;">
                                 <div id="container_right_lateral" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
                             </div>
-                            <div class="card-body" style="flex: 0;">
-                                <figcaption class="figure-caption text-center">Right lateral view</figcaption>
-                            </div>
+                            <figcaption class="figure-caption text-center">Right lateral view</figcaption>
                         </div>
                         <div class="card d-flex flex-column margin-right" style="flex: 1;">
                             <div style="flex: 1; position: relative;">
                                 <div id="container_ventral" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
                             </div>
-                            <div class="card-body" style="flex: 0;">
-                                <figcaption class="figure-caption text-center">Ventral view</figcaption>
-                            </div>
+                            <figcaption class="figure-caption text-center">Ventral view</figcaption>
                         </div>
                         <div class="card d-flex flex-column margin-right" style="flex: 1;">
                             <div style="flex: 1; position: relative;">
                                 <div id="container_posterior" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                                 </div>
                             </div>
-                            <div class="card-body" style="flex: 0;">
-                                <figcaption class="figure-caption text-center">Posterior view</figcaption>
-                            </div>
+                            <figcaption class="figure-caption text-center">Posterior view</figcaption>
                         </div>
 
                     </div>
+
+                    <div class="card d-flex flex-column margin-right" style="flex: 2;">
+                        <div style="flex: 1; position: relative;">
+                            <div id="container_3d" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+                            </div>
+                        </div>
+                        <figcaption class="figure-caption text-center">3D view</figcaption>
+                    </div>
+
 
 
 
@@ -136,83 +136,148 @@
 
                 <div class="d-flex flex-column align-items-stretch" style="flex: 1;">
 
-                    <div class="card d-flex flex-column margin-bottom" style="flex: 1;">
-                        <div style="flex: 1; position: relative;">
-                            <div id="container_3d" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+
+                    <div class="d-flex card margin-right margin-bottom">
+                        <div class="card-body d-flex flex-column">
+                            <h5>Sections</h5>
+
+                            <div class="d-flex flex-row" style="flex: 1; margin-bottom: 5px;">
+                                <div class="d-flex align-self-center" style="margin-right: 20px; width: 80px;">Saggital</div>
+                                <div class="d-flex flex-row justify-content-between" style="flex: 1;">
+                                    <button onclick="talairach.setTalairachRanges([-10, 0], [-10, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm margin-right" style="width: 80px;">Lateral (L)</button>
+                                    <button onclick="talairach.setTalairachRanges([-1, 1], [-10, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm margin-right" style="width: 80px;">Medial</button>
+                                    <button onclick="talairach.setTalairachRanges([0, 10], [-10, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm" style="width: 80px;">Lateral (R)</button>
+                                </div>
                             </div>
+
+                            <div class="d-flex flex-row" style="flex: 1; margin-bottom: 5px;">
+                                <div class="d-flex align-self-center" style="margin-right: 20px; width: 80px;">Coronal</div>
+                                <div class="d-flex flex-row justify-content-between" style="flex: 1;">
+                                    <button onclick="talairach.setTalairachRanges([-10, 10], [0, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm margin-right" style="width: 80px;">Anterior</button>
+                                    <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 0], [-10, 10]);" type="button" class="btn btn-secondary btn-sm" style="width: 80px;">Posterior</button>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-row" style="flex: 1; margin-bottom: 5px;">
+                                <div class="d-flex align-self-center" style="margin-right: 20px; width: 80px;">Horizontal</div>
+                                <div class="d-flex flex-row justify-content-between" style="flex: 1;">
+                                    <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 10], [0, 10]);" type="button" class="btn btn-secondary btn-sm margin-right" style="width: 80px;">Superior</button>
+                                    <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 10], [-1, 1]);" type="button" class="btn btn-secondary btn-sm margin-right" style="width: 80px;">Middle</button>
+                                    <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 10], [-10, 0]);" type="button" class="btn btn-secondary btn-sm" style="width: 80px;">Inferior</button>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="card-body" style="flex: 0;">
-                            <figcaption class="figure-caption text-center">3D view</figcaption>
+
+                    </div>
+
+                    <div class="d-flex card margin-right margin-bottom">
+                        <div class="card-body d-flex flex-column">
+                            <h5>Talairach coordinates</h5>
+
+                            <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex" style="margin-right: 20px; width: 80px;">x</div>
+                                <div class="d-flex flex-row" style="flex: 1;">
+                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="x-slider-val-lower">-10 cm</div>
+                                    <input id="x-slider" type="text" class="span2" value="" data-slider-min="-10" data-slider-max="10" data-slider-step="0.1" data-slider-value="[-10, 10]"/>
+                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="x-slider-val-upper">10 cm</div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex" style="margin-right: 20px; width: 80px;">y</div>
+                                <div class="d-flex flex-row" style="flex: 1;">
+                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="y-slider-val-lower">-10 cm</div>
+                                    <input id="y-slider" type="text" class="span2" value="" data-slider-min="-10" data-slider-max="10" data-slider-step="0.1" data-slider-value="[-10, 10]"/>
+                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="y-slider-val-upper">10 cm</div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex" style="margin-right: 20px; width: 80px;">z</div>
+                                <div class="d-flex flex-row" style="flex: 1;">
+                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="z-slider-val-lower">-10 cm</div>
+                                    <input id="z-slider" type="text" class="span2" value="" data-slider-min="-10" data-slider-max="10" data-slider-step="0.1" data-slider-value="[-10, 10]"/>
+                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="z-slider-val-upper">10 cm</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
 
-                    <div class="card d-flex flex-column">
-                        <div class="card-body">
-                            <div class="d-flex flex-row justify-content-between">
-                                <div style="flex: 1;" class="margin-right">
-                                    Rotate:
-                                    <div>
-                                        <input type="checkbox" checked id="rotate">
-                                    </div>
+                    <div class="card d-flex flex-column margin-bottom">
+                        <div class="card-body d-flex flex-column">
+                            <h5>Options</h5>
+
+                            <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex" style="margin-right: 20px; width: 80px;">Rotate</div>
+                                <div class="d-flex flex-row" style="flex: 1;">
+                                    <input type="checkbox" id="rotate">
                                 </div>
-                                <div style="flex: 1;" class="margin-right">
-                                    Opacity:
-                                    <div id="opacity" style="flex: 2;"></div>
+                            </div>
+
+                            <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex" style="margin-right: 20px; width: 80px;">Opacity</div>
+                                <div class="d-flex flex-row" style="flex: 1;">
+                                    <input id="opacity-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="20"/>
                                 </div>
-                                <div style="flex: 1">
-                                    MRI Image:
-                                    <div>
-                                        <a href="" id="mri_link" target="_blank">click here</a>
-                                    </div>
+                            </div>
+
+                            <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex" style="margin-right: 20px; width: 80px;">MRI image</div>
+                                <div class="d-flex flex-row" style="flex: 1;">
+                                    <a href="" id="mri_link" target="_blank">click here</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card d-flex flex-column" style="overflow: auto; flex: 1;" id="wikipedia">
+                        <div class="card-body d-flex flex-column">
+                            <div>
+
+                                <div id="wikipedia_text">
+                                    <p>
+                                        Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate
+                                        through the hierarchical anatomical structure of the brain with ease.
+                                        It is primarily intended for students and researchers who want to explore the brain
+                                        and make sense of the large vocabulary used in brain anatomy, which includes many synonyms
+                                        for the same regions, partially overlapping regions and regions nested within other regions.
+
+                                        Cerebropedia contains the entire Harvard-Oxford Atlas and all
+                                        <a href="https://en.wikipedia.org/wiki/Brodmann_area" target="_blank">Brodmann areas</a>.
+                                    </p>
+
+                                    <p>
+                                        On the left-hand side, you see a tree structure of brain regions.
+                                        You can expand regions to view their subregions, and select a region of interest.
+
+                                        Once you select a brain region, you'll see an interactive 3D model of that region,
+                                        which is better suited to get a sense of where the region lies than the
+                                        usual 2D images. You can view this 3D model at deliberate angles by clicking
+                                        on it and moving your mouse. Moreover, you can zoom into the model by scrolling.
+
+                                        In addition to the 3D model, horizontal, coronal, and saggital cuts through the region are presented
+                                        on MRI images extracted from the <a href="https://bigbrain.loris.ca" target="_blank">Big Brain dataset</a>.
+                                        You can navigate through the sections by clicking on a target location or by scrolling. Try it.
+
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div id="wikipedia_images_card" style="display: none;">
+
+                                <div id="wikipedia_images" class="card-body d-flex flex-column">
+
                                 </div>
                             </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
 
-
-            <div class="d-flex flex-row margin-bottom">
-                <div class="card" style="flex: 2;">
-
-                    <div class="card-body" id="wikipedia_text">
-                        <p>
-                            Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate
-                            through the hierarchical anatomical structure of the brain with ease.
-                            It is primarily intended for students and researchers who want to explore the brain
-                            and make sense of the large vocabulary used in brain anatomy, which includes many synonyms
-                            for the same regions, partially overlapping regions and regions nested within other regions.
-
-                            Cerebropedia contains the entire Harvard-Oxford Atlas and all
-                            <a href="https://en.wikipedia.org/wiki/Brodmann_area" target="_blank">Brodmann areas</a>.
-                        </p>
-
-                        <p>
-                            On the left-hand side, you see a tree structure of brain regions.
-                            You can expand regions to view their subregions, and select a region of interest.
-
-                            Once you select a brain region, you'll see an interactive 3D model of that region,
-                            which is better suited to get a sense of where the region lies than the
-                            usual 2D images. You can view this 3D model at deliberate angles by clicking
-                            on it and moving your mouse. Moreover, you can zoom into the model by scrolling.
-
-                            In addition to the 3D model, horizontal, coronal, and saggital cuts through the region are presented
-                            on MRI images extracted from the <a href="https://bigbrain.loris.ca" target="_blank">Big Brain dataset</a>.
-                            You can navigate through the sections by clicking on a target location or by scrolling. Try it.
-
-                        </p>
-
-                    </div>
-                </div>
-                <div class="card margin-left" id="wikipedia_images_card" style="flex: 1; display: none;">
-
-                    <div id="wikipedia_images" class="card-body d-flex flex-column">
-
-                    </div>
-                </div>
-            </div>
 
         </main>
     </div>
@@ -238,8 +303,17 @@
 <script src="js/libs/three/Detector.js"></script>
 <script src="js/libs/three/stats.min.js"></script>
 
+<script src="js/libs/three/slice.js"></script>
 
-<script src="js/brain3d.js?2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@1.5.4/src/loadingoverlay.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@1.5.4/extras/loadingoverlay_progress/loadingoverlay_progress.min.js"></script>
+
+<script src="js/brain3d.js?7"></script>
+<script src="js/talairach.js"></script>
+<script src="js/wiki.js?1"></script>
+<script src="js/tree.js?1"></script>
 <script src="js/main.js?4"></script>
+
 </body>
 </html>

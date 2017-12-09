@@ -14,6 +14,10 @@
                 },
                 "children": [
                     {
+                        "text": "Test",
+                        "model": "destrieux/0"
+                    },
+                    {
                         "text": "Cerebral cortex",
                         "wiki": "Cerebral_cortex",
                         "state": {
@@ -29,6 +33,7 @@
                                 "children": [
                                     {
                                         "text": "Lobes",
+                                        "type": "lobe",
                                         "children": [
 
                                             {
@@ -58,7 +63,7 @@
                                                                     },
 
                                                                     {
-                                                                        "text": "Ventromedial Prefrontal Cortex (10, 14, 25, 32, pt.11, pt.12, pt.13)",
+                                                                        "text": "Ventromedial Prefrontal Cortex (10, 14, 25, 32, i11, i12, i13)",
                                                                         "wiki": "Ventromedial_prefrontal_cortex",
                                                                         "children": [
 
@@ -110,6 +115,7 @@
 
                                                     {
                                                         "text": "Gyri",
+                                                        "type": "gyrus",
                                                         "children": [
                                                             {
                                                                 "text": "Frontal Gyrus",
@@ -172,6 +178,14 @@
                                                                 "wiki": "Orbital_gyri",
                                                                 "children": [
                                                                     {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/13"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/88"
+                                                                    },
+                                                                    {
                                                                         "text": "Medial Orbital Gyrus"
                                                                     },
                                                                     {
@@ -186,30 +200,131 @@
 
                                                     {
                                                         "text": "Sulci",
+                                                        "type": "sulcus",
                                                         "children": [
                                                             {
                                                                 "text": "Precentral Sulcus",
-                                                                "wiki": "Precentral_sulcus"
+                                                                "wiki": "Precentral_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "children": [
+                                                                            {
+                                                                                "text": "Inferior",
+                                                                                "model": "destrieux/69"
+                                                                            },
+                                                                            {
+                                                                                "text": "Superior",
+                                                                                "model": "destrieux/70"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "children": [
+                                                                            {
+                                                                                "text": "Inferior",
+                                                                                "model": "destrieux/144"
+                                                                            },
+                                                                            {
+                                                                                "text": "Superior",
+                                                                                "model": "destrieux/145"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
                                                             },
 
                                                             {
                                                                 "text": "Superior Frontal Sulcus",
-                                                                "wiki": "Superior_frontal_sulcus"
+                                                                "wiki": "Superior_frontal_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/55"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/130"
+                                                                    }
+                                                                ]
+                                                            },
+
+                                                            {
+                                                                "text": "Middle Frontal Sulcus",
+                                                                "wiki": "Middle_frontal_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/54"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/129"
+                                                                    }
+                                                                ]
                                                             },
 
                                                             {
                                                                 "text": "Inferior Frontal Sulcus",
-                                                                "wiki": "Inferior_frontal_sulcus"
+                                                                "wiki": "Inferior_frontal_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/53"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/128"
+                                                                    }
+                                                                ]
                                                             },
 
                                                             {
                                                                 "text": "Orbital Sulcus",
-                                                                "wiki": "Orbital_sulcus"
-                                                            },
-
-                                                            {
-                                                                "text": "Olfactory Sulcus",
-                                                                "wiki": "Olfactory_sulcus"
+                                                                "wiki": "Orbital_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "Lateral Orbital Sulcus",
+                                                                        "children": [
+                                                                            {
+                                                                                "text": "left",
+                                                                                "model": "destrieux/63"
+                                                                            },
+                                                                            {
+                                                                                "text": "right",
+                                                                                "model": "destrieux/138"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "text": "Medial Orbital Sulcus / Olfactory Sulcus",
+                                                                        "wiki": "Olfactory_sulcus",
+                                                                        "children": [
+                                                                            {
+                                                                                "text": "left",
+                                                                                "model": "destrieux/64"
+                                                                            },
+                                                                            {
+                                                                                "text": "right",
+                                                                                "model": "destrieux/139"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "text": "H-Shaped Orbital Sulcus",
+                                                                        "children": [
+                                                                            {
+                                                                                "text": "left",
+                                                                                "model": "destrieux/65"
+                                                                            },
+                                                                            {
+                                                                                "text": "right",
+                                                                                "model": "destrieux/140"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
                                                             }
 
                                                         ]
@@ -217,6 +332,7 @@
 
                                                     {
                                                         "text": "Brodmann Areas",
+                                                        "type": "brodmann",
                                                         "children": [
                                                             {
                                                                 "text": "4 / Primary Motor Cortex",
@@ -302,7 +418,8 @@
                                                     },
 
                                                     {
-                                                        "text": "Other",
+                                                        "text": "Other areas",
+                                                        "type": "other",
                                                         "children": [
                                                             {
                                                                 "text": "Frontal Pole",
@@ -344,6 +461,7 @@
                                                 "children": [
                                                     {
                                                         "text": "Cortex",
+                                                        "type": "cortex",
                                                         "children": [
                                                             {
                                                                 "text": "S1 / Primary Somatosensory Cortex",
@@ -362,6 +480,7 @@
                                                     },
                                                     {
                                                         "text": "Gyri",
+                                                        "type": "gyrus",
                                                         "children": [
 
                                                             {
@@ -403,22 +522,44 @@
 
                                                     {
                                                         "text": "Sulci",
+                                                        "type": "sulcus",
                                                         "children": [
 
                                                             {
                                                                 "text": "Intraparietal Sulcus",
-                                                                "wiki": "Intraparietal_sulcus"
+                                                                "wiki": "Intraparietal_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/57"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/132"
+                                                                    }
+                                                                ]
                                                             },
 
                                                             {
                                                                 "text": "Marginal Sulcus",
-                                                                "wiki": "Marginal_sulcus"
+                                                                "wiki": "Marginal_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/47"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/122"
+                                                                    }
+                                                                ]
                                                             }
                                                         ]
                                                     },
 
                                                     {
                                                         "text": "Brodmann Areas",
+                                                        "type": "brodmann",
                                                         "children": [
                                                             {
                                                                 "text": "3, 1, 2 / Primary Somesthetic Area / Postcentral Gyrus",
@@ -498,7 +639,8 @@
                                                     },
 
                                                     {
-                                                        "text": "Other",
+                                                        "text": "Other areas",
+                                                        "type": "other",
                                                         "children": [
 
                                                             {
@@ -532,6 +674,7 @@
                                                 "children": [
                                                     {
                                                         "text": "Cortex",
+                                                        "type": "cortex",
                                                         "children": [
 
                                                             {
@@ -541,22 +684,33 @@
                                                             },
 
                                                             {
-                                                                "text": "V2 / Secondary Visual Cortex (18)",
+                                                                "text": "V2 / Secondary Visual Cortex / Prestriate Cortex (18)",
                                                                 "model": "brodmann/18",
                                                                 "wiki": "Visual_cortex#V2"
                                                             },
+
                                                             {
-                                                                "text": "V3",
-                                                                "wiki": "Visual_cortex#Third_visual_cortex.2C_including_area_V3"
+                                                                "text": "Extrastriate Cortex (18, 19)",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "V3",
+                                                                        "wiki": "Visual_cortex#Third_visual_cortex.2C_including_area_V3"
+                                                                    },
+                                                                    {
+                                                                        "text": "V4",
+                                                                        "wiki": "Visual_cortex#V4"
+                                                                    },
+                                                                    {
+                                                                        "text": "V5 / Middle Temporal Visual Area (MT)",
+                                                                        "wiki": "Visual_cortex#Middle_temporal_visual_area_.28V5.29"
+                                                                    },
+                                                                    {
+                                                                        "text": "Extrastriate Body Area (EBA)",
+                                                                        "wiki": "Extrastriate_body_area"
+                                                                    }
+                                                                ]
                                                             },
-                                                            {
-                                                                "text": "V4",
-                                                                "wiki": "Visual_cortex#V4"
-                                                            },
-                                                            {
-                                                                "text": "V5 / Middle Temporal Visual Area (MT)",
-                                                                "wiki": "Visual_cortex#Middle_temporal_visual_area_.28V5.29"
-                                                            },
+
 
                                                             {
                                                                 "text": "Lateral Occipital Cortex",
@@ -587,6 +741,7 @@
 
                                                     {
                                                         "text": "Gyri",
+                                                        "type": "gyrus",
                                                         "children": [
                                                             {
                                                                 "text": "Lateral Occipital Gyrus"
@@ -602,14 +757,35 @@
 
                                                     {
                                                         "text": "Sulci",
+                                                        "type": "sulcus",
                                                         "children": [
                                                             {
                                                                 "text": "Calcarine Sulcus / Calcarine Fissure",
-                                                                "wiki": "Calcarine_sulcus"
+                                                                "wiki": "Calcarine_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/45"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/120"
+                                                                    }
+                                                                ]
                                                             },
                                                             {
                                                                 "text": "Lunate Sulcus",
-                                                                "wiki": "Lunate_sulcus"
+                                                                "wiki": "Lunate_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/58"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/133"
+                                                                    }
+                                                                ]
                                                             },
                                                             {
                                                                 "text": "Transverse Occipital Sulcus",
@@ -620,6 +796,7 @@
 
                                                     {
                                                         "text": "Brodmann Areas",
+                                                        "type": "brodmann",
                                                         "children": [
                                                             {
                                                                 "text": "17 / Striate Area / V1",
@@ -640,7 +817,8 @@
                                                     },
 
                                                     {
-                                                        "text": "Other",
+                                                        "text": "Other areas",
+                                                        "type": "other",
                                                         "children": [
 
                                                             {
@@ -651,6 +829,9 @@
                                                                 "text": "Cuneus",
                                                                 "wiki": "Cuneus",
                                                                 "model": "harvard_oxford_cort/32"
+                                                            },
+                                                            {
+                                                                "text": "Occipital Face Area"
                                                             }
                                                         ]
                                                     }
@@ -791,6 +972,10 @@
                                                                     {
                                                                         "text": "Fusiform Face Area",
                                                                         "wiki": "Fusiform_face_area"
+                                                                    },
+                                                                    {
+                                                                        "text": "Fusiform Body Area",
+                                                                        "wiki": "Fusiform_body_area"
                                                                     }
                                                                 ]
                                                             },
@@ -808,12 +993,44 @@
 
                                                             {
                                                                 "text": "Superior Temporal Sulcus",
-                                                                "wiki": "Superior_temporal_sulcus"
+                                                                "wiki": "Superior_temporal_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/74"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/149"
+                                                                    }
+                                                                ]
                                                             },
-
                                                             {
                                                                 "text": "Inferior Temporal Sulcus",
-                                                                "wiki": "Inferior_temporal_sulcus"
+                                                                "wiki": "Inferior_temporal_sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/73"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/148"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "text": "Transverse Temporal Sulcus",
+                                                                "children": [
+                                                                    {
+                                                                        "text": "left",
+                                                                        "model": "destrieux/75"
+                                                                    },
+                                                                    {
+                                                                        "text": "right",
+                                                                        "model": "destrieux/150"
+                                                                    }
+                                                                ]
                                                             }
                                                         ]
                                                     },
@@ -880,7 +1097,7 @@
                                                     },
 
                                                     {
-                                                        "text": "Other",
+                                                        "text": "Other areas",
                                                         "children": [
 
                                                             {
@@ -911,17 +1128,29 @@
 
                                     {
                                         "text": "Lobules",
+                                        "type": "lobule",
                                         "children": [
 
                                             {
                                                 "text": "Paracentral Lobule (4)",
-                                                "wiki": "Paracentral_lobule"
+                                                "wiki": "Paracentral_lobule",
+                                                "children": [
+                                                    {
+                                                        "text": "left",
+                                                        "model": "destrieux/3"
+                                                    },
+                                                    {
+                                                        "text": "right",
+                                                        "model": "destrieux/78"
+                                                    }
+                                                ]
                                             }
                                         ]
                                     },
 
                                     {
                                         "text": "Gyri",
+                                        "type": "gyrus",
                                         "children": [
 
                                             {
@@ -946,6 +1175,7 @@
 
                                     {
                                         "text": "Sulci",
+                                        "type": "sulcus",
                                         "children": [
                                             {
                                                 "text": "Lateral Sulcus / Sylvian Fissure",
@@ -955,18 +1185,77 @@
                                                         "text": "Insular Cortex",
                                                         "wiki": "Insular_cortex",
                                                         "model": "harvard_oxford_cort/2"
+                                                    },
+                                                    {
+                                                        "text": "anterior horizontal",
+                                                        "children": [
+                                                            {
+                                                                "text": "left",
+                                                                "model": "destrieux/39"
+                                                            },
+                                                            {
+                                                                "text": "right",
+                                                                "model": "destrieux/114"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "text": "anterior vertical",
+                                                        "children": [
+                                                            {
+                                                                "text": "left",
+                                                                "model": "destrieux/40"
+                                                            },
+                                                            {
+                                                                "text": "right",
+                                                                "model": "destrieux/115"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "text": "posterior",
+                                                        "children": [
+                                                            {
+                                                                "text": "left",
+                                                                "model": "destrieux/41"
+                                                            },
+                                                            {
+                                                                "text": "right",
+                                                                "model": "destrieux/116"
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             },
 
                                             {
                                                 "text": "Parietal Occipital Sulcus",
-                                                "wiki": "Parieto-occipital_sulcus"
+                                                "wiki": "Parieto-occipital_sulcus",
+                                                "children": [
+                                                    {
+                                                        "text": "left",
+                                                        "model": "destrieux/66"
+                                                    },
+                                                    {
+                                                        "text": "right",
+                                                        "model": "destrieux/141"
+                                                    }
+                                                ]
                                             },
 
                                             {
                                                 "text": "Central Sulcus",
-                                                "wiki": "Central_sulcus"
+                                                "wiki": "Central_sulcus",
+                                                "children": [
+                                                    {
+                                                        "text": "left",
+                                                        "model": "destrieux/46"
+                                                    },
+                                                    {
+                                                        "text": "right",
+                                                        "model": "destrieux/121"
+                                                    }
+                                                ]
                                             },
 
                                             {
@@ -984,6 +1273,7 @@
 
                                     {
                                         "text": "Brodmann Areas",
+                                        "type": "brodmann",
                                         "children": [
                                             {
                                                 "text": "13",
@@ -1012,7 +1302,8 @@
                                     },
 
                                     {
-                                        "text": "Other",
+                                        "text": "Other areas",
+                                        "type": "other",
                                         "children": [
                                             {
                                                 "text": "Primary Gustatory Cortex",
