@@ -43,7 +43,30 @@ var brain3d = (function() {
 
     var controls;
 
-    var progress;
+
+
+    var xClippingPlaneLower = new THREE.Plane( new THREE.Vector3( 1, 0, 0 ), 100 );
+    var xClippingPlaneUpper = new THREE.Plane( new THREE.Vector3( -1, 0, 0 ), 100 );
+    var yClippingPlaneLower = new THREE.Plane( new THREE.Vector3( 0, 1, 0 ), 100 );
+    var yClippingPlaneUpper = new THREE.Plane( new THREE.Vector3( 0, -1, 0 ), 100 );
+    var zClippingPlaneLower = new THREE.Plane( new THREE.Vector3( 0, 0, 1 ), 100 );
+    var zClippingPlaneUpper = new THREE.Plane( new THREE.Vector3( 0, 0, -1 ), 100 );
+
+    var progress = new LoadingOverlayProgress({
+        bar     : {
+            "background"    : "#343a40",
+            "bottom"        : "30px",
+            "left"          : "30px",
+            "right"         : "30px",
+            "height"        : "30px",
+            "border-radius" : "15px"
+        },
+        text    : {
+            "color"         : "white",
+            "vertical-align": "middle",
+            "bottom"           : "35px"
+        }
+    });
 
     showLoadingOverlay();
     window.setTimeout(function() {
@@ -51,21 +74,7 @@ var brain3d = (function() {
     }, 1000);
 
     function showLoadingOverlay() {
-        progress = new LoadingOverlayProgress({
-            bar     : {
-                "background"    : "#343a40",
-                "bottom"        : "30px",
-                "left"          : "30px",
-                "right"         : "30px",
-                "height"        : "30px",
-                "border-radius" : "15px"
-            },
-            text    : {
-                "color"         : "white",
-                "vertical-align": "middle",
-                "bottom"           : "35px"
-            }
-        });
+        if (DEBUG) return;
         progress.itemsLoaded = 0;
         progress.itemsTotal = 3;
         $.LoadingOverlay("show", {
@@ -77,7 +86,17 @@ var brain3d = (function() {
     }
 
     function hideLoadingOverlay() {
+        if (DEBUG) return;
         $.LoadingOverlay("hide");
+    }
+
+    function updateProgress(progress) {
+        if (DEBUG) return;
+        progress.Update(
+            Math.round( 100 * (
+                progress
+            ))
+        );
     }
 
     function loadModel(path, loader) {
@@ -85,13 +104,11 @@ var brain3d = (function() {
 
             geometry.center();
             geometry.computeVertexNormals();
+            //geometry.addAttribute('alphaValue', new THREE.BufferAttribute(new Float32Array(alphaArray), 1));
             geometries[path] = geometry;
         }, function(p) {
-            progress.Update(
-                Math.round( 100 * (
-                    progress.itemsLoaded/progress.itemsTotal
-                    + 1.0/progress.itemsTotal * p.loaded/p.total
-                ))
+            updateProgress(progress.itemsLoaded/progress.itemsTotal
+                + 1.0/progress.itemsTotal * p.loaded/p.total
             );
         } );
     }
@@ -132,8 +149,9 @@ var brain3d = (function() {
             scenes[view].add( cameras[view] );
 
             // Light
+            //lights[view] = new THREE.DirectionalLight( 0xaaaaaa );
             lights[view] = new THREE.DirectionalLight( 0xaaaaaa );
-            lights[view].position.set( 1, 1, 1 ).normalize();
+            lights[view].position.set( 1, 0, 0 );
             cameras[view].add( lights[view] );
 
             // Build renderer
@@ -142,18 +160,40 @@ var brain3d = (function() {
             renderers[view].setSize( $(containers[view]).width(), $(containers[view]).height() );
             renderers[view].sortObjects = false;
             renderers[view].autoClear = false;
+            renderers[view].clippingPlanes = [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper];
             containers[view].appendChild( renderers[view].domElement );
         }
     }
 
     function createMaterials() {
-        materials["grey"] = new THREE.MeshPhongMaterial( { color: 0xd2b8a3, side: THREE.DoubleSide, opacity: 1, transparent: true } );
-        materials["white"] = new THREE.MeshPhongMaterial( { color: 0xfefaf7, side: THREE.DoubleSide, opacity: 1, transparent: true } );
-        materials["csf"] = new THREE.MeshBasicMaterial( { color: 0x96a2c8, side: THREE.DoubleSide, opacity: 0.2, transparent: true } );
+        //var grey_texture = new THREE.TextureLoader().load('img/brain_texture.jpg');
+        //materials["grey"] = createSubgeomMaterial({color: 0xd2b8a3, opacity: 1, transparent: true});
+        //materials["white"] = createSubgeomMaterial({color: 0xfefaf7, opacity: 1, transparent: true});
+        //materials["csf"] = createSubgeomMaterial({color: 0x96a2c8, opacity: 0.5, transparent: true, visible: false});
 
-        materials["grey_opaque"] = new THREE.MeshPhongMaterial( { color: 0xd2b8a3, side: THREE.DoubleSide, opacity: 0.1, transparent: true } );
-        materials["white_opaque"] = new THREE.MeshPhongMaterial( { color: 0xfefaf7, side: THREE.DoubleSide, opacity: 0.1, transparent: true } );
-        materials["csf_opaque"] = new THREE.MeshBasicMaterial( { color: 0x96a2c8, side: THREE.DoubleSide, opacity: 0.1, transparent: true } );
+        materials["grey"] = new THREE.MeshPhongMaterial( {
+            color: 0xd2b8a3,
+            side: THREE.DoubleSide,
+            opacity: 1,
+            transparent: true
+        } );
+        materials["white"] = new THREE.MeshPhongMaterial( {
+            color: 0xfefaf7,
+            side: THREE.DoubleSide,
+            opacity: 1,
+            transparent: true
+        } );
+        materials["csf"] = new THREE.MeshBasicMaterial( {
+            color: 0x96a2c8,
+            side: THREE.DoubleSide,
+            opacity: 0.5,
+            transparent: true,
+            visible: false
+        } );
+
+        //materials["grey_opaque"] = new THREE.MeshPhongMaterial( { color: 0xd2b8a3, side: THREE.DoubleSide, opacity: 0.1, transparent: true } );
+        //materials["white_opaque"] = new THREE.MeshPhongMaterial( { color: 0xfefaf7, side: THREE.DoubleSide, opacity: 0.1, transparent: true } );
+        //materials["csf_opaque"] = new THREE.MeshBasicMaterial( { color: 0x96a2c8, side: THREE.DoubleSide, opacity: 0.1, transparent: true } );
 
     }
 
@@ -256,7 +296,32 @@ var brain3d = (function() {
 
 
     return {
+        setShowGrayMatter: function(show) {
+            materials["grey"].visible = show;
+        },
+        setShowWhiteMatter: function(show) {
+            materials["white"].visible = show;
+        },
+        setShowCSF: function(show) {
+            materials["csf"].visible = show;
+        },
+
         slice: function(x, y, z) {
+            xClippingPlaneLower.constant = -10*x[0];
+            xClippingPlaneUpper.constant = 10*x[1];
+            yClippingPlaneLower.constant = -10*z[0];
+            yClippingPlaneUpper.constant = 10*z[1];
+            zClippingPlaneLower.constant = 10*y[1];
+            zClippingPlaneUpper.constant = -10*y[0];
+
+            /*if (x[0] <= -9 && x[1] >= 9 && y[0] <= -9 && y[1] >= 9 && z[0] <= -9 && z[1] >= 9) {
+                for (var view in views) {
+                    brain_grey_meshes[view].geometry = geometries["models/mni_grey.vtk"];
+                    brain_white_meshes[view].geometry = geometries["models/mni_white.vtk"];
+                    brain_csf_meshes[view].geometry = geometries["models/mni_csf.vtk"];
+                }
+                return;
+            }
 
             showLoadingOverlay();
             window.setTimeout(function() {
@@ -272,35 +337,35 @@ var brain3d = (function() {
                     new THREE.Plane(new THREE.Vector3(1, 0, 0), -10*x[0])
                 );
                 console.log(Math.round(100 * ++step/totalSteps));
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 grey_sliced = sliceGeometry(
                     grey_sliced,
                     new THREE.Plane(new THREE.Vector3(-1, 0, 0), 10*x[1])
                 );
                 console.log(Math.round(100 * ++step/totalSteps));
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 // y
                 grey_sliced = sliceGeometry(
                     grey_sliced,
                     new THREE.Plane(new THREE.Vector3(0, 1, 0), -10*y[0])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 grey_sliced = sliceGeometry(
                     grey_sliced,
                     new THREE.Plane(new THREE.Vector3(0, -1, 0), 10*y[1])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 // z
                 grey_sliced = sliceGeometry(
                     grey_sliced,
                     new THREE.Plane(new THREE.Vector3(0, 0, 1), -10*z[0])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 grey_sliced = sliceGeometry(
                     grey_sliced,
                     new THREE.Plane(new THREE.Vector3(0, 0, -1), 10*z[1])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
 
 
 
@@ -311,71 +376,74 @@ var brain3d = (function() {
                     white_sliced,
                     new THREE.Plane(new THREE.Vector3(1, 0, 0), -10*x[0])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 white_sliced = sliceGeometry(
                     white_sliced,
                     new THREE.Plane(new THREE.Vector3(-1, 0, 0), 10*x[1])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 // y
                 white_sliced = sliceGeometry(
                     white_sliced,
                     new THREE.Plane(new THREE.Vector3(0, 1, 0), -10*y[0])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 white_sliced = sliceGeometry(
                     white_sliced,
                     new THREE.Plane(new THREE.Vector3(0, -1, 0), 10*y[1])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 // z
                 white_sliced = sliceGeometry(
                     white_sliced,
                     new THREE.Plane(new THREE.Vector3(0, 0, 1), -10*z[0])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+
                 white_sliced = sliceGeometry(
                     white_sliced,
                     new THREE.Plane(new THREE.Vector3(0, 0, -1), 10*z[1])
                 );
-                progress.Update(Math.round(100 * ++step/totalSteps));
 
 
-                var csf_sliced = new THREE.Geometry().fromBufferGeometry(geometries["models/mni_csf.vtk"]);
 
-                // x
-                csf_sliced = sliceGeometry(
-                    csf_sliced,
-                    new THREE.Plane(new THREE.Vector3(1, 0, 0), -10*x[0])
-                );
-                progress.Update(Math.round(100 * ++step/totalSteps));
-                csf_sliced = sliceGeometry(
-                    csf_sliced,
-                    new THREE.Plane(new THREE.Vector3(-1, 0, 0), 10*x[1])
-                );
-                progress.Update(Math.round(100 * ++step/totalSteps));
-                // y
-                csf_sliced = sliceGeometry(
-                    csf_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 1, 0), -10*y[0])
-                );
-                progress.Update(Math.round(100 * ++step/totalSteps));
-                csf_sliced = sliceGeometry(
-                    csf_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, -1, 0), 10*y[1])
-                );
-                progress.Update(Math.round(100 * ++step/totalSteps));
-                // z
-                csf_sliced = sliceGeometry(
-                    csf_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 0, 1), -10*z[0])
-                );
-                progress.Update(Math.round(100 * ++step/totalSteps));
-                csf_sliced = sliceGeometry(
-                    csf_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 0, -1), 10*z[1])
-                );
-                progress.Update(Math.round(100 * ++step/totalSteps));
+                var csf_sliced = geometries["models/mni_csf.vtk"];
+                if (materials["csf"].visible) {
+                    csf_sliced = new THREE.Geometry().fromBufferGeometry(csf_sliced);
+
+                    // x
+                    csf_sliced = sliceGeometry(
+                        csf_sliced,
+                        new THREE.Plane(new THREE.Vector3(1, 0, 0), -10 * x[0])
+                    );
+
+                    csf_sliced = sliceGeometry(
+                        csf_sliced,
+                        new THREE.Plane(new THREE.Vector3(-1, 0, 0), 10 * x[1])
+                    );
+
+                    // y
+                    csf_sliced = sliceGeometry(
+                        csf_sliced,
+                        new THREE.Plane(new THREE.Vector3(0, 1, 0), -10 * y[0])
+                    );
+
+                    csf_sliced = sliceGeometry(
+                        csf_sliced,
+                        new THREE.Plane(new THREE.Vector3(0, -1, 0), 10 * y[1])
+                    );
+
+                    // z
+                    csf_sliced = sliceGeometry(
+                        csf_sliced,
+                        new THREE.Plane(new THREE.Vector3(0, 0, 1), -10 * z[0])
+                    );
+
+                    csf_sliced = sliceGeometry(
+                        csf_sliced,
+                        new THREE.Plane(new THREE.Vector3(0, 0, -1), 10 * z[1])
+                    );
+                }
+
 
 
                 for (var view in views) {

@@ -102,6 +102,15 @@ h1 {
 .slider-horizontal {
     flex: 1;
 }
+
+/*
+ * Card sections
+ */
+.card-sections button {
+    width: 130px;
+    cursor: pointer;
+}
+
 /*
 .jstree-themeicon {
     background-size: 22px !important;

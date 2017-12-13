@@ -978,11 +978,6 @@
                                                                         "wiki": "Fusiform_body_area"
                                                                     }
                                                                 ]
-                                                            },
-
-                                                            {
-                                                                "text": "Parahippocampal Gyrus",
-                                                                "wiki": "Parahippocampal_gyrus"
                                                             }
                                                         ]
                                                     },
@@ -1323,6 +1318,22 @@
                                     {
                                         "text": "Piriform cortex",
                                         "wiki": "Piriform_cortex"
+                                    },
+
+
+                                    {
+                                        "text": "Parahippocampal Gyrus",
+                                        "wiki": "Parahippocampal_gyrus",
+                                        "children": [
+                                            {
+                                                "text": "left",
+                                                "model": "destrieux/23"
+                                            },
+                                            {
+                                                "text": "right",
+                                                "model": "destrieux/98"
+                                            }
+                                        ]
                                     }
                                 ]
                             }

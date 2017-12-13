@@ -5,45 +5,37 @@ var talairach = (function(brain3d) {
     var z_slider;
 
 
-    function updateSliderLabels() {
+    function updateSlice() {
         $("#x-slider-val-lower").html(x_slider.getValue()[0] + " cm");
         $("#x-slider-val-upper").html(x_slider.getValue()[1] + " cm");
         $("#y-slider-val-lower").html(y_slider.getValue()[0] + " cm");
         $("#y-slider-val-upper").html(y_slider.getValue()[1] + " cm");
         $("#z-slider-val-lower").html(z_slider.getValue()[0] + " cm");
         $("#z-slider-val-upper").html(z_slider.getValue()[1] + " cm");
+        brain3d.slice(x_slider.getValue(), y_slider.getValue(), z_slider.getValue());
     }
 
     function setTalairachRanges(x, y, z) {
         x_slider.setValue(x);
         y_slider.setValue(y);
         z_slider.setValue(z);
-        updateSliderLabels();
-        sliceTalairachRanges();
-    }
-
-    function sliceTalairachRanges() {
-        brain3d.slice(x_slider.getValue(), y_slider.getValue(), z_slider.getValue());
+        updateSlice();
     }
 
     $( function() {
         x_slider = new Slider('#x-slider', {tooltip: 'always'});
-        x_slider.on("slide", updateSliderLabels);
-        x_slider.on("slideStop", sliceTalairachRanges);
+        x_slider.on("slide", updateSlice);
 
         y_slider = new Slider('#y-slider', {tooltip: 'always'});
-        y_slider.on("slide", updateSliderLabels);
-        y_slider.on("slideStop", sliceTalairachRanges);
+        y_slider.on("slide", updateSlice);
 
         z_slider = new Slider('#z-slider', {tooltip: 'always'});
-        z_slider.on("slide", updateSliderLabels);
-        z_slider.on("slideStop", sliceTalairachRanges);
+        z_slider.on("slide", updateSlice);
     } );
 
     return {
-        updateSliderLabels: updateSliderLabels,
         setTalairachRanges: setTalairachRanges,
-        sliceTalairachRanges: sliceTalairachRanges
+        updateSlice: updateSlice
     }
 
 })(brain3d);
