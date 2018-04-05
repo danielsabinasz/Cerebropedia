@@ -402,7 +402,7 @@ var brain3d = (function() {
                         new THREE.PlaneGeometry(y_width, z_width),
                         new THREE.MeshBasicMaterial({
                             transparent: true,
-                            alphaTest: 0.1,
+                            alphaTest: 0.3,
                             side: THREE.DoubleSide,
                             clippingPlanes: [yClippingPlaneLower2, yClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
                         })
@@ -411,7 +411,7 @@ var brain3d = (function() {
                         new THREE.PlaneGeometry(y_width, z_width),
                         new THREE.MeshBasicMaterial({
                             transparent: true,
-                            alphaTest: 0.1,
+                            alphaTest: 0.3,
                             side: THREE.DoubleSide,
                             clippingPlanes: [yClippingPlaneLower2, yClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
                         })
@@ -422,7 +422,7 @@ var brain3d = (function() {
                         new THREE.PlaneGeometry(z_width, x_width),
                         new THREE.MeshBasicMaterial({
                             transparent: true,
-                            alphaTest: 0.1,
+                            alphaTest: 0.3,
                             side: THREE.DoubleSide,
                             clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, yClippingPlaneLower2, yClippingPlaneUpper2]
                         })
@@ -431,7 +431,7 @@ var brain3d = (function() {
                         new THREE.PlaneGeometry(z_width, x_width),
                         new THREE.MeshBasicMaterial({
                             transparent: true,
-                            alphaTest: 0.1,
+                            alphaTest: 0.3,
                             side: THREE.DoubleSide,
                             clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, yClippingPlaneLower2, yClippingPlaneUpper2]
                         })
@@ -442,7 +442,7 @@ var brain3d = (function() {
                         new THREE.PlaneGeometry(x_width, y_width),
                         new THREE.MeshBasicMaterial({
                             transparent: true,
-                            alphaTest: 0.1,
+                            alphaTest: 0.3,
                             side: THREE.DoubleSide,
                             clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
                         })
@@ -451,7 +451,7 @@ var brain3d = (function() {
                         new THREE.PlaneGeometry(x_width, y_width),
                         new THREE.MeshBasicMaterial({
                             transparent: true,
-                            alphaTest: 0.1,
+                            alphaTest: 0.3,
                             side: THREE.DoubleSide,
                             clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
                         })
