@@ -111,7 +111,20 @@ h1 {
     cursor: pointer;
 }
 
-/*
-.jstree-themeicon {
+
+.jstree-themeicon-custom {
     background-size: 22px !important;
-}*/
+}
+
+/*
+ * 3D tool buttons
+ */
+span.toolbutton_3d {
+    cursor: pointer;
+    color: #333333;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+span.toolbutton_3d svg {
+    fill: currentColor;
+}

@@ -12,10 +12,11 @@
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css?1" rel="stylesheet">
 
     <!-- Jstree -->
     <link href="js/libs/jstree/themes/proton/style.min.css" rel="stylesheet">
+    <!--<link href="js/libs/jstree/themes/default/style.min.css" rel="stylesheet">-->
 
     <!-- JQuery UI -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -126,6 +127,16 @@ void main() {
 	vec3 outgoingLight = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse + reflectedLight.directSpecular + reflectedLight.indirectSpecular + totalEmissiveRadiance;
 	#include <envmap_fragment>
 	gl_FragColor = vec4( outgoingLight, diffuseColor.a );
+	if ( gl_FrontFacing ) {
+
+        gl_FragColor = vec4( outgoingLight, diffuseColor.a );
+
+    } else {
+
+        gl_FragColor = diffuseColor;
+
+    }
+
 	#include <tonemapping_fragment>
 	#include <encodings_fragment>
 	#include <fog_fragment>
@@ -142,9 +153,17 @@ void main() {
 </head>
 
 <body>
+
+<canvas id="slice_region_canvas_x_lower" width="185" height="158" style="display: none;"></canvas>
+<canvas id="slice_region_canvas_x_upper" width="185" height="158" style="display: none;"></canvas>
+<canvas id="slice_region_canvas_y_lower" width="158" height="148" style="display: none;"></canvas>
+<canvas id="slice_region_canvas_y_upper" width="158" height="148" style="display: none;"></canvas>
+<canvas id="slice_region_canvas_z_lower" width="148" height="185" style="display: none;"></canvas>
+<canvas id="slice_region_canvas_z_upper" width="148" height="185" style="display: none;"></canvas>
+
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="http://cerebropedia.org"><img src="icon.png" style="width: 30px; vertical-align: bottom;"> Cerebropedia</a>
+        <a class="navbar-brand" href="http://cerebropedia.org"><img src="icon.png" style="width: 30px; vertical-align: bottom;"> Cerebropedia</a><span style="color: red; font-size: 10px; font-weight: bold;">Beta</span>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -164,16 +183,16 @@ void main() {
                     <a class="nav-link" href="#">Help</a>
                 </li>-->
             </ul>
-            <div class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" id="query" type="text" placeholder="Search" aria-label="Search">
-            </div>
         </div>
     </nav>
 </header>
 
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar" style="overflow: auto;">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar" style="overflow: auto; padding-left: 10px; padding-right: 10px;">
+            <div style="margin-bottom: 10px;">
+                <input class="form-control mr-sm-2" id="query" type="text" placeholder="Search" aria-label="Search">
+            </div>
             <div id="jstree"></div>
         </nav>
 
@@ -183,7 +202,7 @@ void main() {
 
                 <div class="d-flex flex-column" style="flex: 2;">
 
-                    <div class="d-flex flex-row margin-bottom" style="flex: 1;">
+                    <!--<div class="d-flex flex-row margin-bottom" style="flex: 1;">
 
                         <div class="card d-flex flex-column margin-right" style="flex: 1;">
                             <div style="flex: 1; position: relative;">
@@ -233,14 +252,34 @@ void main() {
                             <figcaption class="figure-caption text-center">Posterior view</figcaption>
                         </div>
 
-                    </div>
+                    </div>-->
 
                     <div class="card d-flex flex-column margin-right" style="flex: 2;">
                         <div style="flex: 1; position: relative;">
                             <div id="container_3d" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
                             </div>
+                            <div style="position: absolute; bottom: 0; width: 100%; height: 70px; z-index: 10000; text-align: center; padding-bottom: 10px; padding-top: 10px; background-color: rgba(255, 255, 255, 0.5);">
+                                <span class="toolbutton_3d" onmousedown="brain3d.startRotate([1, 0]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M7.11 8.53L5.7 7.11C4.8 8.27 4.24 9.61 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47zM6.09 13H4.07c.17 1.39.72 2.73 1.62 3.89l1.41-1.42c-.52-.75-.87-1.59-1.01-2.47zm1.01 5.32c1.16.9 2.51 1.44 3.9 1.61V17.9c-.87-.15-1.71-.49-2.46-1.03L7.1 18.32zM13 4.07V1L8.45 5.55 13 10V6.09c2.84.48 5 2.94 5 5.91s-2.16 5.43-5 5.91v2.02c3.95-.49 7-3.85 7-7.93s-3.05-7.44-7-7.93z"/></svg>
+                                </span>
+                                <span class="toolbutton_3d" onmousedown="brain3d.startRotate([-1, 0]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M15.55 5.55L11 1v3.07C7.06 4.56 4 7.92 4 12s3.05 7.44 7 7.93v-2.02c-2.84-.48-5-2.94-5-5.91s2.16-5.43 5-5.91V10l4.55-4.45zM19.93 11c-.17-1.39-.72-2.73-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM13 17.9v2.02c1.39-.17 2.74-.71 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41c.9-1.16 1.45-2.5 1.62-3.89h-2.02c-.14.87-.48 1.72-1.02 2.48z"/></svg>
+                                </span>
+                                <span class="toolbutton_3d" onmousedown="brain3d.startRotate([0, 1]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+                                </span>
+                                <span class="toolbutton_3d" onmousedown="brain3d.startRotate([0, -1]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
+                                </span>
+                                <span class="toolbutton_3d" onmousedown="brain3d.startZoom(1);" onmouseup="brain3d.stopZoom();" onmouseout="brain3d.stopZoom();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zm2.5-4h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg>
+                                </span>
+                                <span class="toolbutton_3d" onmousedown="brain3d.startZoom(-1);" onmouseup="brain3d.stopZoom();" onmouseout="brain3d.stopZoom();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/></svg>
+                                </span>
+                            </div>
                         </div>
-                        <figcaption class="figure-caption text-center">3D view</figcaption>
+                        <!--<figcaption class="figure-caption text-center">3D view</figcaption>-->
                     </div>
 
 
@@ -256,6 +295,8 @@ void main() {
                             <div>
 
                                 <div id="wikipedia_text">
+                                    <h3>Welcome!</h3>
+
                                     <p>
                                         Cerebropedia is an interactive encyclopedia of the human brain that allows you to navigate
                                         through the hierarchical anatomical structure of the brain with ease.
@@ -271,14 +312,24 @@ void main() {
                                         On the left-hand side, you see a tree structure of brain regions.
                                         You can expand regions to view their subregions by clicking on the plus sign.
 
-                                        When you select a brain region, you'll see where this region lies
-                                        as viewed from various directions. At the bottom, you see an interactive 3D model,
+                                        When you select a brain region, you'll see where this region lies in the interactive 3D model,
                                         which you can view at deliberate angles by clicking
-                                        on it and moving your mouse. Moreover, you can zoom in by scrolling.
+                                        on it and moving your mouse. Moreover, you can zoom in by scrolling. Alternatively, you can use the navigation buttons below the 3D model.
 
                                         If you want to look inside the brain, you can select from various types
-                                        of sections (medial, lateral, etc.) by clicking on one of the buttons.
+                                        of sections (medial, lateral, etc.) by clicking on one of the buttons. Alternatively,
+                                        you can use the sliders to specify the desired MNI coordinate ranges yourself.
                                     </p>
+
+                                    <p>
+                                        Cerebropedia draws from data obtained from the Harvard Oxford Atlas (Craddock et al., 2012), the ICBM 152 Nonlinear atlases (Fonov et al., 2009, 2011) and the English Wikipedia (en.wikipedia.org).
+                                    </p>
+
+                                    <h3>References</h3>
+
+                                    <p>Craddock, R. C., James, G. A., Holtzheimer, P. E., Hu, X. P., & Mayberg, H. S. (2012). A whole brain fMRI atlas generated via spatially constrained spectral clustering. <i>Human brain mapping, 33</i>(8), 1914-1928.</p>
+                                    <p>Fonov, V. S., Evans, A. C., McKinstry, R. C., Almli, C. R., & Collins, D. L. (2009). Unbiased nonlinear average age-appropriate brain templates from birth to adulthood. <i>Neuroimage, 47</i>(1), S102.</p>
+                                    <p>Fonov, V., Evans, A. C., Botteron, K., Almli, C. R., McKinstry, R. C., Collins, D. L., & Brain Development Cooperative Group. (2011). Unbiased average age-appropriate atlases for pediatric studies. <i>Neuroimage, 54</i>(1), 313-327.</p>
 
                                 </div>
                             </div>
@@ -300,24 +351,27 @@ void main() {
                             </h5>
 
                             <div class="d-flex flex-row justify-content-between" style="flex: 1; margin-bottom: 5px;">
-                                <button onclick="talairach.setTalairachRanges([-10, 0], [-10, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm">Left hemisphere</button>
-                                <button onclick="talairach.setTalairachRanges([-1, 1], [-10, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm">Medial</button>
-                                <button onclick="talairach.setTalairachRanges([0, 10], [-10, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm">Right hemisphere</button>
+                                <button onclick="talairach.setRanges([talairach.x_min, 0], [talairach.y_min, talairach.y_max], [talairach.z_min, talairach.z_max]);" type="button" class="btn btn-secondary btn-sm">Left hemisphere</button>
+                                <button onclick="talairach.setRanges([-1, 1], [talairach.y_min, talairach.y_max], [talairach.z_min, talairach.z_max]);" type="button" class="btn btn-secondary btn-sm">Medial</button>
+                                <button onclick="talairach.setRanges([0, talairach.x_max], [talairach.y_min, talairach.y_max], [talairach.z_min, talairach.z_max]);" type="button" class="btn btn-secondary btn-sm">Right hemisphere</button>
                             </div>
 
                             <div class="d-flex flex-row justify-content-between" style="flex: 1; margin-bottom: 5px;">
-                                <button onclick="talairach.setTalairachRanges([-10, 10], [0, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm">Anterior</button>
-                                <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 0], [-10, 10]);" type="button" class="btn btn-secondary btn-sm">Posterior</button>
+                                <button onclick="talairach.setRanges([talairach.x_min, talairach.x_max], [0, talairach.y_max], [talairach.z_min, talairach.z_max]);" type="button" class="btn btn-secondary btn-sm">Anterior</button>
+                                <button onclick="talairach.setRanges([talairach.x_min, talairach.x_max], [talairach.y_min, 0], [talairach.z_min, talairach.z_max]);" type="button" class="btn btn-secondary btn-sm">Posterior</button>
                             </div>
 
                             <div class="d-flex flex-row justify-content-between" style="flex: 1; margin-bottom: 5px;">
-                                <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 10], [0, 10]);" type="button" class="btn btn-secondary btn-sm">Superior</button>
-                                <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 10], [-1, 1]);" type="button" class="btn btn-secondary btn-sm">Middle</button>
-                                <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 10], [-10, 0]);" type="button" class="btn btn-secondary btn-sm">Inferior</button>
+                                <button onclick="talairach.setRanges([talairach.x_min, talairach.x_max], [talairach.y_min, talairach.y_max], [0, talairach.z_max]);" type="button" class="btn btn-secondary btn-sm">Superior</button>
+                                <button onclick="talairach.setRanges([talairach.x_min, talairach.x_max], [talairach.y_min, talairach.y_max], [-1, 1]);" type="button" class="btn btn-secondary btn-sm">Middle</button>
+                                <button onclick="talairach.setRanges([talairach.x_min, talairach.x_max], [talairach.y_min, talairach.y_max], [talairach.z_min, 0]);" type="button" class="btn btn-secondary btn-sm">Inferior</button>
                             </div>
 
                             <div class="d-flex flex-row justify-content-between" style="flex: 1; margin-bottom: 5px;">
-                                <button onclick="talairach.setTalairachRanges([-10, 10], [-10, 10], [-10, 10]);" type="button" class="btn btn-secondary btn-sm">Whole brain</button>
+                                <button onclick="talairach.setRanges([talairach.x_min, talairach.x_max], [talairach.y_min, talairach.y_max], [talairach.z_min, talairach.z_max]);" type="button" class="btn btn-secondary btn-sm">Whole brain</button>
+                                <!--
+                                <button onclick="talairach.encloseRegions();" type="button" class="btn btn-secondary btn-sm">Selected regions</button>
+                                -->
                             </div>
 
                         </div>
@@ -327,7 +381,7 @@ void main() {
                     <div class="d-flex card margin-bottom">
                         <div class="card-body d-flex flex-column">
                             <h5 style="margin-bottom: 20px;">
-                                Talairach coordinates
+                                MNI coordinates
                                 <span class="fa fa-question-circle" style="display: block; float: right;" data-toggle="tooltip" title="Select a coordinate range by dragging the handles. This allows you to peak inside a custom subsection of the brain. Alternatively, you can select one of the pre-defined sections above."></span>
                             </h5>
 
@@ -335,27 +389,27 @@ void main() {
                             <div class="d-flex flex-row" style="margin-bottom: 20px;">
                                 <div class="d-flex" style="margin-right: 20px; width: 20%;">x</div>
                                 <div class="d-flex flex-row" style="flex: 1;">
-                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="x-slider-val-lower">-10 cm</div>
-                                    <input id="x-slider" type="text" class="span2" value="" data-slider-min="-10" data-slider-max="10" data-slider-step="0.1" data-slider-value="[-10, 10]"/>
-                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="x-slider-val-upper">10 cm</div>
+                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="x-slider-val-lower"></div>
+                                    <input id="x-slider" type="text" class="span2" value="" data-slider-min="-7.4" data-slider-max="7.4" data-slider-step="0.1" data-slider-value="[-7.4, 7.4]"/>
+                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="x-slider-val-upper"></div>
                                 </div>
                             </div>
 
                             <div class="d-flex flex-row" style="margin-bottom: 20px;">
                                 <div class="d-flex" style="margin-right: 20px; width: 20%;">y</div>
                                 <div class="d-flex flex-row" style="flex: 1;">
-                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="y-slider-val-lower">-10 cm</div>
-                                    <input id="y-slider" type="text" class="span2" value="" data-slider-min="-10" data-slider-max="10" data-slider-step="0.1" data-slider-value="[-10, 10]"/>
-                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="y-slider-val-upper">10 cm</div>
+                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="y-slider-val-lower"></div>
+                                    <input id="y-slider" type="text" class="span2" value="" data-slider-min="-11" data-slider-max="7.5" data-slider-step="0.1" data-slider-value="[-11, 7.5]"/>
+                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="y-slider-val-upper"></div>
                                 </div>
                             </div>
 
                             <div class="d-flex flex-row">
                                 <div class="d-flex" style="margin-right: 20px; width: 20%;">z</div>
                                 <div class="d-flex flex-row" style="flex: 1;">
-                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="z-slider-val-lower">-10 cm</div>
-                                    <input id="z-slider" type="text" class="span2" value="" data-slider-min="-10" data-slider-max="10" data-slider-step="0.1" data-slider-value="[-10, 10]"/>
-                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="z-slider-val-upper">10 cm</div>
+                                    <div class="d-flex" style="margin-right: 20px; width: 70px; text-align: right;" id="z-slider-val-lower"></div>
+                                    <input id="z-slider" type="text" class="span2" value="" data-slider-min="-7.4" data-slider-max="8.4" data-slider-step="0.1" data-slider-value="[-7.4, 8.4]"/>
+                                    <div class="d-flex" style="margin-left: 20px; width: 70px; text-align: left;" id="z-slider-val-upper"></div>
                                 </div>
                             </div>
                         </div>
@@ -367,20 +421,27 @@ void main() {
                             <h5>Options</h5>
 
                             <div class="d-flex flex-row" style="flex: 1;">
-                                <div class="d-flex align-self-center" style="flex: 1;">Rotate</div>
+                                <div class="d-flex align-self-center" style="flex: 1;">Auto rotate</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
-                                    <input type="checkbox" id="rotate">
+                                    <input type="checkbox" id="rotate" checked>
                                 </div>
                             </div>
 
                             <div class="d-flex flex-row" style="flex: 1;">
-                                <div class="d-flex align-self-center" style="flex: 1;">Gray matter</div>
+                                <div class="d-flex align-self-center" style="flex: 1;">Flash</div>
+                                <div class="d-flex align-self-center flex-row" style="flex: 1;">
+                                    <input type="checkbox" id="flash" checked>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex align-self-center" style="flex: 1;">Show 3D brain</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <input type="checkbox" checked id="show_gray_matter">
                                 </div>
                             </div>
 
-                            <div class="d-flex flex-row" style="flex: 1;">
+                            <!--<div class="d-flex flex-row" style="flex: 1;">
                                 <div class="d-flex align-self-center" style="flex: 1;">White matter</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <input type="checkbox" checked id="show_white_matter">
@@ -392,19 +453,40 @@ void main() {
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <input type="checkbox" id="show_csf">
                                 </div>
-                            </div>
+                            </div>-->
 
                             <div class="d-flex flex-row" style="flex: 1;">
-                                <div class="d-flex align-self-center"style="flex: 1;">Opacity</div>
+                                <div class="d-flex align-self-center"style="flex: 1;">Region slice opacity</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
-                                    <input id="opacity-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="20"/>
+                                    <input id="opacity-2d-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="60"/>
                                 </div>
                             </div>
 
                             <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex align-self-center"style="flex: 1;">Region mesh opacity</div>
+                                <div class="d-flex align-self-center flex-row" style="flex: 1;">
+                                    <input id="opacity-3d-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
+                                </div>
+                            </div>
+
+                            <!--<div class="d-flex flex-row" style="flex: 1;">
                                 <div class="d-flex align-self-center"style="flex: 1;">MRI image</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <a href="" id="mri_link" target="_blank">click here</a>
+                                </div>
+                            </div>-->
+
+
+                            <div class="d-flex flex-row" style="flex: 1;">
+                                <div class="d-flex align-self-center" style="flex: 1;">Slice image</div>
+                                <div class="d-flex align-self-center flex-row" style="flex: 1;">
+                                    <label class="radio-inline"><input type="radio" name="mni-image" value="mixed" checked>Tissue</label>
+                                    <label class="radio-inline" style="margin-left: 10px;"><input type="radio" name="mni-image" value="t1">T1</label>
+                                    <label class="radio-inline" style="margin-left: 10px;"><input type="radio" name="mni-image" value="t2">T2</label>
+                                    <!--<label class="radio-inline" style="margin-left: 10px;"><input type="radio" name="mni-image" value="gm">GM</label>
+                                    <label class="radio-inline" style="margin-left: 10px;"><input type="radio" name="mni-image" value="wm">WM</label>
+                                    <label class="radio-inline" style="margin-left: 10px;"><input type="radio" name="mni-image" value="pd">PD</label>
+                                    <label class="radio-inline" style="margin-left: 10px;"><input type="radio" name="mni-image" value="csf">CSF</label>-->
                                 </div>
                             </div>
 
@@ -430,9 +512,9 @@ void main() {
 
 <script src="js/libs/jstree/jstree.min.js"></script>
 
-<script src="js/libs/three/three.js?2"></script>
+<script src="js/libs/three/three.js?10"></script>
 
-<script src="js/libs/three/OrbitControls.js"></script>
+<script src="js/libs/three/OrbitControls.js?2"></script>
 
 <script src="js/libs/three/STLLoader.js"></script>
 <script src="js/libs/three/VTKLoader.js"></script>
@@ -446,12 +528,13 @@ void main() {
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@1.5.4/src/loadingoverlay.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@1.5.4/extras/loadingoverlay_progress/loadingoverlay_progress.min.js"></script>
 
-<script src="js/subgeom.js"></script>
-<script src="js/brain3d.js?14"></script>
-<script src="js/talairach.js?2"></script>
-<script src="js/wiki.js?1"></script>
-<script src="js/tree.js?1"></script>
-<script src="js/main.js?9"></script>
+<script src="js/util.js"></script>
+<script src="js/subgeom.js?60"></script>
+<script src="js/talairach.js?4"></script>
+<script src="js/brain3d.js?385"></script>
+<script src="js/wiki.js?2"></script>
+<script src="js/tree.js?22"></script>
+<script src="js/main.js?15"></script>
 
 </body>
 </html>

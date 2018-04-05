@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+
+        <script src="js/libs/nifti-reader/nifti-reader-min.js"></script>
+
+        <script>
+            var data = // an ArrayBuffer
+            var niftiHeader = null,
+                niftiImage = null,
+                niftiExt = null;
+
+            if (nifti.isCompressed(data)) {
+                data = nifti.decompress(data);
+            }
+
+            if (nifti.isNIFTI(data)) {
+                niftiHeader = nifti.readHeader(data);
+                console.log(niftiHeader.toFormattedString());
+                niftiImage = nifti.readImage(niftiHeader, data);
+
+                if (nifti.hasExtension(niftiHeader)) {
+                    niftiExt = nifti.readExtensionData(niftiHeader, data);
+                }
+            }
+        </script>
+
+    </body>
+
+</html>

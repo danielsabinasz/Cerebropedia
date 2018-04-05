@@ -5,13 +5,12 @@ var wiki = (function() {
      * Fix Wikipedia links
      */
     function fix_wikipedia_links(links) {
-        console.log("wiki tree", tree);
         for (var i = 0; i < links.length; i++) {
             var link = links[i];
             var link_wiki = link.href.split("/").slice(-1)[0];
             if (link_wiki in tree.tree_index_by_wiki) {
                 var node = tree.tree_index_by_wiki[link_wiki];
-                link.href = "javascript:select_node('" + node.id + "')";
+                link.href = "javascript:tree.select_node('" + node.id + "')";
             } else {
                 link.href = "https://en.wikipedia.org/wiki/" + link_wiki;
                 link.target = "_blank";
@@ -25,7 +24,7 @@ var wiki = (function() {
      */
     function load_wiki(node) {
         // Set title
-        $("#title").html(node.text);
+        //$("#title").html(node.text);
 
         // Load wiki article
         $("#wikipedia_text").html("");
@@ -83,7 +82,7 @@ var wiki = (function() {
                         $('#wikipedia_images_card').hide();
                     }
 
-                    $('#wikipedia_text').html("");
+                    $('#wikipedia_text').html("<span style='font-size: 12px; font-style: italic; color: #666666;'>(Source: en.wikipedia.org)</span>");
                     $(text[text.length-1]).append(" <a href='http://en.wikipedia.org/wiki/" + wiki + "' target='_blank'>[Read more]</a>")
 
                     $('#wikipedia_text').append(text);

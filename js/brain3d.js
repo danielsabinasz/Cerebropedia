@@ -6,7 +6,7 @@ var brain3d = (function() {
     var views = {
         "3d": {
             "pos": new THREE.Vector3(0, 0, -1)
-        },
+        }/*,
         "left_lateral": {
             "pos": new THREE.Vector3(-1, 0, 0)
         },
@@ -24,33 +24,83 @@ var brain3d = (function() {
         },
         "posterior": {
             "pos": new THREE.Vector3(0, 0, 1)
-        }
+        }*/
     };
 
-    var default_opacity = 0.2;
+    var flash = true;
+    var default_opacity_2d = 0.6;
+    var default_opacity_3d = 0.5;
+    var mni_image = "mixed";
+    var rotateDirection = [0, 0];
+    var zoomDirection = 0;
 
     var containers = {};
     var cameras = {};
+    var cameras_brain_regions = {};
     var scenes = {};
     var scenes_brain_regions = {};
     var renderers = {};
     var lights = {};
+    var lights_brain_regions = {};
     var geometries = {};
     var materials = {};
     var brain_grey_meshes = {};
     var brain_white_meshes = {};
     var brain_csf_meshes = {};
+    var slice_image_planes = {};
+
+    // Slice region images
+    var slice_region_image_planes = {};
+    var slice_region_canvases = {
+        'x': {
+            'lower': document.getElementById('slice_region_canvas_x_lower'),
+            'upper': document.getElementById('slice_region_canvas_x_upper')
+        },
+        'y': {
+            'lower': document.getElementById('slice_region_canvas_y_lower'),
+            'upper': document.getElementById('slice_region_canvas_y_upper')
+        },
+        'z': {
+            'lower': document.getElementById('slice_region_canvas_z_lower'),
+            'upper': document.getElementById('slice_region_canvas_z_upper')
+        }
+    };
 
     var controls;
 
+    var textureLoader = new THREE.TextureLoader();
 
+    var x_min = talairach.x_min;
+    var x_max = talairach.x_max;
+    var y_min = talairach.y_min;
+    var y_max = talairach.y_max;
+    var z_min = talairach.z_min;
+    var z_max = talairach.z_max;
+
+    var x_width = x_max - x_min;
+    var y_width = y_max - y_min;
+    var z_width = z_max - z_min;
+
+    var x_center = (x_max+x_min)/2;
+    var y_center = (y_max+y_min)/2;
+    var z_center = (z_max+z_min)/2;
 
     var xClippingPlaneLower = new THREE.Plane( new THREE.Vector3( 1, 0, 0 ), 100 );
+    var xClippingPlaneLower2 = new THREE.Plane( new THREE.Vector3( 1, 0, 0 ), 100 );
     var xClippingPlaneUpper = new THREE.Plane( new THREE.Vector3( -1, 0, 0 ), 100 );
+    var xClippingPlaneUpper2 = new THREE.Plane( new THREE.Vector3( -1, 0, 0 ), 100 );
     var yClippingPlaneLower = new THREE.Plane( new THREE.Vector3( 0, 1, 0 ), 100 );
+    var yClippingPlaneLower2 = new THREE.Plane( new THREE.Vector3( 0, 1, 0 ), 100 );
     var yClippingPlaneUpper = new THREE.Plane( new THREE.Vector3( 0, -1, 0 ), 100 );
+    var yClippingPlaneUpper2 = new THREE.Plane( new THREE.Vector3( 0, -1, 0 ), 100 );
     var zClippingPlaneLower = new THREE.Plane( new THREE.Vector3( 0, 0, 1 ), 100 );
+    var zClippingPlaneLower2 = new THREE.Plane( new THREE.Vector3( 0, 0, 1 ), 100 );
     var zClippingPlaneUpper = new THREE.Plane( new THREE.Vector3( 0, 0, -1 ), 100 );
+    var zClippingPlaneUpper2 = new THREE.Plane( new THREE.Vector3( 0, 0, -1 ), 100 );
+
+    var slice_image_cache = {};
+
+    var active_nodes = [];
 
     var progress = new LoadingOverlayProgress({
         bar     : {
@@ -67,6 +117,8 @@ var brain3d = (function() {
             "bottom"           : "35px"
         }
     });
+
+    init();
 
     showLoadingOverlay();
     window.setTimeout(function() {
@@ -92,17 +144,17 @@ var brain3d = (function() {
 
     function updateProgress(progress) {
         if (DEBUG) return;
-        progress.Update(
+        /*progress.Update(
             Math.round( 100 * (
                 progress
             ))
-        );
+        );*/
     }
 
     function loadModel(path, loader) {
         loader.load( path, function(geometry) {
 
-            geometry.center();
+            //geometry.center();
             geometry.computeVertexNormals();
             //geometry.addAttribute('alphaValue', new THREE.BufferAttribute(new Float32Array(alphaArray), 1));
             geometries[path] = geometry;
@@ -114,10 +166,13 @@ var brain3d = (function() {
     }
 
     function loadModels() {
+        //animate();
+        //return;
+
         var manager = new THREE.LoadingManager();
 
         manager.onLoad = function ( ) {
-            init();
+            createBrain();
             animate();
             hideLoadingOverlay();
         };
@@ -127,13 +182,15 @@ var brain3d = (function() {
         };
 
         var vtkLoader = new THREE.VTKLoader(manager);
+        //loadModel("models/jubrain-mpm-surf.vtk", vtkLoader);
         loadModel("models/mni_grey.vtk", vtkLoader);
-        loadModel("models/mni_white.vtk", vtkLoader);
-        loadModel("models/mni_csf.vtk", vtkLoader);
+        //loadModel("models/mni_grey.vtk", vtkLoader);
+        //loadModel("models/mni_white.vtk", vtkLoader);
+        //loadModel("models/mni_csf.vtk", vtkLoader);
     }
 
     function createViews() {
-        var camera_distance = 200;
+        var camera_distance = 300;
 
         for (var view in views) {
 
@@ -148,11 +205,23 @@ var brain3d = (function() {
             cameras[view].lookAt(new THREE.Vector3(0, 0, 0));
             scenes[view].add( cameras[view] );
 
+            cameras_brain_regions[view] = new THREE.PerspectiveCamera( 60, $(containers[view]).width() / $(containers[view]).height(), 0.01, 1e10 );
+            cameras_brain_regions[view].position.set(camera_pos.x, camera_pos.y, camera_pos.z);
+            cameras_brain_regions[view].lookAt(new THREE.Vector3(0, 0, 0));
+            scenes_brain_regions[view].add( cameras_brain_regions[view] );
+
             // Light
             //lights[view] = new THREE.DirectionalLight( 0xaaaaaa );
             lights[view] = new THREE.DirectionalLight( 0xaaaaaa );
             lights[view].position.set( 1, 0, 0 );
             cameras[view].add( lights[view] );
+
+            var ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white light
+            scenes[view].add( ambientLight );
+
+            lights_brain_regions[view] = new THREE.DirectionalLight( 0xaaaaaa );
+            lights_brain_regions[view].position.set( 1, 0, 0 );
+            cameras_brain_regions[view].add( lights_brain_regions[view] );
 
             // Build renderer
             renderers[view] = new THREE.WebGLRenderer( { antialias: false, alpha: true } );
@@ -160,35 +229,58 @@ var brain3d = (function() {
             renderers[view].setSize( $(containers[view]).width(), $(containers[view]).height() );
             renderers[view].sortObjects = false;
             renderers[view].autoClear = false;
-            renderers[view].clippingPlanes = [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper];
+            renderers[view].localClippingEnabled = true;
             containers[view].appendChild( renderers[view].domElement );
         }
     }
 
     function createMaterials() {
         //var grey_texture = new THREE.TextureLoader().load('img/brain_texture.jpg');
-        //materials["grey"] = createSubgeomMaterial({color: 0xd2b8a3, opacity: 1, transparent: true});
-        //materials["white"] = createSubgeomMaterial({color: 0xfefaf7, opacity: 1, transparent: true});
-        //materials["csf"] = createSubgeomMaterial({color: 0x96a2c8, opacity: 0.5, transparent: true, visible: false});
+        /*materials["grey"] = createSubgeomMaterial({
+            color: 0xd2b8a3,
+            opacity: 1,
+            transparent: true,
+            side: THREE.DoubleSide
+        });
+        materials["white"] = createSubgeomMaterial({
+            color: 0xfefaf7,
+            opacity: 1,
+            transparent: true,
+            side: THREE.DoubleSide
+        });
+        materials["csf"] = createSubgeomMaterial({
+            color: 0x96a2c8,
+            opacity: 0.5,
+            transparent: true,
+            visible: false,
+            side: THREE.DoubleSide
+        });*/
 
         materials["grey"] = new THREE.MeshPhongMaterial( {
             color: 0xd2b8a3,
+            //color: 0xd0b6a2,
             side: THREE.DoubleSide,
             opacity: 1,
-            transparent: true
+            transparent: true,
+            clipping: true,
+            clippingPlanes: [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper]
         } );
         materials["white"] = new THREE.MeshPhongMaterial( {
             color: 0xfefaf7,
             side: THREE.DoubleSide,
             opacity: 1,
-            transparent: true
+            transparent: true,
+            clipping: true,
+            clippingPlanes: [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper]
         } );
         materials["csf"] = new THREE.MeshBasicMaterial( {
             color: 0x96a2c8,
             side: THREE.DoubleSide,
             opacity: 0.5,
             transparent: true,
-            visible: false
+            visible: false,
+            clipping: true,
+            clippingPlanes: [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper]
         } );
 
         //materials["grey_opaque"] = new THREE.MeshPhongMaterial( { color: 0xd2b8a3, side: THREE.DoubleSide, opacity: 0.1, transparent: true } );
@@ -201,15 +293,17 @@ var brain3d = (function() {
         for (var view in views) {
             brain_grey_meshes[view] = new THREE.Mesh( geometries["models/mni_grey.vtk"], materials["grey"] );
             brain_grey_meshes[view].rotation.set(-Math.PI/2, 0, 0);
+            //brain_grey_meshes[view].onBeforeRender = function( renderer ) { renderer.clearDepth(); };
+            //brain_grey_meshes[view].scale.multiplyScalar(0.000001);
             scenes[view].add( brain_grey_meshes[view] );
 
-            brain_white_meshes[view] = new THREE.Mesh( geometries["models/mni_white.vtk"], materials["white"] );
+            /*brain_white_meshes[view] = new THREE.Mesh( geometries["models/mni_white.vtk"], materials["white"] );
             brain_white_meshes[view].rotation.set(-Math.PI/2, 0, 0);
             scenes[view].add( brain_white_meshes[view] );
 
             brain_csf_meshes[view] = new THREE.Mesh( geometries["models/mni_csf.vtk"], materials["csf"] );
             brain_csf_meshes[view].rotation.set(-Math.PI/2, 0, 0);
-            scenes[view].add( brain_csf_meshes[view] );
+            scenes[view].add( brain_csf_meshes[view] );*/
         }
         /*var brain_grey_opaque = new THREE.Mesh( geometries["models/mni_grey.vtk"], materials["grey_opaque"] );
         brain_grey_opaque.rotation.set(-Math.PI/2, 0, 0);
@@ -242,9 +336,8 @@ var brain3d = (function() {
     function init() {
         createViews();
         createMaterials();
-        createBrain();
-
-
+        createSliceImagePlanes();
+        createSliceRegionImagePlanes();
 
         //stats = new Stats();
         //container.appendChild( stats.dom );
@@ -258,14 +351,207 @@ var brain3d = (function() {
         controls.noPan = false;
         controls.staticMoving = true;
         controls.dynamicDampingFactor = 0.3;
-        controls.autoRotate = false;
+        controls.autoRotate = true;
 
+    }
+
+    function createSliceImagePlanes() {
+        for (var view in views) {
+
+            slice_image_planes[view] = {
+                'x': {
+                    'lower': new THREE.Mesh(
+                        new THREE.PlaneGeometry(y_width, z_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            clippingPlanes: [yClippingPlaneLower2, yClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
+                        })
+                    ),
+                    'upper': new THREE.Mesh(
+                        new THREE.PlaneGeometry(y_width, z_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            clippingPlanes: [yClippingPlaneLower2, yClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
+                        })
+                    )
+                },
+                'y': {
+                    'lower': new THREE.Mesh(
+                        new THREE.PlaneGeometry(z_width, x_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, yClippingPlaneLower2, yClippingPlaneUpper2]
+                        })
+                    ),
+                    'upper': new THREE.Mesh(
+                        new THREE.PlaneGeometry(z_width, x_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, yClippingPlaneLower2, yClippingPlaneUpper2]
+                        })
+                    )
+                },
+                'z': {
+                    'lower': new THREE.Mesh(
+                        new THREE.PlaneGeometry(x_width, y_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
+                        })
+                    ),
+                    'upper': new THREE.Mesh(
+                        new THREE.PlaneGeometry(x_width, y_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
+                        })
+                    )
+                }
+            };
+
+            slice_image_planes[view]['x']['lower'].position.set(0, z_center, -y_center);
+            slice_image_planes[view]['x']['upper'].position.set(0, z_center, -y_center);
+            slice_image_planes[view]['x']['lower'].rotation.set(0, Math.PI/2, 0);
+            slice_image_planes[view]['x']['upper'].rotation.set(0, Math.PI/2, 0);
+            scenes[view].add(slice_image_planes[view]['x']['lower']);
+            scenes[view].add(slice_image_planes[view]['x']['upper']);
+
+            slice_image_planes[view]['y']['lower'].position.set(0, z_center, 0);
+            slice_image_planes[view]['y']['upper'].position.set(0, z_center, 0);
+            slice_image_planes[view]['y']['lower'].rotation.set(0, 0, Math.PI/2);
+            slice_image_planes[view]['y']['upper'].rotation.set(0, 0, Math.PI/2);
+            scenes[view].add(slice_image_planes[view]['y']['lower']);
+            scenes[view].add(slice_image_planes[view]['y']['upper']);
+
+            slice_image_planes[view]['z']['lower'].position.set(0, z_center, -y_center);
+            slice_image_planes[view]['z']['upper'].position.set(0, z_center, -y_center);
+            slice_image_planes[view]['z']['lower'].rotation.set(Math.PI/2, 0, 0);
+            slice_image_planes[view]['z']['upper'].rotation.set(Math.PI/2, 0, 0);
+            scenes[view].add(slice_image_planes[view]['z']['lower']);
+            scenes[view].add(slice_image_planes[view]['z']['upper']);
+        }
+    }
+
+
+    function createSliceRegionImagePlanes() {
+        for (var view in views) {
+
+            slice_region_image_planes[view] = {
+                'x': {
+                    'lower': new THREE.Mesh(
+                        new THREE.PlaneGeometry(y_width, z_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            map: new THREE.Texture( slice_region_canvases['x']['lower'] ),
+                            opacity: default_opacity_2d,
+                            clippingPlanes: [yClippingPlaneLower2, yClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
+                        })
+                    ),
+                    'upper': new THREE.Mesh(
+                        new THREE.PlaneGeometry(y_width, z_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            map: new THREE.Texture( slice_region_canvases['x']['upper'] ),
+                            opacity: default_opacity_2d,
+                            clippingPlanes: [yClippingPlaneLower2, yClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
+                        })
+                    )
+                },
+                'y': {
+                    'lower': new THREE.Mesh(
+                        new THREE.PlaneGeometry(z_width, x_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            map: new THREE.Texture( slice_region_canvases['y']['lower'] ),
+                            opacity: default_opacity_2d,
+                            clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, yClippingPlaneLower2, yClippingPlaneUpper2]
+                        })
+                    ),
+                    'upper': new THREE.Mesh(
+                        new THREE.PlaneGeometry(z_width, x_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            map: new THREE.Texture( slice_region_canvases['y']['upper'] ),
+                            opacity: default_opacity_2d,
+                            clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, yClippingPlaneLower2, yClippingPlaneUpper2]
+                        })
+                    )
+                },
+                'z': {
+                    'lower': new THREE.Mesh(
+                        new THREE.PlaneGeometry(x_width, y_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            map: new THREE.Texture( slice_region_canvases['z']['lower'] ),
+                            opacity: default_opacity_2d,
+                            clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
+                        })
+                    ),
+                    'upper': new THREE.Mesh(
+                        new THREE.PlaneGeometry(x_width, y_width),
+                        new THREE.MeshBasicMaterial({
+                            transparent: true,
+                            alphaTest: 0.1,
+                            side: THREE.DoubleSide,
+                            map: new THREE.Texture( slice_region_canvases['z']['upper'] ),
+                            opacity: default_opacity_2d,
+                            clippingPlanes: [xClippingPlaneLower2, xClippingPlaneUpper2, zClippingPlaneLower2, zClippingPlaneUpper2]
+                        })
+                    )
+                }
+            };
+
+            slice_region_image_planes[view]['x']['lower'].position.set(0, z_center, -y_center);
+            slice_region_image_planes[view]['x']['upper'].position.set(0, z_center, -y_center);
+            slice_region_image_planes[view]['x']['lower'].rotation.set(0, Math.PI/2, 0);
+            slice_region_image_planes[view]['x']['upper'].rotation.set(0, Math.PI/2, 0);
+            scenes[view].add(slice_region_image_planes[view]['x']['lower']);
+            scenes[view].add(slice_region_image_planes[view]['x']['upper']);
+
+            slice_region_image_planes[view]['y']['lower'].position.set(0, z_center, 0);
+            slice_region_image_planes[view]['y']['upper'].position.set(0, z_center, 0);
+            slice_region_image_planes[view]['y']['lower'].rotation.set(0, 0, Math.PI/2);
+            slice_region_image_planes[view]['y']['upper'].rotation.set(0, 0, Math.PI/2);
+            scenes[view].add(slice_region_image_planes[view]['y']['lower']);
+            scenes[view].add(slice_region_image_planes[view]['y']['upper']);
+
+            slice_region_image_planes[view]['z']['lower'].position.set(0, z_center, -y_center);
+            slice_region_image_planes[view]['z']['upper'].position.set(0, z_center, -y_center);
+            slice_region_image_planes[view]['z']['lower'].rotation.set(Math.PI/2, 0, 0);
+            slice_region_image_planes[view]['z']['upper'].rotation.set(Math.PI/2, 0, 0);
+            scenes[view].add(slice_region_image_planes[view]['z']['lower']);
+            scenes[view].add(slice_region_image_planes[view]['z']['upper']);
+        }
     }
 
     function onWindowResize() {
         for (var view in views) {
             cameras[view].aspect = $(containers[view]).width() / $(containers[view]).height();
             cameras[view].updateProjectionMatrix();
+            cameras_brain_regions[view].aspect = $(containers[view]).width() / $(containers[view]).height();
+            cameras_brain_regions[view].updateProjectionMatrix();
             renderers[view].setSize( $(containers[view]).width(), $(containers[view]).height() );
         }
 
@@ -282,15 +568,51 @@ var brain3d = (function() {
         requestAnimationFrame( animate );
         controls.update();
 
-        for (var view in views) {
-            renderers[view].render( scenes[view], cameras[view] );
-            renderers[view].clearDepth();
-            renderers[view].render( scenes_brain_regions[view], cameras[view] );
+        // Update 3D opacity
+        if (flash) {
+            var n = new Date().getTime();
+            var loopProgress = (n % 5000) / 5000;
+            var currentOpacity = default_opacity_3d * (1 + Math.sin(loopProgress * 2 * Math.PI)) / 2;
+            for (var view in views) {
+                scenes_brain_regions[view].traverse(function(node) {
+
+                    if ( node instanceof THREE.Mesh ) {
+
+                        // insert your code here, for example:
+                        node.material.opacity = currentOpacity;
+
+                    }
+                });
+            }
         }
 
-        // Render regions on top of 3D view
-        //renderers["3d"].clearDepth();
-        //renderers["3d"].render( scene_brain_regions, cameras["3d"] );
+        // Custom rotate
+        if (rotateDirection[0] != 0) {
+            controls.rotateLeft(rotateDirection[0] * 0.01);
+        }
+        if (rotateDirection[1] != 0) {
+            controls.rotateUp(rotateDirection[1] * 0.01);
+        }
+
+        // Custom zoom
+        if (zoomDirection > 0) {
+            controls.dollyIn(1.01*zoomDirection);
+        } else if (zoomDirection < 0) {
+            controls.dollyOut(1.01*-zoomDirection);
+        }
+
+
+        for (var view in views) {
+            cameras_brain_regions[view].position.set(cameras[view].position.x, cameras[view].position.y, cameras[view].position.z);
+            cameras_brain_regions[view].rotation.set(cameras[view].rotation.x, cameras[view].rotation.y, cameras[view].rotation.z);
+
+
+            renderers[view].render( scenes[view], cameras[view] );
+            renderers[view].clearDepth();
+            renderers[view].render( scenes_brain_regions[view], cameras_brain_regions[view] );
+            //renderers[view].clippingPlanes = [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper];
+            //renderers[view].render( scenes_brain_regions_opaque[view], cameras[view] );
+        }
     }
 
 
@@ -307,174 +629,158 @@ var brain3d = (function() {
         },
 
         slice: function(x, y, z) {
-            xClippingPlaneLower.constant = -10*x[0];
-            xClippingPlaneUpper.constant = 10*x[1];
-            yClippingPlaneLower.constant = -10*z[0];
-            yClippingPlaneUpper.constant = 10*z[1];
-            zClippingPlaneLower.constant = 10*y[1];
-            zClippingPlaneUpper.constant = -10*y[0];
 
-            /*if (x[0] <= -9 && x[1] >= 9 && y[0] <= -9 && y[1] >= 9 && z[0] <= -9 && z[1] >= 9) {
-                for (var view in views) {
-                    brain_grey_meshes[view].geometry = geometries["models/mni_grey.vtk"];
-                    brain_white_meshes[view].geometry = geometries["models/mni_white.vtk"];
-                    brain_csf_meshes[view].geometry = geometries["models/mni_csf.vtk"];
-                }
-                return;
+            xClippingPlaneLower.constant = -x[0]-0.4;
+            xClippingPlaneLower2.constant = -x[0];
+            xClippingPlaneUpper.constant = x[1]-0.4;
+            xClippingPlaneUpper2.constant = x[1];
+            yClippingPlaneLower.constant = -z[0]-0.4;
+            yClippingPlaneLower2.constant = -z[0];
+            yClippingPlaneUpper.constant = z[1]-0.4;
+            yClippingPlaneUpper2.constant = z[1];
+            zClippingPlaneLower.constant = y[1]-0.4;
+            zClippingPlaneLower2.constant = y[1];
+            zClippingPlaneUpper.constant = -y[0]-0.4;
+            zClippingPlaneUpper2.constant = -y[0];
+
+            this.slice_x = x;
+            this.slice_y = y;
+            this.slice_z = z;
+            this.updateSliceImages();
+            this.updateSliceRegionImages();
+        },
+
+        updateSliceImages: function() {
+            var x = this.slice_x;
+            var y = this.slice_y;
+            var z = this.slice_z;
+            for (var view in views) {
+                slice_image_planes[view]["x"]["lower"].position.x = x[0];
+                slice_image_planes[view]["x"]["lower"].material.map = this.loadSliceImage("x", x[0]);
+                slice_image_planes[view]["x"]["lower"].material.needsUpdate = true;
+                slice_image_planes[view]["x"]["upper"].position.x = x[1];
+                slice_image_planes[view]["x"]["upper"].material.map = this.loadSliceImage("x", x[1]);
+                slice_image_planes[view]["x"]["upper"].material.needsUpdate = true;
+
+                slice_image_planes[view]["y"]["lower"].position.z = -y[0];
+                slice_image_planes[view]["y"]["lower"].material.map = this.loadSliceImage("y", y[0]);
+                slice_image_planes[view]["y"]["lower"].material.needsUpdate = true;
+                slice_image_planes[view]["y"]["upper"].position.z = -y[1];
+                slice_image_planes[view]["y"]["upper"].material.map = this.loadSliceImage("y", y[1]);
+                slice_image_planes[view]["y"]["upper"].material.needsUpdate = true;
+
+                slice_image_planes[view]["z"]["lower"].position.y = z[0];
+                slice_image_planes[view]["z"]["lower"].material.map = this.loadSliceImage("z", z[0]);
+                slice_image_planes[view]["z"]["lower"].material.needsUpdate = true;
+                slice_image_planes[view]["z"]["upper"].position.y = z[1];
+                slice_image_planes[view]["z"]["upper"].material.map = this.loadSliceImage("z", z[1]);
+                slice_image_planes[view]["z"]["upper"].material.needsUpdate = true;
             }
 
-            showLoadingOverlay();
-            window.setTimeout(function() {
+        },
 
-                var step = 0;
-                var totalSteps = 18.0;
+        updateSliceRegionImages: function() {
+            var x = this.slice_x;
+            var y = this.slice_y;
+            var z = this.slice_z;
+            for (var view in views) {
+                slice_region_image_planes[view]["x"]["lower"].position.x = x[0];
+                this.updateSliceRegionImage(view, "x", "lower", x[0]);
 
-                var grey_sliced = new THREE.Geometry().fromBufferGeometry(geometries["models/mni_grey.vtk"]);
+                slice_region_image_planes[view]["x"]["upper"].position.x = x[1];
+                this.updateSliceRegionImage(view, "x", "upper", x[1]);
 
-                // x
-                grey_sliced = sliceGeometry(
-                    grey_sliced,
-                    new THREE.Plane(new THREE.Vector3(1, 0, 0), -10*x[0])
-                );
-                console.log(Math.round(100 * ++step/totalSteps));
+                slice_region_image_planes[view]["y"]["lower"].position.z = -y[0];
+                this.updateSliceRegionImage(view, "y", "lower", y[0]);
 
-                grey_sliced = sliceGeometry(
-                    grey_sliced,
-                    new THREE.Plane(new THREE.Vector3(-1, 0, 0), 10*x[1])
-                );
-                console.log(Math.round(100 * ++step/totalSteps));
+                slice_region_image_planes[view]["y"]["upper"].position.z = -y[1];
+                this.updateSliceRegionImage(view, "y", "upper", y[1]);
 
-                // y
-                grey_sliced = sliceGeometry(
-                    grey_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 1, 0), -10*y[0])
-                );
+                slice_region_image_planes[view]["z"]["lower"].position.y = z[0];
+                this.updateSliceRegionImage(view, "z", "lower", z[0]);
 
-                grey_sliced = sliceGeometry(
-                    grey_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, -1, 0), 10*y[1])
-                );
+                slice_region_image_planes[view]["z"]["upper"].position.y = z[1];
+                this.updateSliceRegionImage(view, "z", "upper", z[1]);
+            }
+        },
 
-                // z
-                grey_sliced = sliceGeometry(
-                    grey_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 0, 1), -10*z[0])
-                );
+        setMniImage: function(_mni_image) {
+            mni_image = _mni_image;
+            this.updateSliceImages();
+        },
 
-                grey_sliced = sliceGeometry(
-                    grey_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 0, -1), 10*z[1])
-                );
+        loadSliceImage: function(axis, coordinate) {
+            var path = "models/generated/slices/" + mni_image + "_" + axis + "_" + Math.round(coordinate) + ".png";
+            if (!(path in slice_image_cache)) {
+                slice_image_cache[path] = textureLoader.load(path);
+            }
+            return slice_image_cache[path];
+        },
 
+        updateSliceRegionImage: function(view, axis, side, coordinate) {
 
+            var canvas = slice_region_canvases[axis][side];
+            var ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            slice_region_image_planes[view][axis][side].material.map.needsUpdate = true;
 
+            function drawNodeRegionImage(node, region_image) {
+                ctx.drawImage(region_image, 0, 0);
 
-                var white_sliced = new THREE.Geometry().fromBufferGeometry(geometries["models/mni_white.vtk"]);
-
-                // x
-                white_sliced = sliceGeometry(
-                    white_sliced,
-                    new THREE.Plane(new THREE.Vector3(1, 0, 0), -10*x[0])
-                );
-
-                white_sliced = sliceGeometry(
-                    white_sliced,
-                    new THREE.Plane(new THREE.Vector3(-1, 0, 0), 10*x[1])
-                );
-
-                // y
-                white_sliced = sliceGeometry(
-                    white_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 1, 0), -10*y[0])
-                );
-
-                white_sliced = sliceGeometry(
-                    white_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, -1, 0), 10*y[1])
-                );
-
-                // z
-                white_sliced = sliceGeometry(
-                    white_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 0, 1), -10*z[0])
-                );
-
-                white_sliced = sliceGeometry(
-                    white_sliced,
-                    new THREE.Plane(new THREE.Vector3(0, 0, -1), 10*z[1])
-                );
-
-
-
-                var csf_sliced = geometries["models/mni_csf.vtk"];
-                if (materials["csf"].visible) {
-                    csf_sliced = new THREE.Geometry().fromBufferGeometry(csf_sliced);
-
-                    // x
-                    csf_sliced = sliceGeometry(
-                        csf_sliced,
-                        new THREE.Plane(new THREE.Vector3(1, 0, 0), -10 * x[0])
-                    );
-
-                    csf_sliced = sliceGeometry(
-                        csf_sliced,
-                        new THREE.Plane(new THREE.Vector3(-1, 0, 0), 10 * x[1])
-                    );
-
-                    // y
-                    csf_sliced = sliceGeometry(
-                        csf_sliced,
-                        new THREE.Plane(new THREE.Vector3(0, 1, 0), -10 * y[0])
-                    );
-
-                    csf_sliced = sliceGeometry(
-                        csf_sliced,
-                        new THREE.Plane(new THREE.Vector3(0, -1, 0), 10 * y[1])
-                    );
-
-                    // z
-                    csf_sliced = sliceGeometry(
-                        csf_sliced,
-                        new THREE.Plane(new THREE.Vector3(0, 0, 1), -10 * z[0])
-                    );
-
-                    csf_sliced = sliceGeometry(
-                        csf_sliced,
-                        new THREE.Plane(new THREE.Vector3(0, 0, -1), 10 * z[1])
-                    );
+                // Tint
+                var rgb = colorToRGB(node.color);
+                var img_data=ctx.getImageData(0, 0, canvas.width, canvas.height);
+                for (var i=0;i<img_data.data.length;i+=4)
+                {
+                    if (img_data.data[i] == 255) {
+                        img_data.data[i] = rgb[0] | img_data.data[i];
+                        img_data.data[i + 1] = rgb[1] | img_data.data[i + 1];
+                        img_data.data[i + 2] = rgb[2] | img_data.data[i + 2];
+                        img_data.data[i] = rgb[0];
+                        img_data.data[i + 1] = rgb[1];
+                        img_data.data[i + 2] = rgb[2];
+                    }
                 }
+                ctx.putImageData(img_data,0,0);
+
+                slice_region_image_planes[view][axis][side].material.map.needsUpdate = true;
+            }
 
 
 
-                for (var view in views) {
-                    brain_grey_meshes[view].geometry = grey_sliced;
-                    brain_white_meshes[view].geometry = white_sliced;
-                    brain_csf_meshes[view].geometry = csf_sliced;
-                }
+            for (var i = 0; i < active_nodes.length; i++) {
+                var node = active_nodes[i];
+                var path = "models/generated/regions/" + node.id + "_" + axis + "_" + Math.round(coordinate) + ".png";
 
-                hideLoadingOverlay();
-            }, 1000);
-
-
-                /*
-                sliced_geometry = sliceGeometry(
-                    sliced_geometry,
-                    new THREE.Plane(views[view]["slice_plane"].clone().multiplyScalar(-1), slice_width/2.0)
-                );*/
+                var region_image = new Image();
+                region_image.src = path;
+                region_image.addEventListener('load', drawNodeRegionImage.bind(this, node, region_image));
+            }
         },
 
         addNode: function(node, color) {
+            active_nodes.push(node);
 
             var brain_region_material_solid = new THREE.MeshBasicMaterial({
                 color: color,
                 side: THREE.DoubleSide,
-                opacity: default_opacity,
+                opacity: 1,
                 transparent: true,
-                wireframe: false
+                clippingPlanes: [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper]
+            });
+
+            var brain_region_material = new THREE.MeshBasicMaterial({
+                color: color,
+                side: THREE.DoubleSide,
+                opacity: default_opacity_3d,
+                transparent: true,
+                clippingPlanes: [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper]
             });
 
             if (typeof(node.meshes) == "undefined") {
                 node.meshes = {};
+                //node.meshes_solid = {};
+                node.meshes_slices = {};
 
                 for (var view in views) {
 
@@ -482,93 +788,124 @@ var brain3d = (function() {
                     mesh.node = node;
                     node.meshes[view] = mesh;
 
+                    /*var mesh_solid = new THREE.Mesh();
+                    mesh_solid.node = node;
+                    node.meshes_solid[view] = mesh_solid;*/
+
                 }
 
+                console.log("node", node);
+
                 var stlLoader = new THREE.STLLoader();
-                stlLoader.load("models/" + node.original.model + ".stl", function (geometry) {
-                    if (node.original.model.indexOf("destrieux") !== -1) {
-                        geometry.rotateX(-Math.PI/2);
+                stlLoader.load("models/generated/3d/" + node.id + ".stl", function (geometry) {
 
-                        geometry.translate(-76, -69, 91);
-
-                        var geo = new THREE.Geometry().fromBufferGeometry(geometry);
-                        console.log(geometry);
-
-                        /*var minX = 100000;
-                        var maxX = -100000;
-                        var sumX = 0;
-                        var minY = 100000;
-                        var maxY = -100000;
-                        var sumY = 0;
-                        var minZ = 100000;
-                        var maxZ = -100000;
-                        var sumZ = 0;
-                        for (var i = 0; i < geo.vertices.length; i++) {
-                            var v = geo.vertices[i];
-                            if (v.x < minX) minX = v.x;
-                            if (v.x > maxX) maxX = v.x;
-                            sumX += v.x;
-                            if (v.y < minY) minY = v.y;
-                            if (v.y > maxY) maxY = v.y;
-                            sumY += v.y;
-                            if (v.z < minZ) minZ = v.z;
-                            if (v.z > maxZ) maxZ = v.z;
-                            sumZ += v.z;
-                        }
-                        var avgX = sumX / geo.vertices.length;
-                        var avgY = sumY / geo.vertices.length;
-                        var avgZ = sumZ / geo.vertices.length;
-                        console.log((maxX-minX)/2.0, (maxY-minY)/2.0, (maxZ-minZ)/2.0);
-                        console.log(minX, minY, minZ);
-                        console.log(maxX, maxY, maxZ);*/
-                    } else {
-                        geometry.computeVertexNormals(true);
-                        geometry.translate(-89.5, -110, -103);
-                        geometry.rotateX(Math.PI / 2);
-                        geometry.rotateY(-Math.PI);
-                    }
-
+                    geometry.computeVertexNormals(true);
+                    geometry.rotateX(Math.PI / 2);
+                    geometry.rotateY(-Math.PI);
+                    geometry.translate(89, 109, 125);
 
                     for (var view in views) {
                         node.meshes[view].geometry = geometry;
+                        //node.meshes_solid[view].geometry = geometry;
                     }
 
                 });
             }
 
             for (var view in views) {
-                node.meshes[view].material = brain_region_material_solid;
-                scenes_brain_regions[view].add(node.meshes[view])
+                node.meshes[view].material = brain_region_material;
+                //node.meshes_solid[view].material = brain_region_material_solid;
+                scenes_brain_regions[view].add(node.meshes[view]);
+                //scenes[view].add(node.meshes_solid[view]);
             }
+
+            console.log("added node", node.original.text);
+
+            this.updateSliceRegionImages();
 
         },
 
         removeNode: function(node) {
-            for (var view in views) {
-                scenes_brain_regions[view].remove(node.meshes[view]);
+            var index = active_nodes.indexOf(node);
+            if (index > -1) {
+                active_nodes.splice(index, 1);
             }
 
+            for (var view in views) {
+                scenes_brain_regions[view].remove(node.meshes[view]);
+                //scenes[view].remove(node.meshes_solid[view]);
+            }
+
+            this.updateSliceRegionImages();
         },
 
-        setAutoRotate: function(autoRotate) {
-            controls.autoRotate = autoRotate;
-        },
-
-        setOpacity: function(opacity) {
-            default_opacity = opacity;
-
+        setFlash: function(f) {
+            flash = f;
             for (var view in views) {
                 scenes_brain_regions[view].traverse(function(node) {
 
                     if ( node instanceof THREE.Mesh ) {
 
                         // insert your code here, for example:
-                        node.material.opacity = opacity;
+                        node.material.opacity = default_opacity_3d;
 
                     }
                 });
             }
+        },
 
+        setAutoRotate: function(autoRotate) {
+            controls.autoRotate = autoRotate;
+        },
+
+        setOpacity2D: function(opacity) {
+            default_opacity_2d = opacity;
+
+            for (var view in views) {
+                slice_region_image_planes[view]["x"]["lower"].material.opacity = opacity;
+                slice_region_image_planes[view]["x"]["upper"].material.opacity = opacity;
+                slice_region_image_planes[view]["y"]["lower"].material.opacity = opacity;
+                slice_region_image_planes[view]["y"]["upper"].material.opacity = opacity;
+                slice_region_image_planes[view]["z"]["lower"].material.opacity = opacity;
+                slice_region_image_planes[view]["z"]["upper"].material.opacity = opacity;
+            }
+        },
+
+        setOpacity3D: function(opacity) {
+            default_opacity_3d = opacity;
+            if (!flash) {
+                for (var view in views) {
+                    scenes_brain_regions[view].traverse(function(node) {
+
+                        if ( node instanceof THREE.Mesh ) {
+
+                            // insert your code here, for example:
+                            node.material.opacity = default_opacity_3d;
+
+                        }
+                    });
+                }
+            }
+        },
+
+        startRotate: function(direction) {
+            rotateDirection = direction;
+            this.setAutoRotate(false);
+            $("#rotate").prop("checked", false);
+        },
+
+        stopRotate: function() {
+            rotateDirection = [0, 0];
+        },
+
+        startZoom: function(direction) {
+            zoomDirection = direction;
+            this.setAutoRotate(false);
+            $("#rotate").prop("checked", false);
+        },
+
+        stopZoom: function() {
+            zoomDirection = 0;
         }
     }
 })();

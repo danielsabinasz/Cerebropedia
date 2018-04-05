@@ -20,10 +20,13 @@ function createSubgeomMaterial(parameters) {
                 shininess: { value: 30 }
             }
         ]),
-        vertexShader: document.
-        getElementById('vertexShader').text,
-        fragmentShader: document.
-        getElementById('fragmentShader').text,
+        vertexShader: document.getElementById('vertexShader').text,
+        fragmentShader: document.getElementById('fragmentShader').text,
+
+
+        //vertexShader: THREE.ShaderChunk.meshphong_vert,
+        //fragmentShader: THREE.ShaderChunk.meshphong_frag,
+
         transparent: true,
         lights: true
     });
@@ -75,6 +78,7 @@ function createSubgeomMaterial(parameters) {
     material.morphNormals = false;
 
     material.isMeshPhongMaterial = true;
+    //material.clipping = true;
 
     material.setValues(parameters);
 
