@@ -125,6 +125,44 @@ var brain3d = (function() {
         loadModels();
     }, 1000);
 
+
+    var status = [];
+    function displayStatus() {
+        var html = "";
+        for (var i = 0; i < status.length; i++) {
+            html += status[i].message + "<br>";
+        }
+        $("#status").html(html);
+    }
+    function setStatusLoading3D(node) {
+        removeStatus3D(node);
+        status.push({
+            message: "Loading 3D model for " + node.original.text + "...",
+            node: node
+        });
+        displayStatus();
+    }
+    function setStatusFailed3D(node) {
+        removeStatus3D(node);
+        status.push({
+            message: "No 3D model available for " + node.original.text + ". Try a different brain region.",
+            node: node
+        });
+        displayStatus();
+    }
+    function removeStatus3D(node) {
+        removeByValue(status, getStatus3D(node));
+        displayStatus();
+    }
+    function getStatus3D(node) {
+        for (var i = 0; i < status.length; i++) {
+            if ("node" in status[i] && status[i].node == node) {
+                return status[i];
+            }
+        }
+        return undefined;
+    }
+
     function showLoadingOverlay() {
         if (DEBUG) return;
         progress.itemsLoaded = 0;
@@ -794,10 +832,10 @@ var brain3d = (function() {
 
                 }
 
-                console.log("node", node);
-
                 var stlLoader = new THREE.STLLoader();
+                setStatusLoading3D(node);
                 stlLoader.load("models/generated/3d/" + node.id + ".stl", function (geometry) {
+                    removeStatus3D(node);
 
                     geometry.computeVertexNormals(true);
                     geometry.rotateX(Math.PI / 2);
@@ -809,6 +847,8 @@ var brain3d = (function() {
                         //node.meshes_solid[view].geometry = geometry;
                     }
 
+                }, null, function() {
+                    setStatusFailed3D(node);
                 });
             }
 
@@ -836,6 +876,7 @@ var brain3d = (function() {
                 //scenes[view].remove(node.meshes_solid[view]);
             }
 
+            removeStatus3D(node);
             this.updateSliceRegionImages();
         },
 
