@@ -31,6 +31,9 @@ var brain3d = (function() {
     var default_opacity_2d = 0.6;
     var default_opacity_3d = 0.5;
     var mni_image = "mixed";
+
+    var default_camera_distance = 300;
+
     var rotateDirection = [0, 0];
     var zoomDirection = 0;
 
@@ -221,15 +224,13 @@ var brain3d = (function() {
 
         var vtkLoader = new THREE.VTKLoader(manager);
         //loadModel("models/jubrain-mpm-surf.vtk", vtkLoader);
-        loadModel("models/mni_grey.vtk", vtkLoader);
+        loadModel("models/mni_brain.vtk", vtkLoader);
         //loadModel("models/mni_grey.vtk", vtkLoader);
         //loadModel("models/mni_white.vtk", vtkLoader);
         //loadModel("models/mni_csf.vtk", vtkLoader);
     }
 
     function createViews() {
-        var camera_distance = 300;
-
         for (var view in views) {
 
             containers[view] = document.getElementById("container_" + view);
@@ -238,7 +239,8 @@ var brain3d = (function() {
 
             // Camera
             cameras[view] = new THREE.PerspectiveCamera( 60, $(containers[view]).width() / $(containers[view]).height(), 0.01, 1e10 );
-            var camera_pos = views[view]["pos"].normalize().multiplyScalar(camera_distance);
+            var camera_pos = views[view]["pos"].clone().normalize().multiplyScalar(default_camera_distance);
+            console.log("Set camera pos", camera_pos);
             cameras[view].position.set(camera_pos.x, camera_pos.y, camera_pos.z);
             cameras[view].lookAt(new THREE.Vector3(0, 0, 0));
             scenes[view].add( cameras[view] );
@@ -329,7 +331,7 @@ var brain3d = (function() {
 
     function createBrain() {
         for (var view in views) {
-            brain_grey_meshes[view] = new THREE.Mesh( geometries["models/mni_grey.vtk"], materials["grey"] );
+            brain_grey_meshes[view] = new THREE.Mesh( geometries["models/mni_brain.vtk"], materials["grey"] );
             brain_grey_meshes[view].rotation.set(-Math.PI/2, 0, 0);
             //brain_grey_meshes[view].onBeforeRender = function( renderer ) { renderer.clearDepth(); };
             //brain_grey_meshes[view].scale.multiplyScalar(0.000001);
@@ -947,6 +949,24 @@ var brain3d = (function() {
 
         stopZoom: function() {
             zoomDirection = 0;
+        },
+
+        resetView: function() {
+            controls.reset();
+            this.setAutoRotate(true);
+            $("#rotate").prop("checked", true);
+        },
+
+        saveImage: function(view) {
+            if (typeof(view) == "undefined") view = "3d";
+            renderers[view].render( scenes[view], cameras[view] );
+            renderers[view].clearDepth();
+            renderers[view].render( scenes_brain_regions[view], cameras_brain_regions[view] );
+            var dataURL = renderers["3d"].domElement.toDataURL();
+
+            $("#modal .modal-title").html("Screenshot");
+            $("#modal .modal-body").html("Right-click the image and click on 'save image as'. If you plan to use this image, please reference cerebropedia.org as a source.<img src='" + dataURL + "' style='width: 100%;'>");
+            $("#modal").modal("show");
         }
     }
 })();

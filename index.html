@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <meta name="description" content="An interactive 3D encyclopedia of the human brain that allows you to navigate through the hierarchical anatomical structure of the brain with ease.">
+    <link rel="icon" href="favicon.ico">
 
     <title>Cerebropedia</title>
 
@@ -154,6 +155,36 @@ void main() {
 
 <body>
 
+<!-- Screenshot save window -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Facebook like button -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.12&appId=2194686090755492&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Slice canvases -->
 <canvas id="slice_region_canvas_x_lower" width="185" height="158" style="display: none;"></canvas>
 <canvas id="slice_region_canvas_x_upper" width="185" height="158" style="display: none;"></canvas>
 <canvas id="slice_region_canvas_y_lower" width="158" height="148" style="display: none;"></canvas>
@@ -162,15 +193,32 @@ void main() {
 <canvas id="slice_region_canvas_z_upper" width="148" height="185" style="display: none;"></canvas>
 
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="http://cerebropedia.org"><img src="icon.png" style="width: 30px; vertical-align: bottom;"> Cerebropedia</a><span style="color: red; font-size: 10px; font-weight: bold;">Beta</span>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-dark fixed-top bg-dark justify-content-start">
+        <a class="navbar-brand" href="http://cerebropedia.org"><img src="icon.png" style="width: 30px; vertical-align: bottom;"> Cerebropedia <span style="color: red; font-size: 10px; font-weight: bold;">Beta</span></a>
+
+        <div class="fb-like" data-href="https://www.facebook.com/Cerebropedia/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+
+            <ul class="nav ml-auto share-buttons">
+                <li style="padding-right:10px;" class="d-flex align-items-center"><a class="" href="https://github.com/danielsabinasz/Cerebropedia/issues">Report a bug</a></li>
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.cerebropedia.org&quote=Cerebropedia" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="img/simple_icons/Facebook.png" /></a></li>
+                <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.cerebropedia.org&text=Cerebropedia:%20http%3A%2F%2Fwww.cerebropedia.org" target="_blank" title="Tweet"><img alt="Tweet" src="img/simple_icons/Twitter.png" /></a></li>
+                <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.cerebropedia.org" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="img/simple_icons/GooglePlus.png" /></a></li>
+                <li><a href="http://www.tumblr.com/share?v=3&u=http%3A%2F%2Fwww.cerebropedia.org&quote=Cerebropedia&s=" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="img/simple_icons/Tumblr.png" /></a></li>
+                <li><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.cerebropedia.org&description=An%20interactive%203D%20encyclopedia%20of%20the%20human%20brain%20that%20allows%20you%20to%20navigate%20through%20the%20hierarchical%20anatomical%20structure%20of%20the%20brain%20with%20ease." target="_blank" title="Pin it"><img alt="Pin it" src="img/simple_icons/Pinterest.png" /></a></li>
+                <li><a href="https://getpocket.com/save?url=http%3A%2F%2Fwww.cerebropedia.org&title=Cerebropedia" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="img/simple_icons/Pocket.png" /></a></li>
+                <li><a href="http://www.reddit.com/submit?url=http%3A%2F%2Fwww.cerebropedia.org&title=Cerebropedia" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="img/simple_icons/Reddit.png" /></a></li>
+                <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.cerebropedia.org&title=Cerebropedia&summary=An%20interactive%203D%20encyclopedia%20of%20the%20human%20brain%20that%20allows%20you%20to%20navigate%20through%20the%20hierarchical%20anatomical%20structure%20of%20the%20brain%20with%20ease.&source=http%3A%2F%2Fwww.cerebropedia.org" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="img/simple_icons/LinkedIn.png" /></a></li>
+                <li><a href="mailto:?subject=Cerebropedia&body=An%20interactive%203D%20encyclopedia%20of%20the%20human%20brain%20that%20allows%20you%20to%20navigate%20through%20the%20hierarchical%20anatomical%20structure%20of%20the%20brain%20with%20ease.:%20http%3A%2F%2Fwww.cerebropedia.org" target="_blank" title="Send email"><img alt="Send email" src="img/simple_icons/Email.png" /></a></li>
+            </ul>
+
+
+        <!--<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <!--<li class="nav-item active">
+                <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -181,9 +229,9 @@ void main() {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>
-                </li>-->
+                </li>
             </ul>
-        </div>
+        </div>-->
     </nav>
 </header>
 
@@ -260,24 +308,31 @@ void main() {
                             </div>
                             <div style="position: absolute; top: 0; left: 0; padding: 10px;" id="status"></div>
                             <div style="position: absolute; bottom: 0; width: 100%; height: 70px; z-index: 10000; text-align: center; padding-bottom: 10px; padding-top: 10px; background-color: rgba(255, 255, 255, 0.5);">
-                                <span class="toolbutton_3d" onmousedown="brain3d.startRotate([1, 0]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
+                                <span title="Rotate left" data-toggle="tooltip" class="toolbutton_3d" onmousedown="brain3d.startRotate([1, 0]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M7.11 8.53L5.7 7.11C4.8 8.27 4.24 9.61 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47zM6.09 13H4.07c.17 1.39.72 2.73 1.62 3.89l1.41-1.42c-.52-.75-.87-1.59-1.01-2.47zm1.01 5.32c1.16.9 2.51 1.44 3.9 1.61V17.9c-.87-.15-1.71-.49-2.46-1.03L7.1 18.32zM13 4.07V1L8.45 5.55 13 10V6.09c2.84.48 5 2.94 5 5.91s-2.16 5.43-5 5.91v2.02c3.95-.49 7-3.85 7-7.93s-3.05-7.44-7-7.93z"/></svg>
                                 </span>
-                                <span class="toolbutton_3d" onmousedown="brain3d.startRotate([-1, 0]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
+                                <span title="Rotate right" data-toggle="tooltip" class="toolbutton_3d" onmousedown="brain3d.startRotate([-1, 0]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M15.55 5.55L11 1v3.07C7.06 4.56 4 7.92 4 12s3.05 7.44 7 7.93v-2.02c-2.84-.48-5-2.94-5-5.91s2.16-5.43 5-5.91V10l4.55-4.45zM19.93 11c-.17-1.39-.72-2.73-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM13 17.9v2.02c1.39-.17 2.74-.71 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41c.9-1.16 1.45-2.5 1.62-3.89h-2.02c-.14.87-.48 1.72-1.02 2.48z"/></svg>
                                 </span>
-                                <span class="toolbutton_3d" onmousedown="brain3d.startRotate([0, 1]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
+                                <span title="Rotate up" data-toggle="tooltip" class="toolbutton_3d" onmousedown="brain3d.startRotate([0, 1]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
                                 </span>
-                                <span class="toolbutton_3d" onmousedown="brain3d.startRotate([0, -1]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
+                                <span title="Rotate down" data-toggle="tooltip" class="toolbutton_3d" onmousedown="brain3d.startRotate([0, -1]);" onmouseup="brain3d.stopRotate();" onmouseout="brain3d.stopRotate();">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
                                 </span>
-                                <span class="toolbutton_3d" onmousedown="brain3d.startZoom(1);" onmouseup="brain3d.stopZoom();" onmouseout="brain3d.stopZoom();">
+                                <span title="Zoom in" data-toggle="tooltip" class="toolbutton_3d" onmousedown="brain3d.startZoom(1);" onmouseup="brain3d.stopZoom();" onmouseout="brain3d.stopZoom();">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zm2.5-4h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg>
                                 </span>
-                                <span class="toolbutton_3d" onmousedown="brain3d.startZoom(-1);" onmouseup="brain3d.stopZoom();" onmouseout="brain3d.stopZoom();">
+                                <span title="Zoom out" data-toggle="tooltip" class="toolbutton_3d" onmousedown="brain3d.startZoom(-1);" onmouseup="brain3d.stopZoom();" onmouseout="brain3d.stopZoom();">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/></svg>
                                 </span>
+                                <span title="Reset view" data-toggle="tooltip" class="toolbutton_3d" onmousedown="brain3d.resetView();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z"/></svg>
+                                </span>
+                                <span title="Save image" data-toggle="tooltip" class="toolbutton_3d" onmousedown="brain3d.saveImage();">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+                                </span>
+
                             </div>
                         </div>
                         <!--<figcaption class="figure-caption text-center">3D view</figcaption>-->
@@ -419,23 +474,23 @@ void main() {
 
                     <div class="card d-flex flex-column">
                         <div class="card-body d-flex flex-column">
-                            <h5>Options</h5>
+                            <h5 style="margin-bottom: 10px;">Options</h5>
 
-                            <div class="d-flex flex-row" style="flex: 1;">
+                            <div class="d-flex flex-row" style="flex: 1; margin-bottom: 10px;">
                                 <div class="d-flex align-self-center" style="flex: 1;">Auto rotate</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <input type="checkbox" id="rotate" checked>
                                 </div>
                             </div>
 
-                            <div class="d-flex flex-row" style="flex: 1;">
+                            <div class="d-flex flex-row" style="flex: 1; margin-bottom: 10px;">
                                 <div class="d-flex align-self-center" style="flex: 1;">Flash</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <input type="checkbox" id="flash" checked>
                                 </div>
                             </div>
 
-                            <div class="d-flex flex-row" style="flex: 1;">
+                            <div class="d-flex flex-row" style="flex: 1; margin-bottom: 10px;">
                                 <div class="d-flex align-self-center" style="flex: 1;">Show 3D brain</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <input type="checkbox" checked id="show_gray_matter">
@@ -456,14 +511,14 @@ void main() {
                                 </div>
                             </div>-->
 
-                            <div class="d-flex flex-row" style="flex: 1;">
+                            <div class="d-flex flex-row" style="flex: 1; margin-bottom: 10px;">
                                 <div class="d-flex align-self-center"style="flex: 1;">Region slice opacity</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <input id="opacity-2d-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="60"/>
                                 </div>
                             </div>
 
-                            <div class="d-flex flex-row" style="flex: 1;">
+                            <div class="d-flex flex-row" style="flex: 1; margin-bottom: 10px;">
                                 <div class="d-flex align-self-center"style="flex: 1;">Region mesh opacity</div>
                                 <div class="d-flex align-self-center flex-row" style="flex: 1;">
                                     <input id="opacity-3d-slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50"/>
@@ -532,9 +587,9 @@ void main() {
 <script src="js/util.js?1"></script>
 <script src="js/subgeom.js?60"></script>
 <script src="js/talairach.js?4"></script>
-<script src="js/brain3d.js?387"></script>
+<script src="js/brain3d.js?389"></script>
 <script src="js/wiki.js?2"></script>
-<script src="js/tree.js?22"></script>
+<script src="js/tree.js?23"></script>
 <script src="js/main.js?15"></script>
 
 </body>

@@ -82,8 +82,7 @@ var wiki = (function() {
                         $('#wikipedia_images_card').hide();
                     }
 
-                    $('#wikipedia_text').html("<span style='font-size: 12px; font-style: italic; color: #666666;'>(Source: en.wikipedia.org)</span>");
-                    $(text[text.length-1]).append(" <a href='http://en.wikipedia.org/wiki/" + wiki + "' target='_blank'>[Read more]</a>")
+                    $('#wikipedia_text').html("<span style='font-size: 12px; font-style: italic; color: #666666;'>Source: en.wikipedia.org | <a href='http://en.wikipedia.org/wiki/" + wiki + "' target='_blank'>[Read the whole article]</a></span>");
 
                     $('#wikipedia_text').append(text);
                     $("#wikipedia").LoadingOverlay("hide");

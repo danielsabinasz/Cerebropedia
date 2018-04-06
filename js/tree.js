@@ -204,7 +204,7 @@ var tree = (function(brain3d, wiki) {
 
                 //jstree.jstree('open_all');
             }).on("changed.jstree", function (e, data) {
-                //window.location.hash = jstree.jstree("get_state").core.selected.join(",");
+                window.location.hash = jstree.jstree("get_state").core.selected.join(",");
 
                 /**
                  * On change: Display 3D region
