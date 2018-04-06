@@ -196,7 +196,7 @@ var brain3d = (function() {
         loader.load( path, function(geometry) {
 
             //geometry.center();
-            geometry.computeVertexNormals();
+            //geometry.computeVertexNormals();
             //geometry.addAttribute('alphaValue', new THREE.BufferAttribute(new Float32Array(alphaArray), 1));
             geometries[path] = geometry;
         }, function(p) {
@@ -235,6 +235,7 @@ var brain3d = (function() {
 
             containers[view] = document.getElementById("container_" + view);
             scenes[view] = new THREE.Scene();
+
             scenes_brain_regions[view] = new THREE.Scene();
 
             // Camera
@@ -298,11 +299,12 @@ var brain3d = (function() {
 
         materials["grey"] = new THREE.MeshPhongMaterial( {
             color: 0xd2b8a3,
-            //color: 0xd0b6a2,
             side: THREE.DoubleSide,
             opacity: 1,
             transparent: true,
+            skinning: true,
             clipping: true,
+            shading: THREE.SmoothShading,
             clippingPlanes: [xClippingPlaneLower, xClippingPlaneUpper, yClippingPlaneLower, yClippingPlaneUpper, zClippingPlaneLower, zClippingPlaneUpper]
         } );
         materials["white"] = new THREE.MeshPhongMaterial( {
@@ -839,7 +841,7 @@ var brain3d = (function() {
                 stlLoader.load("models/generated/3d/" + node.id + ".stl", function (geometry) {
                     removeStatus3D(node);
 
-                    geometry.computeVertexNormals(true);
+                    //geometry.computeVertexNormals(true);
                     geometry.rotateX(Math.PI / 2);
                     geometry.rotateY(-Math.PI);
                     geometry.translate(89, 109, 125);
