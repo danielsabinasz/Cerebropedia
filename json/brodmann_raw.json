@@ -1,7 +1,7 @@
 [
     {
-        "id": "Harvard_Oxford_Atlas",
-        "text": "Harvard-Oxford Atlas",
+        "id": "Brain",
+        "text": "Brain",
         "wiki": "Human_brain",
         "state": {
             "opened": true
@@ -64,6 +64,12 @@
                                                                 "type": "area",
                                                                 "wiki": "Ventromedial_prefrontal_cortex",
                                                                 "children": [
+                                                                    {
+                                                                        "id": "Frontopolar_prefrontal_cortex",
+                                                                        "text": "Frontopolar Prefrontal Cortex / Rostrolateral Prefrontal Cortex / Anterior Prefrontal Cortex (10)",
+                                                                        "model": "brodmann/10",
+                                                                        "wiki": "Brodmann_area_10"
+                                                                    }
                                                                 ]
                                                             },
                                                             {
@@ -284,9 +290,10 @@
                                                         "model": "harvard_oxford_cort/42",
                                                         "wiki": "Operculum_(brain)"
                                                     },
+
                                                     {
                                                         "id": "Frontal_lobe_brodmann_areas",
-                                                        "text": "Frontal Lobe Brodmann Areas",
+                                                        "text": "Brodmann Areas",
                                                         "children": [
                                                             {
                                                                 "id": "Brodmann_area_4",
@@ -386,6 +393,10 @@
                                                             }
                                                         ]
                                                     }
+
+
+
+
                                                 ]
                                             },
                                             {
@@ -501,12 +512,10 @@
                                                         "type": "sulcus",
                                                         "wiki": "Marginal_sulcus"
                                                     },
-
                                                     {
                                                         "id": "Parietal_lobe_brodmann_areas",
-                                                        "text": "Parietal Lobe Brodmann Areas",
+                                                        "text": "Brodmann Areas",
                                                         "children": [
-
                                                             {
                                                                 "id": "Brodmann_areas_3_1_2",
                                                                 "text": "3, 1, 2 / Primary Somesthetic Area / Postcentral Gyrus",
@@ -593,6 +602,7 @@
                                                                 "wiki": "Brodmann_area_40",
                                                                 "model": "brodmann/40"
                                                             }
+
                                                         ]
                                                     }
 
@@ -733,9 +743,10 @@
                                                         "text": "Occipital Face Area",
                                                         "type": "area"
                                                     },
+
                                                     {
                                                         "id": "Occipital_lobe_brodmann_areas",
-                                                        "text": "Occipital Lobe Brodmann Areas",
+                                                        "text": "Brodmann Areas",
                                                         "children": [
                                                             {
                                                                 "id": "Brodmann_area_17",
@@ -969,10 +980,9 @@
                                                         "wiki": "Medial_superior_temporal_area"
                                                     },
 
-
                                                     {
                                                         "id": "Temporal_lobe_brodmann_areas",
-                                                        "text": "Temporal Lobe Brodmann Areas",
+                                                        "text": "Brodmann Areas",
                                                         "children": [
                                                             {
                                                                 "id": "Brodmann_area_20",
@@ -1042,6 +1052,7 @@
                                                             }
                                                         ]
                                                     }
+
                                                 ]
                                             },
 
@@ -1257,6 +1268,7 @@
                                                     }
                                                 ]
                                             }
+
                                         ]
                                     },
                                     {

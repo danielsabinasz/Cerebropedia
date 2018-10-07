@@ -130,10 +130,10 @@ var brain3d = (function() {
 
 
     var status = [];
-    function displayStatus() {
-        var html = "";
+    function displayStatus(node) {
+        var html = "<h5>" + node.original.text + "</h5>";
         for (var i = 0; i < status.length; i++) {
-            html += status[i].message + "<br>";
+            html += "<div style='font-size: 12px; font-style: italic; color: #666666; line-height: 1.1em; max-height: 53px; overflow: auto;'>" + status[i].message + "</div>";
         }
         $("#status").html(html);
     }
@@ -143,7 +143,7 @@ var brain3d = (function() {
             message: "Loading 3D model for " + node.original.text + "...",
             node: node
         });
-        displayStatus();
+        displayStatus(node);
     }
     function setStatusFailed3D(node) {
         removeStatus3D(node);
@@ -151,11 +151,19 @@ var brain3d = (function() {
             message: "No 3D model available for " + node.original.text + ". Try a different brain region.",
             node: node
         });
-        displayStatus();
+        displayStatus(node);
+    }
+    function setStatusBorrowed(node) {
+        removeStatus3D(node);
+        status.push({
+            message: "Showing models for " + node.original.borrowed_models.join(", ").replace(/_/g, " ") + ".",
+            node: node
+        });
+        displayStatus(node);
     }
     function removeStatus3D(node) {
         removeByValue(status, getStatus3D(node));
-        displayStatus();
+        displayStatus(node);
     }
     function getStatus3D(node) {
         for (var i = 0; i < status.length; i++) {
@@ -223,8 +231,10 @@ var brain3d = (function() {
         };
 
         var vtkLoader = new THREE.VTKLoader(manager);
-        //loadModel("models/jubrain-mpm-surf.vtk", vtkLoader);
         loadModel("models/mni_brain.vtk", vtkLoader);
+        //var stlLoader = new THREE.STLLoader(manager);
+        //loadModel("models/brodmann_brain.stl", stlLoader);
+        //loadModel("models/jubrain-mpm-surf.vtk", vtkLoader);
         //loadModel("models/mni_grey.vtk", vtkLoader);
         //loadModel("models/mni_white.vtk", vtkLoader);
         //loadModel("models/mni_csf.vtk", vtkLoader);
@@ -838,10 +848,16 @@ var brain3d = (function() {
 
                 var stlLoader = new THREE.STLLoader();
                 setStatusLoading3D(node);
+                console.log("Load: " + "models/generated/3d/" + node.id + ".stl");
                 stlLoader.load("models/generated/3d/" + node.id + ".stl", function (geometry) {
-                    removeStatus3D(node);
+                    if ("borrowed_models" in node.original) {
+                        setStatusBorrowed(node);
+                    } else {
+                        removeStatus3D(node);
+                    }
 
                     //geometry.computeVertexNormals(true);
+                    //geometry.center();
                     geometry.rotateX(Math.PI / 2);
                     geometry.rotateY(-Math.PI);
                     geometry.translate(89, 109, 125);

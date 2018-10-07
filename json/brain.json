@@ -1,162 +1,526 @@
 [
  {
-  "text": "Brain",
   "wiki": "Human_brain",
   "state": {
    "opened": true
   },
+  "id": "Harvard_Oxford_Atlas",
+  "text": "Harvard-Oxford Atlas",
+  "borrowed_models": [
+   "Orbitofrontal_cortex",
+   "Supplementary_motor_cortex",
+   "Frontal_medial_cortex",
+   "Superior_frontal_gyrus",
+   "Middle_frontal_gyrus",
+   "Pars_opercularis",
+   "Pars_triangularis",
+   "Precentral_gyrus",
+   "Frontal_pole",
+   "Frontal_operculum_cortex",
+   "Central_operculum_cortex",
+   "Postcentral_gyrus",
+   "Parietal_operculum",
+   "Superior_parietal_lobule",
+   "Precuneus",
+   "Anterior_supramarginal_gyrus",
+   "Posterior_supramarginal_gyrus",
+   "Angular_gyrus",
+   "Occipital_fusiform_gyrus",
+   "Superior_lateral_occipital_cortex",
+   "Inferior_lateral_occipital_cortex",
+   "Intracalcarine_cortex",
+   "Supracalcarine_cortex",
+   "Occipital_pole",
+   "Cuneus",
+   "Anterior_temporal_fusiform_cortex",
+   "Posterior_temporal_fusiform_cortex",
+   "Anterior_superior_temporal_gyrus",
+   "Posterior_superior_temporal_gyrus",
+   "Anterior_middle_temporal_gyrus",
+   "Posterior_middle_temporal_gyrus",
+   "Temporo_occipital_middle_temporal_gyrus",
+   "Anterior_inferior_temporal_gyrus",
+   "Posterior_inferior_temporal_gyrus",
+   "Temporo_occipital_inferior_temporal_gyrus",
+   "Transverse_temporal_gyrus",
+   "Temporal_pole",
+   "Planum_polare",
+   "Planum_temporale",
+   "Lingual_gyrus",
+   "Insular_cortex",
+   "Temporal_occipital_fusiform_cortex",
+   "Left_caudate_nucleus",
+   "Right_caudate_nucleus",
+   "Left_putamen",
+   "Right_putamen",
+   "Left_accumbens",
+   "Right_accumbens",
+   "Left_pallidum",
+   "Right_pallidum",
+   "Left_amygdala",
+   "Right_amygdala",
+   "Left_hippocampus",
+   "Right_hippocampus",
+   "Anterior_parahippocampal_gyrus",
+   "Posterior_parahippocampal_gyrus",
+   "Anterior_cingulate_gyrus",
+   "Posterior_cingulate_gyrus",
+   "Paracingulate_gyrus",
+   "Subcallosal_area",
+   "Left_thalamus",
+   "Right_thalamus",
+   "Brainstem",
+   "Left_lateral_ventricle",
+   "Right_lateral_ventricle"
+  ],
   "children": [
    {
-    "text": "Forebrain / Prosencephalon",
     "wiki": [
      "Forebrain",
      "Prosencephalon"
     ],
+    "text": "Forebrain / Prosencephalon",
+    "id": "Forebrain",
+    "borrowed_models": [
+     "Orbitofrontal_cortex",
+     "Supplementary_motor_cortex",
+     "Frontal_medial_cortex",
+     "Superior_frontal_gyrus",
+     "Middle_frontal_gyrus",
+     "Pars_opercularis",
+     "Pars_triangularis",
+     "Precentral_gyrus",
+     "Frontal_pole",
+     "Frontal_operculum_cortex",
+     "Central_operculum_cortex",
+     "Postcentral_gyrus",
+     "Parietal_operculum",
+     "Superior_parietal_lobule",
+     "Precuneus",
+     "Anterior_supramarginal_gyrus",
+     "Posterior_supramarginal_gyrus",
+     "Angular_gyrus",
+     "Occipital_fusiform_gyrus",
+     "Superior_lateral_occipital_cortex",
+     "Inferior_lateral_occipital_cortex",
+     "Intracalcarine_cortex",
+     "Supracalcarine_cortex",
+     "Occipital_pole",
+     "Cuneus",
+     "Anterior_temporal_fusiform_cortex",
+     "Posterior_temporal_fusiform_cortex",
+     "Anterior_superior_temporal_gyrus",
+     "Posterior_superior_temporal_gyrus",
+     "Anterior_middle_temporal_gyrus",
+     "Posterior_middle_temporal_gyrus",
+     "Temporo_occipital_middle_temporal_gyrus",
+     "Anterior_inferior_temporal_gyrus",
+     "Posterior_inferior_temporal_gyrus",
+     "Temporo_occipital_inferior_temporal_gyrus",
+     "Transverse_temporal_gyrus",
+     "Temporal_pole",
+     "Planum_polare",
+     "Planum_temporale",
+     "Lingual_gyrus",
+     "Insular_cortex",
+     "Temporal_occipital_fusiform_cortex",
+     "Left_caudate_nucleus",
+     "Right_caudate_nucleus",
+     "Left_putamen",
+     "Right_putamen",
+     "Left_accumbens",
+     "Right_accumbens",
+     "Left_pallidum",
+     "Right_pallidum",
+     "Left_amygdala",
+     "Right_amygdala",
+     "Left_hippocampus",
+     "Right_hippocampus",
+     "Anterior_parahippocampal_gyrus",
+     "Posterior_parahippocampal_gyrus",
+     "Anterior_cingulate_gyrus",
+     "Posterior_cingulate_gyrus",
+     "Paracingulate_gyrus",
+     "Subcallosal_area"
+    ],
     "children": [
      {
-      "text": "Endbrain / Cerebrum / Telencephalon",
       "wiki": [
        "Cerebrum",
        "Telencephalon"
       ],
+      "text": "Endbrain / Cerebrum / Telencephalon",
+      "id": "Endbrain",
+      "borrowed_models": [
+       "Primary_motor_cortex",
+       "Pars_orbitalis",
+       "Frontal_eye_fields",
+       "Brodmann_area_4",
+       "Brodmann_area_6",
+       "Brodmann_area_8",
+       "Brodmann_area_9",
+       "Brodmann_area_10",
+       "Brodmann_area_11",
+       "Brodmann_area_12",
+       "Brodmann_area_14",
+       "Brodmann_area_24",
+       "Brodmann_area_25",
+       "Brodmann_area_32",
+       "Brodmann_area_33",
+       "Brodmann_area_44",
+       "Brodmann_area_45",
+       "Brodmann_area_46",
+       "Brodmann_area_47",
+       "Brodmann_area_1",
+       "Brodmann_area_2",
+       "Brodmann_area_3",
+       "Brodmann_area_5",
+       "Brodmann_area_7",
+       "Brodmann_area_23",
+       "Brodmann_area_26",
+       "Brodmann_area_29",
+       "Brodmann_area_31",
+       "Brodmann_area_39",
+       "Brodmann_area_40",
+       "Primary_visual_cortex",
+       "Secondary_visual_cortex",
+       "Brodmann_area_17",
+       "Brodmann_area_18",
+       "Brodmann_area_19",
+       "Ventral_entorhinal_cortex",
+       "Dorsal_entorhinal_cortex",
+       "Brodmann_area_20",
+       "Brodmann_area_21",
+       "Brodmann_area_22",
+       "Brodmann_area_27",
+       "Brodmann_area_34",
+       "Brodmann_area_35",
+       "Brodmann_area_36",
+       "Brodmann_area_37",
+       "Brodmann_area_38",
+       "Brodmann_area_41",
+       "Brodmann_area_42",
+       "Primary_gustatory_cortex",
+       "Brodmann_area_13",
+       "Brodmann_area_15",
+       "Brodmann_area_16",
+       "Brodmann_area_52"
+      ],
       "children": [
        {
-        "text": "Cerebral cortex",
         "wiki": "Cerebral_cortex",
+        "text": "Cerebral cortex",
+        "id": "Cerebral_cortex",
+        "borrowed_models": [
+         "Primary_motor_cortex",
+         "Pars_orbitalis",
+         "Frontal_eye_fields",
+         "Brodmann_area_4",
+         "Brodmann_area_6",
+         "Brodmann_area_8",
+         "Brodmann_area_9",
+         "Brodmann_area_10",
+         "Brodmann_area_11",
+         "Brodmann_area_12",
+         "Brodmann_area_14",
+         "Brodmann_area_24",
+         "Brodmann_area_25",
+         "Brodmann_area_32",
+         "Brodmann_area_33",
+         "Brodmann_area_44",
+         "Brodmann_area_45",
+         "Brodmann_area_46",
+         "Brodmann_area_47",
+         "Brodmann_area_1",
+         "Brodmann_area_2",
+         "Brodmann_area_3",
+         "Brodmann_area_5",
+         "Brodmann_area_7",
+         "Brodmann_area_23",
+         "Brodmann_area_26",
+         "Brodmann_area_29",
+         "Brodmann_area_31",
+         "Brodmann_area_39",
+         "Brodmann_area_40",
+         "Primary_visual_cortex",
+         "Secondary_visual_cortex",
+         "Brodmann_area_17",
+         "Brodmann_area_18",
+         "Brodmann_area_19",
+         "Ventral_entorhinal_cortex",
+         "Dorsal_entorhinal_cortex",
+         "Brodmann_area_20",
+         "Brodmann_area_21",
+         "Brodmann_area_22",
+         "Brodmann_area_27",
+         "Brodmann_area_34",
+         "Brodmann_area_35",
+         "Brodmann_area_36",
+         "Brodmann_area_37",
+         "Brodmann_area_38",
+         "Brodmann_area_41",
+         "Brodmann_area_42",
+         "Primary_gustatory_cortex",
+         "Brodmann_area_13",
+         "Brodmann_area_15",
+         "Brodmann_area_16",
+         "Brodmann_area_52"
+        ],
         "children": [
          {
-          "text": "Neocortex / Primate Brain",
           "wiki": "Neocortex",
+          "text": "Neocortex / Primate Brain",
+          "id": "Neocortex",
+          "borrowed_models": [
+           "Primary_motor_cortex",
+           "Pars_orbitalis",
+           "Frontal_eye_fields",
+           "Brodmann_area_4",
+           "Brodmann_area_6",
+           "Brodmann_area_8",
+           "Brodmann_area_9",
+           "Brodmann_area_10",
+           "Brodmann_area_11",
+           "Brodmann_area_12",
+           "Brodmann_area_14",
+           "Brodmann_area_24",
+           "Brodmann_area_25",
+           "Brodmann_area_32",
+           "Brodmann_area_33",
+           "Brodmann_area_44",
+           "Brodmann_area_45",
+           "Brodmann_area_46",
+           "Brodmann_area_47",
+           "Brodmann_area_1",
+           "Brodmann_area_2",
+           "Brodmann_area_3",
+           "Brodmann_area_5",
+           "Brodmann_area_7",
+           "Brodmann_area_23",
+           "Brodmann_area_26",
+           "Brodmann_area_29",
+           "Brodmann_area_31",
+           "Brodmann_area_39",
+           "Brodmann_area_40",
+           "Primary_visual_cortex",
+           "Secondary_visual_cortex",
+           "Brodmann_area_17",
+           "Brodmann_area_18",
+           "Brodmann_area_19",
+           "Ventral_entorhinal_cortex",
+           "Dorsal_entorhinal_cortex",
+           "Brodmann_area_20",
+           "Brodmann_area_21",
+           "Brodmann_area_22",
+           "Brodmann_area_27",
+           "Brodmann_area_34",
+           "Brodmann_area_35",
+           "Brodmann_area_36",
+           "Brodmann_area_37",
+           "Brodmann_area_38",
+           "Brodmann_area_41",
+           "Brodmann_area_42",
+           "Primary_gustatory_cortex",
+           "Brodmann_area_13",
+           "Brodmann_area_15",
+           "Brodmann_area_16",
+           "Brodmann_area_52"
+          ],
           "children": [
            {
-            "text": "Frontal Lobe",
+            "type": "lobe",
             "wiki": "Frontal_lobe",
+            "text": "Frontal Lobe",
+            "id": "Frontal_lobe",
+            "borrowed_models": [
+             "Primary_motor_cortex",
+             "Pars_orbitalis",
+             "Frontal_eye_fields",
+             "Brodmann_area_4",
+             "Brodmann_area_6",
+             "Brodmann_area_8",
+             "Brodmann_area_9",
+             "Brodmann_area_10",
+             "Brodmann_area_11",
+             "Brodmann_area_12",
+             "Brodmann_area_14",
+             "Brodmann_area_24",
+             "Brodmann_area_25",
+             "Brodmann_area_32",
+             "Brodmann_area_33",
+             "Brodmann_area_44",
+             "Brodmann_area_45",
+             "Brodmann_area_46",
+             "Brodmann_area_47"
+            ],
             "children": [
              {
-              "text": "Prefrontal Cortex",
+              "type": "area",
               "wiki": "Prefrontal_cortex",
+              "text": "Prefrontal Cortex",
+              "id": "Prefrontal_cortex",
+              "borrowed_models": [
+               "Orbitofrontal_cortex"
+              ],
               "children": [
                {
-                "text": "Dorsolateral Prefrontal Cortex (8, 9, 46)",
+                "type": "area",
                 "wiki": "Dorsolateral_prefrontal_cortex",
-                "type": "area",
-                "id": "Dorsolateral_prefrontal_cortex"
+                "text": "Dorsolateral Prefrontal Cortex (8, 9, 46)",
+                "id": "Dorsolateral_prefrontal_cortex",
+                "state": {
+                 "disabled": true
+                }
                },
                {
-                "text": "Ventrolateral Prefrontal Cortex (44, 45, 47)",
+                "type": "area",
                 "wiki": "Ventrolateral_prefrontal_cortex",
-                "type": "area",
-                "id": "Ventrolateral_prefrontal_cortex"
+                "text": "Ventrolateral Prefrontal Cortex (44, 45, 47)",
+                "id": "Ventrolateral_prefrontal_cortex",
+                "state": {
+                 "disabled": true
+                }
                },
                {
-                "text": "Orbitofrontal Cortex (10, 11, 47)",
-                "wiki": "Orbitofrontal_cortex",
-                "model": "harvard_oxford_cort/33",
                 "type": "area",
+                "wiki": "Orbitofrontal_cortex",
+                "text": "Orbitofrontal Cortex (10, 11, 47)",
+                "model": "harvard_oxford_cort/33",
                 "id": "Orbitofrontal_cortex"
                },
                {
-                "text": "Ventromedial Prefrontal Cortex (10, 14, 25, 32, i11, i12, i13)",
-                "wiki": "Ventromedial_prefrontal_cortex",
-                "children": [
-                 {
-                  "text": "Frontopolar Prefrontal Cortex / Rostrolateral Prefrontal Cortex / Anterior Prefrontal Cortex (10)",
-                  "wiki": "Brodmann_area_10",
-                  "model": "brodmann/10",
-                  "id": "Frontopolar_prefrontal_cortex"
-                 }
-                ],
                 "type": "area",
-                "id": "Ventromedial_prefrontal_cortex"
+                "wiki": "Ventromedial_prefrontal_cortex",
+                "text": "Ventromedial Prefrontal Cortex (10, 14, 25, 32, i11, i12, i13)",
+                "id": "Ventromedial_prefrontal_cortex",
+                "state": {
+                 "disabled": true
+                },
+                "children": []
                },
                {
-                "text": "Orbital Gyri",
+                "type": "gyrus",
                 "wiki": "Orbital_gyri",
+                "text": "Orbital Gyri",
+                "id": "Orbital_gyri",
+                "state": {
+                 "disabled": true
+                },
                 "children": [
                  {
+                  "state": {
+                   "disabled": true
+                  },
                   "text": "Left Orbital Gyrus",
                   "id": "Left_orbital_gyrus"
                  },
                  {
+                  "state": {
+                   "disabled": true
+                  },
                   "text": "Right Orbital Gyrus",
                   "id": "Right_orbital_gyrus"
                  },
                  {
-                  "text": "Medial Orbital Gyrus",
+                  "state": {
+                   "disabled": true
+                  },
                   "type": "gyrus",
+                  "text": "Medial Orbital Gyrus",
                   "id": "Medial_orbital_gyrus"
                  },
                  {
-                  "text": "Straight Gyrus (11)",
-                  "wiki": "Straight_gyrus",
                   "type": "gyrus",
-                  "id": "Straight_gyrus"
+                  "wiki": "Straight_gyrus",
+                  "text": "Straight Gyrus (11)",
+                  "id": "Straight_gyrus",
+                  "state": {
+                   "disabled": true
+                  }
                  }
-                ],
-                "type": "gyrus",
-                "id": "Orbital_gyri"
+                ]
                }
-              ],
-              "type": "area",
-              "id": "Prefrontal_cortex"
+              ]
              },
              {
+              "type": "area",
+              "wiki": "Primary_motor_cortex",
               "text": "Primary Motor Cortex (4)",
               "model": "brodmann/4",
-              "wiki": "Primary_motor_cortex",
-              "type": "area",
               "id": "Primary_motor_cortex"
              },
              {
+              "type": "area",
+              "wiki": "Supplementary_motor_cortex",
               "text": "Supplementary Motor Cortex (6)",
               "model": "harvard_oxford_cort/26",
-              "wiki": "Supplementary_motor_cortex",
-              "type": "area",
               "id": "Supplementary_motor_cortex"
              },
              {
-              "text": "Premotor cortex",
-              "wiki": "Premotor_cortex",
               "type": "area",
-              "id": "Premotor_cortex"
+              "wiki": "Premotor_cortex",
+              "text": "Premotor cortex",
+              "id": "Premotor_cortex",
+              "state": {
+               "disabled": true
+              }
              },
              {
+              "type": "area",
               "text": "Frontal Medial Cortex",
               "model": "harvard_oxford_cort/25",
-              "type": "area",
               "id": "Frontal_medial_cortex"
              },
              {
-              "text": "Frontal Gyrus",
+              "type": "gyrus",
               "wiki": "Frontal_gyrus",
+              "text": "Frontal Gyrus",
+              "id": "Frontal_gyrus",
+              "borrowed_models": [
+               "Superior_frontal_gyrus",
+               "Middle_frontal_gyrus",
+               "Pars_opercularis",
+               "Pars_triangularis"
+              ],
               "children": [
                {
+                "type": "area",
+                "wiki": "Superior_frontal_gyrus",
                 "text": "Superior Frontal Gyrus (4, 6, 8)",
                 "model": "harvard_oxford_cort/3",
-                "wiki": "Superior_frontal_gyrus",
-                "type": "area",
                 "id": "Superior_frontal_gyrus"
                },
                {
+                "type": "area",
+                "wiki": "Middle_frontal_gyrus",
                 "text": "Middle Frontal Gyrus (9, 10, 46)",
                 "model": "harvard_oxford_cort/4",
-                "wiki": "Middle_frontal_gyrus",
-                "type": "area",
                 "id": "Middle_frontal_gyrus"
                },
                {
-                "text": "Inferior Frontal Gyrus (11, 47)",
+                "type": "area",
                 "wiki": "Inferior_frontal_gyrus",
+                "text": "Inferior Frontal Gyrus (11, 47)",
+                "id": "Inferior_frontal_gyrus",
+                "borrowed_models": [
+                 "Pars_opercularis",
+                 "Pars_triangularis"
+                ],
                 "children": [
                  {
-                  "text": "Pars Orbitalis (47)",
                   "wiki": "Orbital_part_of_inferior_frontal_gyrus",
+                  "text": "Pars Orbitalis (47)",
                   "model": "brodmann/47",
                   "id": "Pars_orbitalis"
                  },
                  {
-                  "text": "Broca's Area",
                   "wiki": "Broca%27s_area",
+                  "text": "Broca's Area",
+                  "id": "Brocas_area",
+                  "borrowed_models": [
+                   "Pars_opercularis",
+                   "Pars_triangularis"
+                  ],
                   "children": [
                    {
                     "text": "Pars Opercularis (44)",
@@ -168,277 +532,368 @@
                     "model": "harvard_oxford_cort/5",
                     "id": "Pars_triangularis"
                    }
-                  ],
-                  "id": "Brocas_area"
+                  ]
                  }
-                ],
-                "type": "area",
-                "id": "Inferior_frontal_gyrus"
+                ]
                },
                {
-                "text": "Medial Frontal Gyrus (8, 9)",
-                "wiki": "Medial_frontal_gyrus",
                 "type": "area",
-                "id": "Medial_frontal_gyrus"
+                "wiki": "Medial_frontal_gyrus",
+                "text": "Medial Frontal Gyrus (8, 9)",
+                "id": "Medial_frontal_gyrus",
+                "state": {
+                 "disabled": true
+                }
                }
-              ],
-              "type": "gyrus",
-              "id": "Frontal_gyrus"
+              ]
              },
              {
+              "type": "gyrus",
+              "wiki": "Precentral_gyrus",
               "text": "Precentral Gyrus",
               "model": "harvard_oxford_cort/7",
-              "wiki": "Precentral_gyrus",
-              "type": "gyrus",
               "id": "Precentral_gyrus"
              },
              {
-              "text": "Precentral Sulcus",
+              "type": "sulcus",
               "wiki": "Precentral_sulcus",
-              "type": "sulcus",
-              "id": "Precentral_sulcus"
+              "text": "Precentral Sulcus",
+              "id": "Precentral_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Superior Frontal Sulcus",
+              "type": "sulcus",
               "wiki": "Superior_frontal_sulcus",
-              "type": "sulcus",
-              "id": "Superior_frontal_sulcus"
+              "text": "Superior Frontal Sulcus",
+              "id": "Superior_frontal_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Middle Frontal Sulcus",
+              "type": "sulcus",
               "wiki": "Middle_frontal_sulcus",
-              "type": "sulcus",
-              "id": "Middle_frontal_sulcus"
+              "text": "Middle Frontal Sulcus",
+              "id": "Middle_frontal_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Inferior Frontal Sulcus",
+              "type": "sulcus",
               "wiki": "Inferior_frontal_sulcus",
-              "type": "sulcus",
-              "id": "Inferior_frontal_sulcus"
+              "text": "Inferior Frontal Sulcus",
+              "id": "Inferior_frontal_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Orbital Sulcus",
+              "type": "sulcus",
               "wiki": "Orbital_sulcus",
+              "text": "Orbital Sulcus",
+              "id": "Orbital_sulcus",
+              "state": {
+               "disabled": true
+              },
               "children": [
                {
+                "state": {
+                 "disabled": true
+                },
                 "text": "Lateral Orbital Sulcus",
                 "id": "Lateral_orbital_sulcus"
                },
                {
-                "text": "Medial Orbital Sulcus / Olfactory Sulcus",
+                "state": {
+                 "disabled": true
+                },
                 "wiki": "Olfactory_sulcus",
+                "text": "Medial Orbital Sulcus / Olfactory Sulcus",
                 "id": "Medial_orbital_sulcus"
                },
                {
+                "state": {
+                 "disabled": true
+                },
                 "text": "H-Shaped Orbital Sulcus",
                 "id": "H_shaped_orbital_sulcus"
                }
-              ],
-              "type": "sulcus",
-              "id": "Orbital_sulcus"
+              ]
              },
              {
+              "type": "area",
               "text": "Frontal Pole",
               "model": "harvard_oxford_cort/1",
-              "type": "area",
               "id": "Frontal_pole"
              },
              {
-              "text": "Supplementary Eye Field (6)",
-              "wiki": "Supplementary_eye_field",
               "type": "area",
-              "id": "Supplementary_eye_field"
+              "wiki": "Supplementary_eye_field",
+              "text": "Supplementary Eye Field (6)",
+              "id": "Supplementary_eye_field",
+              "state": {
+               "disabled": true
+              }
              },
              {
+              "type": "area",
+              "wiki": "Frontal_eye_fields",
               "text": "Frontal Eye Fields (8)",
               "model": "brodmann/8",
-              "wiki": "Frontal_eye_fields",
-              "type": "area",
               "id": "Frontal_eye_fields"
              },
              {
+              "type": "area",
+              "wiki": "Operculum_(brain)",
               "text": "Frontal Operculum Cortex",
               "model": "harvard_oxford_cort/41",
-              "wiki": "Operculum_(brain)",
-              "type": "area",
               "id": "Frontal_operculum_cortex"
              },
              {
+              "type": "area",
+              "wiki": "Operculum_(brain)",
               "text": "Central Operculum Cortex",
               "model": "harvard_oxford_cort/42",
-              "wiki": "Operculum_(brain)",
-              "type": "area",
               "id": "Central_operculum_cortex"
              },
              {
-              "text": "Brodmann Areas",
+              "borrowed_models": [
+               "Brodmann_area_4",
+               "Brodmann_area_6",
+               "Brodmann_area_8",
+               "Brodmann_area_9",
+               "Brodmann_area_10",
+               "Brodmann_area_11",
+               "Brodmann_area_12",
+               "Brodmann_area_14",
+               "Brodmann_area_24",
+               "Brodmann_area_25",
+               "Brodmann_area_32",
+               "Brodmann_area_33",
+               "Brodmann_area_44",
+               "Brodmann_area_45",
+               "Brodmann_area_46",
+               "Brodmann_area_47"
+              ],
               "children": [
                {
-                "text": "4 / Primary Motor Cortex",
                 "wiki": "Brodmann_area_4",
+                "text": "4 / Primary Motor Cortex",
                 "model": "brodmann/4",
                 "id": "Brodmann_area_4"
                },
                {
-                "text": "6 / Agranular Frontal Area",
                 "wiki": "Brodmann_area_6",
+                "text": "6 / Agranular Frontal Area",
                 "model": "brodmann/6",
                 "id": "Brodmann_area_6"
                },
                {
-                "text": "8",
                 "wiki": "Brodmann_area_8",
+                "text": "8",
                 "model": "brodmann/8",
                 "id": "Brodmann_area_8"
                },
                {
-                "text": "9",
                 "wiki": "Brodmann_area_9",
+                "text": "9",
                 "model": "brodmann/9",
                 "id": "Brodmann_area_9"
                },
                {
-                "text": "10 / Frontopolar Prefrontal Cortex / Rostrolateral Prefrontal Cortex / Anterior Prefrontal Cortex",
                 "wiki": "Brodmann_area_10",
+                "text": "10 / Frontopolar Prefrontal Cortex / Rostrolateral Prefrontal Cortex / Anterior Prefrontal Cortex",
                 "model": "brodmann/10",
                 "id": "Brodmann_area_10"
                },
                {
-                "text": "11",
                 "wiki": "Brodmann_area_11",
+                "text": "11",
                 "model": "brodmann/11",
                 "id": "Brodmann_area_11"
                },
                {
-                "text": "12",
                 "wiki": "Brodmann_area_12",
+                "text": "12",
                 "model": "brodmann/12",
                 "id": "Brodmann_area_12"
                },
                {
-                "text": "14",
                 "wiki": "Brodmann_area_14",
+                "text": "14",
                 "model": "brodmann/14",
                 "id": "Brodmann_area_14"
                },
                {
-                "text": "24 / Ventral Anterior Cingulate Area",
                 "wiki": "Brodmann_area_24",
+                "text": "24 / Ventral Anterior Cingulate Area",
                 "model": "brodmann/24",
                 "id": "Brodmann_area_24"
                },
                {
-                "text": "25 / Subgenual Area / Subgenualis / Subgenual Cingulate",
                 "wiki": "Brodmann_area_25",
+                "text": "25 / Subgenual Area / Subgenualis / Subgenual Cingulate",
                 "model": "brodmann/25",
                 "id": "Brodmann_area_25"
                },
                {
-                "text": "32 / Dorsal Anterior Cingulate Area",
                 "wiki": "Brodmann_area_32",
+                "text": "32 / Dorsal Anterior Cingulate Area",
                 "model": "brodmann/32",
                 "id": "Brodmann_area_32"
                },
                {
-                "text": "33 / Pregenual Area",
                 "wiki": "Brodmann_area_33",
+                "text": "33 / Pregenual Area",
                 "model": "brodmann/33",
                 "id": "Brodmann_area_33"
                },
                {
-                "text": "44 / Pars Opercularis of the inferior frontal gyrus",
                 "wiki": "Brodmann_area_44",
+                "text": "44 / Pars Opercularis of the inferior frontal gyrus",
                 "model": "brodmann/44",
                 "id": "Brodmann_area_44"
                },
                {
-                "text": "45 / Pars Triangularis of the inferior frontal gyrus",
                 "wiki": "Brodmann_area_45",
+                "text": "45 / Pars Triangularis of the inferior frontal gyrus",
                 "model": "brodmann/45",
                 "id": "Brodmann_area_45"
                },
                {
-                "text": "46 / Middle Frontal Area",
                 "wiki": "Brodmann_area_46",
+                "text": "46 / Middle Frontal Area",
                 "model": "brodmann/46",
                 "id": "Brodmann_area_46"
                },
                {
-                "text": "47 / Orbital Area",
                 "wiki": "Brodmann_area_47",
+                "text": "47 / Orbital Area",
                 "model": "brodmann/47",
                 "id": "Brodmann_area_47"
                }
               ],
+              "text": "Frontal Lobe Brodmann Areas",
               "id": "Frontal_lobe_brodmann_areas"
              }
-            ],
-            "type": "lobe",
-            "id": "Frontal_lobe"
+            ]
            },
            {
-            "text": "Parietal Lobe",
+            "type": "lobe",
             "wiki": "Parietal_lobe",
+            "text": "Parietal Lobe",
+            "id": "Parietal_lobe",
+            "borrowed_models": [
+             "Brodmann_area_1",
+             "Brodmann_area_2",
+             "Brodmann_area_3",
+             "Brodmann_area_5",
+             "Brodmann_area_7",
+             "Brodmann_area_23",
+             "Brodmann_area_26",
+             "Brodmann_area_29",
+             "Brodmann_area_31",
+             "Brodmann_area_39",
+             "Brodmann_area_40"
+            ],
             "children": [
              {
+              "type": "area",
               "text": "Somatosensory cortex",
+              "id": "Somatosensory_cortex",
+              "borrowed_models": [
+               "Postcentral_gyrus",
+               "Parietal_operculum"
+              ],
               "children": [
                {
-                "text": "S1 / Primary Somatosensory Cortex",
+                "type": "area",
                 "wiki": "Primary_somatosensory_cortex",
-                "type": "area",
-                "id": "Primary_somatosensory_cortex"
+                "text": "S1 / Primary Somatosensory Cortex",
+                "id": "Primary_somatosensory_cortex",
+                "state": {
+                 "disabled": true
+                }
                },
                {
-                "text": "S2 / Secondary Somatosensory Cortex",
+                "type": "area",
                 "wiki": "Secondary_somatosensory_cortex",
-                "type": "area",
-                "id": "Secondary_somatosensory_area"
+                "text": "S2 / Secondary Somatosensory Cortex",
+                "id": "Secondary_somatosensory_area",
+                "state": {
+                 "disabled": true
+                }
                },
                {
+                "type": "gyrus",
+                "wiki": "Postcentral_gyrus",
                 "text": "Postcentral Gyrus / Primary Somesthetic Area (3, 1, 2)",
                 "model": "harvard_oxford_cort/17",
-                "wiki": "Postcentral_gyrus",
-                "type": "gyrus",
                 "id": "Postcentral_gyrus"
                },
                {
-                "text": "Parietal Operculum (43)",
-                "wiki": "Operculum_(brain)",
-                "model": "harvard_oxford_cort/43",
                 "type": "gyrus",
+                "wiki": "Operculum_(brain)",
+                "text": "Parietal Operculum (43)",
+                "model": "harvard_oxford_cort/43",
                 "id": "Parietal_operculum"
                }
-              ],
-              "type": "area",
-              "id": "Somatosensory_cortex"
+              ]
              },
              {
+              "type": "area",
               "text": "Posterior parietal cortex",
+              "id": "Posterior_parietal_cortex",
               "wiki": "Posterior_parietal_cortex",
+              "borrowed_models": [
+               "Superior_parietal_lobule",
+               "Precuneus",
+               "Anterior_supramarginal_gyrus",
+               "Posterior_supramarginal_gyrus",
+               "Angular_gyrus"
+              ],
               "children": [
                {
+                "type": "lobule",
                 "wiki": "Superior_parietal_lobule",
+                "text": "Superior Parietal Lobule (5, 7)",
+                "model": "harvard_oxford_cort/18",
+                "id": "Superior_parietal_lobule",
+                "borrowed_models": [
+                 "Precuneus"
+                ],
                 "children": [
                  {
-                  "text": "Precuneus",
                   "wiki": "Precuneus",
+                  "text": "Precuneus",
                   "model": "harvard_oxford_cort/31",
                   "id": "Precuneus"
                  }
-                ],
-                "text": "Superior Parietal Lobule (5, 7)",
-                "type": "lobule",
-                "model": "harvard_oxford_cort/18",
-                "id": "Superior_parietal_lobule"
+                ]
                },
                {
-                "text": "Inferior Parietal Lobule",
+                "type": "lobule",
                 "wiki": "Inferior_parietal_lobule",
+                "text": "Inferior Parietal Lobule",
+                "id": "Inferior_parietal_lobule",
+                "borrowed_models": [
+                 "Anterior_supramarginal_gyrus",
+                 "Posterior_supramarginal_gyrus",
+                 "Angular_gyrus"
+                ],
                 "children": [
                  {
-                  "text": "Supramarginal Gyrus (40)",
+                  "type": "gyrus",
                   "wiki": "Supramarginal_gyrus",
+                  "text": "Supramarginal Gyrus (40)",
+                  "id": "Supramarginal_gyrus",
+                  "borrowed_models": [
+                   "Anterior_supramarginal_gyrus",
+                   "Posterior_supramarginal_gyrus"
+                  ],
                   "children": [
                    {
                     "text": "Anterior Supramarginal Gyrus",
@@ -450,202 +905,266 @@
                     "model": "harvard_oxford_cort/20",
                     "id": "Posterior_supramarginal_gyrus"
                    }
-                  ],
-                  "type": "gyrus",
-                  "id": "Supramarginal_gyrus"
+                  ]
                  },
                  {
-                  "text": "Angular Gyrus (39)",
-                  "wiki": "Angular_gyrus",
-                  "model": "harvard_oxford_cort/21",
                   "type": "gyrus",
+                  "wiki": "Angular_gyrus",
+                  "text": "Angular Gyrus (39)",
+                  "model": "harvard_oxford_cort/21",
                   "id": "Angular_gyrus"
                  }
-                ],
-                "type": "lobule",
-                "id": "Inferior_parietal_lobule"
+                ]
                }
-              ],
-              "type": "area",
-              "id": "Posterior_parietal_cortex"
+              ]
              },
              {
-              "text": "Intraparietal Sulcus",
+              "type": "sulcus",
               "wiki": "Intraparietal_sulcus",
-              "type": "sulcus",
-              "id": "Intraparietal_sulcus"
+              "text": "Intraparietal Sulcus",
+              "id": "Intraparietal_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Marginal Sulcus",
+              "type": "sulcus",
               "wiki": "Marginal_sulcus",
-              "type": "sulcus",
-              "id": "Marginal_sulcus"
+              "text": "Marginal Sulcus",
+              "id": "Marginal_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Brodmann Areas",
+              "borrowed_models": [
+               "Brodmann_area_1",
+               "Brodmann_area_2",
+               "Brodmann_area_3",
+               "Brodmann_area_5",
+               "Brodmann_area_7",
+               "Brodmann_area_23",
+               "Brodmann_area_26",
+               "Brodmann_area_29",
+               "Brodmann_area_31",
+               "Brodmann_area_39",
+               "Brodmann_area_40"
+              ],
               "children": [
                {
-                "text": "3, 1, 2 / Primary Somesthetic Area / Postcentral Gyrus",
+                "borrowed_models": [
+                 "Brodmann_area_1",
+                 "Brodmann_area_2",
+                 "Brodmann_area_3"
+                ],
                 "children": [
                  {
-                  "text": "1",
                   "wiki": "Brodmann_area_1",
+                  "text": "1",
                   "model": "brodmann/1",
                   "id": "Brodmann_area_1"
                  },
                  {
-                  "text": "2",
                   "wiki": "Brodmann_area_2",
+                  "text": "2",
                   "model": "brodmann/2",
                   "id": "Brodmann_area_2"
                  },
                  {
-                  "text": "3",
                   "wiki": "Brodmann_area_3",
+                  "text": "3",
                   "model": "brodmann/3",
                   "id": "Brodmann_area_3"
                  }
                 ],
+                "text": "3, 1, 2 / Primary Somesthetic Area / Postcentral Gyrus",
                 "id": "Brodmann_areas_3_1_2"
                },
                {
-                "text": "5, 7 / Somatosensory Association Cortex",
+                "borrowed_models": [
+                 "Brodmann_area_5",
+                 "Brodmann_area_7"
+                ],
                 "children": [
                  {
-                  "text": "5",
                   "wiki": "Brodmann_area_5",
+                  "text": "5",
                   "model": "brodmann/5",
                   "id": "Brodmann_area_5"
                  },
                  {
-                  "text": "7",
                   "wiki": "Brodmann_area_7",
+                  "text": "7",
                   "model": "brodmann/7",
                   "id": "Brodmann_area_7"
                  }
                 ],
+                "text": "5, 7 / Somatosensory Association Cortex",
                 "id": "Brodmann_areas_5_7"
                },
                {
-                "text": "23 / Ventral Posterior Cingulate Area",
                 "wiki": "Brodmann_area_23",
+                "text": "23 / Ventral Posterior Cingulate Area",
                 "model": "brodmann/23",
                 "id": "Brodmann_area_23"
                },
                {
-                "text": "26 / Ectosplenial Area",
                 "wiki": "Brodmann_area_26",
+                "text": "26 / Ectosplenial Area",
                 "model": "brodmann/26",
                 "id": "Brodmann_area_26"
                },
                {
-                "text": "29 / Granular Retrolimbic Area",
                 "wiki": "Brodmann_area_29",
+                "text": "29 / Granular Retrolimbic Area",
                 "model": "brodmann/29",
                 "id": "Brodmann_area_29"
                },
                {
-                "text": "31 / Dorsal Posterior Cingulate Area",
                 "wiki": "Brodmann_area_31",
+                "text": "31 / Dorsal Posterior Cingulate Area",
                 "model": "brodmann/31",
                 "id": "Brodmann_area_31"
                },
                {
-                "text": "39 / Angular Area",
                 "wiki": "Brodmann_area_39",
+                "text": "39 / Angular Area",
                 "model": "brodmann/39",
                 "id": "Brodmann_area_39"
                },
                {
-                "text": "40",
                 "wiki": "Brodmann_area_40",
+                "text": "40",
                 "model": "brodmann/40",
                 "id": "Brodmann_area_40"
                }
               ],
+              "text": "Parietal Lobe Brodmann Areas",
               "id": "Parietal_lobe_brodmann_areas"
              }
-            ],
-            "type": "lobe",
-            "id": "Parietal_lobe"
+            ]
            },
            {
-            "text": "Occipital Lobe",
+            "type": "lobe",
             "wiki": "Occipital_lobe",
+            "text": "Occipital Lobe",
+            "id": "Occipital_lobe",
+            "borrowed_models": [
+             "Occipital_fusiform_gyrus",
+             "Superior_lateral_occipital_cortex",
+             "Inferior_lateral_occipital_cortex",
+             "Intracalcarine_cortex",
+             "Supracalcarine_cortex",
+             "Occipital_pole",
+             "Cuneus"
+            ],
             "children": [
              {
-              "text": "Lateral Occipital Gyrus",
+              "state": {
+               "disabled": true
+              },
               "type": "gyrus",
+              "text": "Lateral Occipital Gyrus",
               "id": "Lateral_occipital_gyrus"
              },
              {
-              "text": "Occipital Fusiform Gyrus",
-              "wiki": "Fusiform_gyrus",
-              "model": "harvard_oxford_cort/40",
               "type": "gyrus",
+              "wiki": "Fusiform_gyrus",
+              "text": "Occipital Fusiform Gyrus",
+              "model": "harvard_oxford_cort/40",
               "id": "Occipital_fusiform_gyrus"
              },
              {
-              "text": "Calcarine Sulcus / Calcarine Fissure",
+              "type": "sulcus",
               "wiki": "Calcarine_sulcus",
-              "type": "sulcus",
-              "id": "Calcarine_sulcus"
+              "text": "Calcarine Sulcus / Calcarine Fissure",
+              "id": "Calcarine_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Lunate Sulcus",
+              "type": "sulcus",
               "wiki": "Lunate_sulcus",
-              "type": "sulcus",
-              "id": "Lunate_sulcus"
+              "text": "Lunate Sulcus",
+              "id": "Lunate_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Transverse Occipital Sulcus",
+              "type": "sulcus",
               "wiki": "Transverse_occipital_sulcus",
-              "type": "sulcus",
-              "id": "Transverse_occipital_sulcus"
+              "text": "Transverse Occipital Sulcus",
+              "id": "Transverse_occipital_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
+              "type": "area",
+              "wiki": "Visual_cortex#Primary_visual_cortex_.28V1.29",
               "text": "V1 / Primary visual cortex / Striate cortex (17)",
               "model": "brodmann/17",
-              "wiki": "Visual_cortex#Primary_visual_cortex_.28V1.29",
-              "type": "area",
               "id": "Primary_visual_cortex"
              },
              {
+              "type": "area",
+              "wiki": "Visual_cortex#V2",
               "text": "V2 / Secondary Visual Cortex / Prestriate Cortex (18)",
               "model": "brodmann/18",
-              "wiki": "Visual_cortex#V2",
-              "type": "area",
               "id": "Secondary_visual_cortex"
              },
              {
+              "type": "area",
               "text": "Extrastriate Cortex (18, 19)",
+              "id": "Extrastriate_cortex",
+              "state": {
+               "disabled": true
+              },
               "children": [
                {
-                "text": "V3",
+                "state": {
+                 "disabled": true
+                },
                 "wiki": "Visual_cortex#Third_visual_cortex.2C_including_area_V3",
+                "text": "V3",
                 "id": "V3"
                },
                {
-                "text": "V4",
+                "state": {
+                 "disabled": true
+                },
                 "wiki": "Visual_cortex#V4",
+                "text": "V4",
                 "id": "V4"
                },
                {
-                "text": "V5 / Middle Temporal Visual Area (MT)",
+                "state": {
+                 "disabled": true
+                },
                 "wiki": "Visual_cortex#Middle_temporal_visual_area_.28V5.29",
+                "text": "V5 / Middle Temporal Visual Area (MT)",
                 "id": "V5"
                },
                {
-                "text": "Extrastriate Body Area (EBA)",
+                "state": {
+                 "disabled": true
+                },
                 "wiki": "Extrastriate_body_area",
+                "text": "Extrastriate Body Area (EBA)",
                 "id": "Extrastriate_body_area"
                }
-              ],
-              "type": "area",
-              "id": "Extrastriate_cortex"
+              ]
              },
              {
+              "type": "area",
               "text": "Lateral Occipital Cortex",
+              "id": "Lateral_occipital_cortex",
+              "borrowed_models": [
+               "Superior_lateral_occipital_cortex",
+               "Inferior_lateral_occipital_cortex"
+              ],
               "children": [
                {
                 "text": "Superior Lateral Occipital Cortex",
@@ -657,86 +1176,120 @@
                 "model": "harvard_oxford_cort/23",
                 "id": "Inferior_lateral_occipital_cortex"
                }
-              ],
-              "type": "area",
-              "id": "Lateral_occipital_cortex"
+              ]
              },
              {
+              "type": "area",
               "text": "Intracalcarine Cortex",
               "model": "harvard_oxford_cort/24",
-              "type": "area",
               "id": "Intracalcarine_cortex"
              },
              {
+              "type": "area",
               "text": "Supracalcarine Cortex",
               "model": "harvard_oxford_cort/47",
-              "type": "area",
               "id": "Supracalcarine_cortex"
              },
              {
+              "type": "area",
               "text": "Occipital Pole",
               "model": "harvard_oxford_cort/48",
-              "type": "area",
               "id": "Occipital_pole"
              },
              {
-              "text": "Cuneus",
-              "wiki": "Cuneus",
-              "model": "harvard_oxford_cort/32",
               "type": "area",
+              "wiki": "Cuneus",
+              "text": "Cuneus",
+              "model": "harvard_oxford_cort/32",
               "id": "Cuneus"
              },
              {
-              "text": "Occipital Face Area",
+              "state": {
+               "disabled": true
+              },
               "type": "area",
+              "text": "Occipital Face Area",
               "id": "Occipital_face_area"
              },
              {
-              "text": "Brodmann Areas",
+              "borrowed_models": [
+               "Brodmann_area_17",
+               "Brodmann_area_18",
+               "Brodmann_area_19"
+              ],
               "children": [
                {
-                "text": "17 / Striate Area / V1",
                 "wiki": "Brodmann_area_17",
+                "text": "17 / Striate Area / V1",
                 "model": "brodmann/17",
                 "id": "Brodmann_area_17"
                },
                {
-                "text": "18 / Parastriate Area / Visual Association Area / (V2)",
                 "wiki": "Brodmann_area_18",
+                "text": "18 / Parastriate Area / Visual Association Area / (V2)",
                 "model": "brodmann/18",
                 "id": "Brodmann_area_18"
                },
                {
-                "text": "19 / Peristriate Area",
                 "wiki": "Brodmann_area_19",
+                "text": "19 / Peristriate Area",
                 "model": "brodmann/19",
                 "id": "Brodmann_area_19"
                }
               ],
+              "text": "Occipital Lobe Brodmann Areas",
               "id": "Occipital_lobe_brodmann_areas"
              }
-            ],
-            "type": "lobe",
-            "id": "Occipital_lobe"
+            ]
            },
            {
-            "text": "Temporal Lobe",
+            "type": "lobe",
             "wiki": "Temporal_lobe",
+            "text": "Temporal Lobe",
+            "id": "Temporal_lobe",
+            "borrowed_models": [
+             "Anterior_temporal_fusiform_cortex",
+             "Posterior_temporal_fusiform_cortex",
+             "Anterior_superior_temporal_gyrus",
+             "Posterior_superior_temporal_gyrus",
+             "Anterior_middle_temporal_gyrus",
+             "Posterior_middle_temporal_gyrus",
+             "Temporo_occipital_middle_temporal_gyrus",
+             "Anterior_inferior_temporal_gyrus",
+             "Posterior_inferior_temporal_gyrus",
+             "Temporo_occipital_inferior_temporal_gyrus",
+             "Transverse_temporal_gyrus",
+             "Temporal_pole",
+             "Planum_polare",
+             "Planum_temporale"
+            ],
             "children": [
              {
+              "type": "area",
+              "wiki": "Auditory_cortex",
               "text": "A1 / Primary Auditory Cortex",
-              "wiki": "Auditory_cortex",
-              "type": "area",
-              "id": "Primary_auditory_cortex"
+              "id": "Primary_auditory_cortex",
+              "state": {
+               "disabled": true
+              }
              },
              {
+              "type": "area",
+              "wiki": "Auditory_cortex",
               "text": "A2 / Secondary Auditory Cortex",
-              "wiki": "Auditory_cortex",
-              "type": "area",
-              "id": "Secondary_auditory_cortex"
+              "id": "Secondary_auditory_cortex",
+              "state": {
+               "disabled": true
+              }
              },
              {
+              "type": "area",
               "text": "Temporal Fusiform Cortex",
+              "id": "Temporal_fusiform_cortex",
+              "borrowed_models": [
+               "Anterior_temporal_fusiform_cortex",
+               "Posterior_temporal_fusiform_cortex"
+              ],
               "children": [
                {
                 "text": "Anterior Temporal Fusiform Cortex",
@@ -748,41 +1301,52 @@
                 "model": "harvard_oxford_cort/38",
                 "id": "Posterior_temporal_fusiform_cortex"
                }
-              ],
-              "type": "area",
-              "id": "Temporal_fusiform_cortex"
+              ]
              },
              {
-              "text": "Entorhinal cortex",
+              "type": "area",
               "wiki": "Entorhinal_cortex",
+              "text": "Entorhinal cortex",
+              "id": "Entorhinal_cortex",
+              "borrowed_models": [
+               "Ventral_entorhinal_cortex",
+               "Dorsal_entorhinal_cortex"
+              ],
               "children": [
                {
+                "type": "area",
+                "wiki": "Brodmann_area_28",
                 "text": "Ventral Entorhinal Cortex (28)",
                 "model": "brodmann/28",
-                "wiki": "Brodmann_area_28",
-                "type": "area",
                 "id": "Ventral_entorhinal_cortex"
                },
                {
+                "type": "area",
+                "wiki": "Brodmann_area_34",
                 "text": "Dorsal Entorhinal Cortex (34)",
                 "model": "brodmann/34",
-                "wiki": "Brodmann_area_34",
-                "type": "area",
                 "id": "Dorsal_entorhinal_cortex"
                }
-              ],
-              "type": "area",
-              "id": "Entorhinal_cortex"
+              ]
              },
              {
-              "text": "Perirhinal Cortex",
+              "type": "area",
               "wiki": "Perirhinal_cortex",
-              "type": "area",
-              "id": "Perirhinal_cortex"
+              "text": "Perirhinal Cortex",
+              "id": "Perirhinal_cortex",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Superior Temporal Gyrus",
+              "type": "gyrus",
               "wiki": "Superior_temporal_gyrus",
+              "text": "Superior Temporal Gyrus",
+              "id": "Superior_temporal_gyrus",
+              "borrowed_models": [
+               "Anterior_superior_temporal_gyrus",
+               "Posterior_superior_temporal_gyrus"
+              ],
               "children": [
                {
                 "text": "Anterior Superior Temporal Gyrus",
@@ -794,13 +1358,18 @@
                 "model": "harvard_oxford_cort/10",
                 "id": "Posterior_superior_temporal_gyrus"
                }
-              ],
-              "type": "gyrus",
-              "id": "Superior_temporal_gyrus"
+              ]
              },
              {
-              "text": "Middle Temporal Gyrus",
+              "type": "gyrus",
               "wiki": "Middle_temporal_gyrus",
+              "text": "Middle Temporal Gyrus",
+              "id": "Middle_temporal_gyrus",
+              "borrowed_models": [
+               "Anterior_middle_temporal_gyrus",
+               "Posterior_middle_temporal_gyrus",
+               "Temporo_occipital_middle_temporal_gyrus"
+              ],
               "children": [
                {
                 "text": "Anterior Middle Temporal Gyrus",
@@ -817,13 +1386,18 @@
                 "model": "harvard_oxford_cort/13",
                 "id": "Temporo_occipital_middle_temporal_gyrus"
                }
-              ],
-              "type": "gyrus",
-              "id": "Middle_temporal_gyrus"
+              ]
              },
              {
-              "text": "Inferior Temporal Gyrus",
+              "type": "gyrus",
               "wiki": "Inferior_temporal_gyrus",
+              "text": "Inferior Temporal Gyrus",
+              "id": "Inferior_temporal_gyrus",
+              "borrowed_models": [
+               "Anterior_inferior_temporal_gyrus",
+               "Posterior_inferior_temporal_gyrus",
+               "Temporo_occipital_inferior_temporal_gyrus"
+              ],
               "children": [
                {
                 "text": "Anterior Inferior Temporal Gyrus",
@@ -840,284 +1414,375 @@
                 "model": "harvard_oxford_cort/16",
                 "id": "Temporo_occipital_inferior_temporal_gyrus"
                }
-              ],
-              "type": "gyrus",
-              "id": "Inferior_temporal_gyrus"
+              ]
              },
              {
-              "text": "Transverse Temporal Gyrus / Heschl's Gyrus",
-              "wiki": "Transverse_temporal_gyrus",
-              "model": "harvard_oxford_cort/45",
               "type": "gyrus",
+              "wiki": "Transverse_temporal_gyrus",
+              "text": "Transverse Temporal Gyrus / Heschl's Gyrus",
+              "model": "harvard_oxford_cort/45",
               "id": "Transverse_temporal_gyrus"
              },
              {
-              "text": "Temporal Fusiform Gyrus",
+              "type": "gyrus",
               "wiki": "Fusiform_gyrus",
+              "text": "Temporal Fusiform Gyrus",
+              "id": "Temporal_fusiform_gyrus",
+              "state": {
+               "disabled": true
+              },
               "children": [
                {
-                "text": "Fusiform Face Area",
+                "state": {
+                 "disabled": true
+                },
                 "wiki": "Fusiform_face_area",
+                "text": "Fusiform Face Area",
                 "id": "Fusiform_face_area"
                },
                {
-                "text": "Fusiform Body Area",
+                "state": {
+                 "disabled": true
+                },
                 "wiki": "Fusiform_body_area",
+                "text": "Fusiform Body Area",
                 "id": "Fusiform_face_area"
                }
-              ],
-              "type": "gyrus",
-              "id": "Temporal_fusiform_gyrus"
+              ]
              },
              {
-              "text": "Superior Temporal Sulcus",
+              "type": "sulcus",
               "wiki": "Superior_temporal_sulcus",
-              "type": "sulcus",
-              "id": "Superior_temporal_sulcus"
+              "text": "Superior Temporal Sulcus",
+              "id": "Superior_temporal_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Inferior Temporal Sulcus",
+              "type": "sulcus",
               "wiki": "Inferior_temporal_sulcus",
-              "type": "sulcus",
-              "id": "Inferior_temporal_sulcus"
+              "text": "Inferior Temporal Sulcus",
+              "id": "Inferior_temporal_sulcus",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Transverse Temporal Sulcus",
+              "state": {
+               "disabled": true
+              },
               "type": "sulcus",
+              "text": "Transverse Temporal Sulcus",
               "id": "Transverse_temporal_sulcus"
              },
              {
+              "type": "area",
               "text": "Temporal Pole",
               "model": "harvard_oxford_cort/8",
-              "type": "area",
               "id": "Temporal_pole"
              },
              {
+              "type": "area",
               "text": "Planum Polare",
               "model": "harvard_oxford_cort/44",
-              "type": "area",
               "id": "Planum_polare"
              },
              {
+              "type": "area",
+              "wiki": "Planum_temporale",
               "text": "Planum Temporale",
               "model": "harvard_oxford_cort/46",
-              "wiki": "Planum_temporale",
-              "type": "area",
               "id": "Planum_temporale"
              },
              {
-              "text": "Medial Superior Temporal Area",
-              "wiki": "Medial_superior_temporal_area",
               "type": "area",
-              "id": "Medial_superior_temporal_area"
+              "wiki": "Medial_superior_temporal_area",
+              "text": "Medial Superior Temporal Area",
+              "id": "Medial_superior_temporal_area",
+              "state": {
+               "disabled": true
+              }
              },
              {
-              "text": "Brodmann Areas",
+              "borrowed_models": [
+               "Brodmann_area_20",
+               "Brodmann_area_21",
+               "Brodmann_area_22",
+               "Brodmann_area_27",
+               "Brodmann_area_34",
+               "Brodmann_area_35",
+               "Brodmann_area_36",
+               "Brodmann_area_37",
+               "Brodmann_area_38",
+               "Brodmann_area_41",
+               "Brodmann_area_42"
+              ],
               "children": [
                {
-                "text": "20 / Inferior Temporal Area",
                 "wiki": "Brodmann_area_20",
+                "text": "20 / Inferior Temporal Area",
                 "model": "brodmann/20",
                 "id": "Brodmann_area_20"
                },
                {
-                "text": "21 / Middle Temporal Area",
                 "wiki": "Brodmann_area_21",
+                "text": "21 / Middle Temporal Area",
                 "model": "brodmann/21",
                 "id": "Brodmann_area_21"
                },
                {
-                "text": "22 / Wernicke's Area",
                 "wiki": "Brodmann_area_22",
+                "text": "22 / Wernicke's Area",
                 "model": "brodmann/22",
                 "id": "Brodmann_area_22"
                },
                {
-                "text": "27 / Presubiculum",
                 "wiki": "Brodmann_area_27",
+                "text": "27 / Presubiculum",
                 "model": "brodmann/27",
                 "id": "Brodmann_area_27"
                },
                {
-                "text": "34",
                 "wiki": "Brodmann_area_34",
+                "text": "34",
                 "model": "brodmann/34",
                 "id": "Brodmann_area_34"
                },
                {
-                "text": "35 / Perirhinal Area",
                 "wiki": "Brodmann_area_35",
+                "text": "35 / Perirhinal Area",
                 "model": "brodmann/35",
                 "id": "Brodmann_area_35"
                },
                {
-                "text": "36 / Ectorhinal Area",
                 "wiki": "Brodmann_area_36",
+                "text": "36 / Ectorhinal Area",
                 "model": "brodmann/36",
                 "id": "Brodmann_area_36"
                },
                {
-                "text": "37 / Occipitotemporal Area",
                 "wiki": "Brodmann_area_37",
+                "text": "37 / Occipitotemporal Area",
                 "model": "brodmann/37",
                 "id": "Brodmann_area_37"
                },
                {
-                "text": "38 / Temporopolar Area",
                 "wiki": "Brodmann_area_38",
+                "text": "38 / Temporopolar Area",
                 "model": "brodmann/38",
                 "id": "Brodmann_area_38"
                },
                {
-                "text": "41 / Anterior Transverse Temporal Area",
                 "wiki": "Brodmann_area_41_%26_42",
+                "text": "41 / Anterior Transverse Temporal Area",
                 "model": "brodmann/41",
                 "id": "Brodmann_area_41"
                },
                {
-                "text": "42 / Posterior Transverse Temporal Area",
                 "wiki": "Brodmann_area_41_%26_42",
+                "text": "42 / Posterior Transverse Temporal Area",
                 "model": "brodmann/42",
                 "id": "Brodmann_area_42"
                }
               ],
+              "text": "Temporal Lobe Brodmann Areas",
               "id": "Temporal_lobe_brodmann_areas"
              }
-            ],
-            "type": "lobe",
-            "id": "Temporal_lobe"
+            ]
            },
            {
-            "text": "Paracentral Lobule (4)",
-            "wiki": "Paracentral_lobule",
             "type": "lobule",
-            "id": "Paracentral_lobule"
+            "wiki": "Paracentral_lobule",
+            "text": "Paracentral Lobule (4)",
+            "id": "Paracentral_lobule",
+            "state": {
+             "disabled": true
+            }
            },
            {
+            "type": "gyrus",
+            "wiki": "Lingual_gyrus",
             "text": "Lingual Gyrus",
             "model": "harvard_oxford_cort/36",
-            "wiki": "Lingual_gyrus",
-            "type": "gyrus",
             "id": "Lingual_gyrus"
            },
            {
-            "text": "Lateral Sulcus / Sylvian Fissure",
+            "type": "sulcus",
             "wiki": "Lateral_sulcus",
-            "type": "sulcus",
-            "id": "Lateral_sulcus"
+            "text": "Lateral Sulcus / Sylvian Fissure",
+            "id": "Lateral_sulcus",
+            "state": {
+             "disabled": true
+            }
            },
            {
-            "text": "Parietal Occipital Sulcus",
+            "type": "sulcus",
             "wiki": "Parieto-occipital_sulcus",
-            "type": "sulcus",
-            "id": "Parietal_occipital_sulcus"
+            "text": "Parietal Occipital Sulcus",
+            "id": "Parietal_occipital_sulcus",
+            "state": {
+             "disabled": true
+            }
            },
            {
-            "text": "Central Sulcus",
+            "type": "sulcus",
             "wiki": "Central_sulcus",
-            "type": "sulcus",
-            "id": "Central_sulcus"
+            "text": "Central Sulcus",
+            "id": "Central_sulcus",
+            "state": {
+             "disabled": true
+            }
            },
            {
-            "text": "Cingulate Sulcus",
+            "type": "sulcus",
             "wiki": "Cingulate_sulcus",
+            "text": "Cingulate Sulcus",
+            "id": "Cingulate_sulcus",
+            "state": {
+             "disabled": true
+            },
             "children": [
              {
-              "text": "Paracentral Sulcus",
+              "state": {
+               "disabled": true
+              },
               "wiki": "Paracentral_sulcus",
+              "text": "Paracentral Sulcus",
               "id": "Paracentral_sulcus"
              }
-            ],
-            "type": "sulcus",
-            "id": "Cingulate_sulcus"
+            ]
            },
            {
+            "type": "area",
             "text": "Insular Cortex",
-            "wiki": "Insular_cortex",
             "model": "harvard_oxford_cort/2",
-            "type": "area",
-            "id": "Insular_cortex"
+            "id": "Insular_cortex",
+            "wiki": "Insular_cortex"
            },
            {
-            "text": "Temporal-Occipital Fusiform Cortex",
-            "wiki": "Fusiform_gyrus",
-            "model": "harvard_oxford_cort/39",
             "type": "area",
+            "wiki": "Fusiform_gyrus",
+            "text": "Temporal-Occipital Fusiform Cortex",
+            "model": "harvard_oxford_cort/39",
             "id": "Temporal_occipital_fusiform_cortex"
            },
            {
+            "type": "area",
             "text": "Primary Gustatory Cortex",
             "model": "brodmann/43",
-            "type": "area",
             "id": "Primary_gustatory_cortex"
            },
            {
-            "text": "Brodmann Areas",
+            "borrowed_models": [
+             "Brodmann_area_13",
+             "Brodmann_area_15",
+             "Brodmann_area_16",
+             "Brodmann_area_52"
+            ],
             "children": [
              {
-              "text": "13",
               "wiki": "Brodmann_area_13",
+              "text": "13",
               "model": "brodmann/13",
               "id": "Brodmann_area_13"
              },
              {
-              "text": "15 / Anterior Temporal Lobe",
               "wiki": "Brodmann_area_15",
+              "text": "15 / Anterior Temporal Lobe",
               "model": "brodmann/15",
               "id": "Brodmann_area_15"
              },
              {
-              "text": "16",
               "wiki": "Brodmann_area_16",
+              "text": "16",
               "model": "brodmann/16",
               "id": "Brodmann_area_16"
              },
              {
-              "text": "52 / Parainsular Area",
               "wiki": "Brodmann_area_52",
+              "text": "52 / Parainsular Area",
               "model": "brodmann/52",
               "id": "Brodmann_area_52"
              }
             ],
+            "text": "Brodmann Areas",
             "id": "Neocortex_brodmann_areas"
            }
-          ],
-          "id": "Neocortex"
+          ]
          },
          {
-          "text": "Allocortex",
           "wiki": "Allocortex",
+          "text": "Allocortex",
+          "id": "Allocortex",
+          "state": {
+           "disabled": true
+          },
           "children": [
            {
-            "text": "Piriform cortex",
+            "state": {
+             "disabled": true
+            },
             "wiki": "Piriform_cortex",
+            "text": "Piriform cortex",
             "id": "Piriform_cortex"
            },
            {
-            "text": "Parahippocampal Gyrus",
+            "state": {
+             "disabled": true
+            },
             "wiki": "Parahippocampal_gyrus",
+            "text": "Parahippocampal Gyrus",
             "id": "Parahippocampal_gyrus"
            }
-          ],
-          "id": "Allocortex"
+          ]
          }
-        ],
-        "id": "Cerebral_cortex"
+        ]
        },
        {
-        "text": "Basal ganglia",
         "wiki": "Basal_ganglia",
+        "text": "Basal ganglia",
+        "id": "Basal_ganglia",
+        "borrowed_models": [
+         "Left_caudate_nucleus",
+         "Right_caudate_nucleus",
+         "Left_putamen",
+         "Right_putamen",
+         "Left_accumbens",
+         "Right_accumbens",
+         "Left_pallidum",
+         "Right_pallidum"
+        ],
         "children": [
          {
-          "text": "Striatum",
           "wiki": "Striatum",
+          "text": "Striatum",
+          "id": "Striatum",
+          "borrowed_models": [
+           "Left_caudate_nucleus",
+           "Right_caudate_nucleus",
+           "Left_putamen",
+           "Right_putamen",
+           "Left_accumbens",
+           "Right_accumbens"
+          ],
           "children": [
            {
-            "text": "Dorsal striatum",
+            "borrowed_models": [
+             "Left_caudate_nucleus",
+             "Right_caudate_nucleus",
+             "Left_putamen",
+             "Right_putamen"
+            ],
             "children": [
              {
-              "text": "Caudate nucleus",
               "wiki": "Caudate_nucleus",
+              "text": "Caudate nucleus",
+              "id": "Caudate_nucleus",
+              "borrowed_models": [
+               "Left_caudate_nucleus",
+               "Right_caudate_nucleus"
+              ],
               "children": [
                {
                 "text": "Left Caudate",
@@ -1129,12 +1794,16 @@
                 "model": "harvard_oxford_sub/16",
                 "id": "Right_caudate_nucleus"
                }
-              ],
-              "id": "Caudate_nucleus"
+              ]
              },
              {
-              "text": "Putamen",
               "wiki": "Putamen",
+              "text": "Putamen",
+              "id": "Putamen",
+              "borrowed_models": [
+               "Left_putamen",
+               "Right_putamen"
+              ],
               "children": [
                {
                 "text": "Left putamen",
@@ -1146,18 +1815,26 @@
                 "model": "harvard_oxford_sub/17",
                 "id": "Right_putamen"
                }
-              ],
-              "id": "Putamen"
+              ]
              }
             ],
+            "text": "Dorsal striatum",
             "id": "Dorsal_striatum"
            },
            {
-            "text": "Ventral striatum",
+            "borrowed_models": [
+             "Left_accumbens",
+             "Right_accumbens"
+            ],
             "children": [
              {
-              "text": "Nucleus Accumbens",
               "wiki": "Nucleus_accumbens",
+              "text": "Nucleus Accumbens",
+              "id": "Nucleus_accumbens",
+              "borrowed_models": [
+               "Left_accumbens",
+               "Right_accumbens"
+              ],
               "children": [
                {
                 "text": "Left Accumbens",
@@ -1169,23 +1846,30 @@
                 "model": "harvard_oxford_sub/21",
                 "id": "Right_accumbens"
                }
-              ],
-              "id": "Nucleus_accumbens"
+              ]
              },
              {
-              "text": "Olfactory Tubercle",
+              "state": {
+               "disabled": true
+              },
               "wiki": "Olfactory_tubercle",
+              "text": "Olfactory Tubercle",
               "id": "Olfactory_tubercle"
              }
             ],
+            "text": "Ventral striatum",
             "id": "Ventral_striatum"
            }
-          ],
-          "id": "Striatum"
+          ]
          },
          {
-          "text": "Globus Pallidus / Paleostriatum / Dorsal Pallidum",
           "wiki": "Globus_pallidus",
+          "text": "Globus Pallidus / Paleostriatum / Dorsal Pallidum",
+          "id": "Globus_pallidus",
+          "borrowed_models": [
+           "Left_pallidum",
+           "Right_pallidum"
+          ],
           "children": [
            {
             "text": "Left Pallidum",
@@ -1197,22 +1881,37 @@
             "model": "harvard_oxford_sub/18",
             "id": "Right_pallidum"
            }
-          ],
-          "id": "Globus_pallidus"
+          ]
          }
-        ],
-        "id": "Basal_ganglia"
+        ]
        }
-      ],
-      "id": "Endbrain"
+      ]
      },
      {
-      "text": "Limbic Lobe",
       "wiki": "Limbic_lobe",
+      "text": "Limbic Lobe",
+      "id": "Limbic_lobe",
+      "borrowed_models": [
+       "Left_amygdala",
+       "Right_amygdala",
+       "Left_hippocampus",
+       "Right_hippocampus",
+       "Anterior_parahippocampal_gyrus",
+       "Posterior_parahippocampal_gyrus",
+       "Anterior_cingulate_gyrus",
+       "Posterior_cingulate_gyrus",
+       "Paracingulate_gyrus",
+       "Subcallosal_area"
+      ],
       "children": [
        {
-        "text": "Amygdala",
         "wiki": "Amygdala",
+        "text": "Amygdala",
+        "id": "Amygdala",
+        "borrowed_models": [
+         "Left_amygdala",
+         "Right_amygdala"
+        ],
         "children": [
          {
           "text": "Left Amygdala",
@@ -1224,12 +1923,16 @@
           "model": "harvard_oxford_sub/20",
           "id": "Right_amygdala"
          }
-        ],
-        "id": "Amygdala"
+        ]
        },
        {
-        "text": "Hippocampus",
         "wiki": "Hippocampus",
+        "text": "Hippocampus",
+        "id": "Hippocampus",
+        "borrowed_models": [
+         "Left_hippocampus",
+         "Right_hippocampus"
+        ],
         "children": [
          {
           "text": "Left Hippocampus",
@@ -1241,12 +1944,16 @@
           "model": "harvard_oxford_sub/19",
           "id": "Right_hippocampus"
          }
-        ],
-        "id": "Hippocampus"
+        ]
        },
        {
-        "text": "Parahippocampal Gyrus",
         "wiki": "Parahippocampal_gyrus",
+        "text": "Parahippocampal Gyrus",
+        "id": "Parahippocampal_gyrus",
+        "borrowed_models": [
+         "Anterior_parahippocampal_gyrus",
+         "Posterior_parahippocampal_gyrus"
+        ],
         "children": [
          {
           "text": "Anterior Parahippocampal Gyrus",
@@ -1259,43 +1966,61 @@
           "id": "Posterior_parahippocampal_gyrus"
          },
          {
-          "text": "Parahippocampal Place Area",
+          "state": {
+           "disabled": true
+          },
           "wiki": "Parahippocampal_gyrus#Scene_recognition",
+          "text": "Parahippocampal Place Area",
           "id": "Parahippocampal_place_area"
          }
-        ],
-        "id": "Parahippocampal_gyrus"
+        ]
        },
        {
-        "text": "Fornix",
+        "state": {
+         "disabled": true
+        },
         "wiki": "Fornix_(neuroanatomy)",
+        "text": "Fornix",
         "id": "Fornix"
        },
        {
-        "text": "Mammillary Bodies",
+        "state": {
+         "disabled": true
+        },
         "wiki": "Mammillary_body",
+        "text": "Mammillary Bodies",
         "id": "Mammillary_bodies"
        },
        {
-        "text": "Cingulate Cortex",
         "wiki": "Cingulate_cortex",
+        "text": "Cingulate Cortex",
+        "id": "Cingulate_cortex",
+        "borrowed_models": [
+         "Anterior_cingulate_gyrus",
+         "Posterior_cingulate_gyrus",
+         "Paracingulate_gyrus"
+        ],
         "children": [
          {
-          "text": "Cingulate Gyrus",
+          "borrowed_models": [
+           "Anterior_cingulate_gyrus",
+           "Posterior_cingulate_gyrus"
+          ],
           "children": [
            {
-            "text": "Anterior Cingulate Gyrus",
             "wiki": "Anterior_cingulate_cortex",
+            "text": "Anterior Cingulate Gyrus",
             "model": "harvard_oxford_cort/29",
             "id": "Anterior_cingulate_gyrus"
            },
            {
-            "text": "Posterior Cingulate Gyrus",
             "wiki": "Posterior_cingulate",
+            "text": "Posterior Cingulate Gyrus",
             "model": "harvard_oxford_cort/30",
             "id": "Posterior_cingulate_gyrus"
            }
           ],
+          "text": "Cingulate Gyrus",
           "id": "Cingulate_gyrus"
          },
          {
@@ -1304,37 +2029,50 @@
           "id": "Paracingulate_gyrus"
          },
          {
-          "text": "Retrosplenial cortex",
+          "state": {
+           "disabled": true
+          },
           "wiki": "Retrosplenial_cortex",
+          "text": "Retrosplenial cortex",
           "id": "Retrosplenial_cortex"
          }
-        ],
-        "id": "Cingulate_cortex"
+        ]
        },
        {
-        "text": "Subcallosal Area / Paraolfactory Area",
         "wiki": "Subcallosal_area",
+        "text": "Subcallosal Area / Paraolfactory Area",
         "model": "harvard_oxford_cort/27",
         "id": "Subcallosal_area"
        },
        {
-        "text": "Paraterminal Gyrus (12)",
+        "state": {
+         "disabled": true
+        },
         "wiki": "Paraterminal_gyrus",
+        "text": "Paraterminal Gyrus (12)",
         "id": "Paraterminal_gyrus"
        }
-      ],
-      "id": "Limbic_lobe"
+      ]
      }
-    ],
-    "id": "Forebrain"
+    ]
    },
    {
-    "text": "Between Brain / Diencephalon",
     "wiki": "Diencephalon",
+    "text": "Between Brain / Diencephalon",
+    "id": "Diencephalon",
+    "borrowed_models": [
+     "Left_thalamus",
+     "Right_thalamus"
+    ],
     "children": [
      {
-      "text": "Thalamus",
       "wiki": "Thalamus",
+      "text": "Thalamus",
+      "id": "Thalamus",
+      "borrowed_models": [
+       "Left_thalamus",
+       "Right_thalamus"
+      ],
       "children": [
        {
         "text": "Left Thalamus",
@@ -1347,100 +2085,147 @@
         "id": "Right_thalamus"
        },
        {
-        "text": "Lateral Geniculate Nucleus (LGN)",
+        "state": {
+         "disabled": true
+        },
         "wiki": "Lateral_geniculate_nucleus",
+        "text": "Lateral Geniculate Nucleus (LGN)",
         "id": "Lateral_geniculate_nucleus"
        }
-      ],
-      "id": "Thalamus"
+      ]
      },
      {
-      "text": "Epithalamus",
+      "state": {
+       "disabled": true
+      },
       "wiki": "Epithalamus",
+      "text": "Epithalamus",
       "id": "Epithalamus"
      },
      {
-      "text": "Hypothalamus",
+      "state": {
+       "disabled": true
+      },
       "wiki": "Hypothalamus",
+      "text": "Hypothalamus",
       "id": "Hypothalamus"
      },
      {
-      "text": "Optic Chiasm",
+      "state": {
+       "disabled": true
+      },
       "wiki": "Optic_chiasm",
+      "text": "Optic Chiasm",
       "id": "Optic_chiasm"
      }
-    ],
-    "id": "Diencephalon"
+    ]
    },
    {
-    "text": "Brainstem",
     "wiki": "Brainstem",
+    "text": "Brainstem",
+    "model": "harvard_oxford_sub/8",
+    "id": "Brainstem",
     "children": [
      {
-      "text": "Reticular Formation",
+      "state": {
+       "disabled": true
+      },
       "wiki": "Reticular_formation",
+      "text": "Reticular Formation",
       "id": "Reticular_formation"
      },
      {
-      "text": "Midbrain / Mesencephalon",
       "wiki": "Midbrain",
+      "text": "Midbrain / Mesencephalon",
+      "id": "Midbrain",
+      "state": {
+       "disabled": true
+      },
       "children": [
        {
-        "text": "Tectum",
+        "state": {
+         "disabled": true
+        },
         "wiki": "Tectum",
+        "text": "Tectum",
         "id": "Tectum"
        },
        {
-        "text": "Tegmentum",
+        "state": {
+         "disabled": true
+        },
         "wiki": "Tegmentum",
+        "text": "Tegmentum",
         "id": "Tegmentum"
        }
-      ],
-      "id": "Midbrain"
+      ]
      },
      {
-      "text": "Hindbrain / Rhombencephalon",
       "wiki": "Hindbrain",
+      "text": "Hindbrain / Rhombencephalon",
+      "id": "Hindbrain",
+      "state": {
+       "disabled": true
+      },
       "children": [
        {
-        "text": "Metencephalon",
         "wiki": "Metencephalon",
+        "text": "Metencephalon",
+        "id": "Metencephalon",
+        "state": {
+         "disabled": true
+        },
         "children": [
          {
-          "text": "Pons",
+          "state": {
+           "disabled": true
+          },
           "wiki": "Pons",
+          "text": "Pons",
           "id": "Pons"
          },
          {
-          "text": "Cerebellum",
+          "state": {
+           "disabled": true
+          },
           "wiki": "Cerebellum",
+          "text": "Cerebellum",
           "id": "Cerebellum"
          }
-        ],
-        "id": "Metencephalon"
+        ]
        },
        {
-        "text": "Medulla Oblongata / Myelencephalon",
+        "state": {
+         "disabled": true
+        },
         "wiki": [
          "Medulla_oblongata",
          "Myelencephalon"
         ],
+        "text": "Medulla Oblongata / Myelencephalon",
         "id": "Medulla_oblongata"
        }
-      ],
-      "id": "Hindbrain"
+      ]
      }
-    ],
-    "model": "harvard_oxford_sub/8",
-    "id": "Brainstem"
+    ]
    },
    {
-    "text": "Ventricles",
     "wiki": "Ventricular_system",
+    "text": "Ventricles",
+    "id": "Ventricles",
+    "borrowed_models": [
+     "Left_lateral_ventricle",
+     "Right_lateral_ventricle"
+    ],
     "children": [
      {
-      "text": "Lateral Ventricles",
       "wiki": "Lateral_ventricles",
+      "text": "Lateral Ventricles",
+      "id": "Lateral_ventricles",
+      "borrowed_models": [
+       "Left_lateral_ventricle",
+       "Right_lateral_ventricle"
+      ],
       "children": [
        {
         "text": "Left Lateral Ventricle",
@@ -1452,13 +2237,10 @@
         "model": "harvard_oxford_sub/14",
         "id": "Right_lateral_ventricle"
        }
-      ],
-      "id": "Lateral_ventricles"
+      ]
      }
-    ],
-    "id": "Ventricles"
+    ]
    }
-  ],
-  "id": "Brain"
+  ]
  }
 ]
