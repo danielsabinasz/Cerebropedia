@@ -120,7 +120,7 @@ var tree = (function(brain3d, wiki) {
     function load_brain_data() {
 
         console.log("load brain data");
-        $.getJSON("json/brain.json?1", function(json) {
+        $.getJSON("json/brain.json?2", function(json) {
 
             var brain_data = json;
 
