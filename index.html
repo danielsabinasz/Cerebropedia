@@ -176,13 +176,7 @@ void main() {
 
 <!-- Facebook like button -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.12&appId=2194686090755492&autoLogAppEvents=1';
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=2657173824364687&autoLogAppEvents=1"></script>
 
 <!-- Slice canvases -->
 <canvas id="slice_region_canvas_x_lower" width="185" height="158" style="display: none;"></canvas>
@@ -196,20 +190,15 @@ void main() {
     <nav class="navbar navbar-dark fixed-top bg-dark justify-content-start">
         <a class="navbar-brand" href="http://cerebropedia.org"><img src="icon.png" style="width: 30px; vertical-align: bottom;"> Cerebropedia <span style="color: red; font-size: 10px; font-weight: bold;">Beta</span></a>
 
-        <div class="fb-like" data-href="https://www.facebook.com/Cerebropedia/" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
 
-            <ul class="nav ml-auto share-buttons">
-                <li style="padding-right:10px;" class="d-flex align-items-center"><a class="" href="mailto:daniel@sabinasz.net">Report a bug</a></li>
-                <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.cerebropedia.org&quote=Cerebropedia" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="img/simple_icons/Facebook.png" /></a></li>
-                <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.cerebropedia.org&text=Cerebropedia:%20http%3A%2F%2Fwww.cerebropedia.org" target="_blank" title="Tweet"><img alt="Tweet" src="img/simple_icons/Twitter.png" /></a></li>
-                <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.cerebropedia.org" target="_blank" title="Share on Google+"><img alt="Share on Google+" src="img/simple_icons/GooglePlus.png" /></a></li>
-                <li><a href="http://www.tumblr.com/share?v=3&u=http%3A%2F%2Fwww.cerebropedia.org&quote=Cerebropedia&s=" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="img/simple_icons/Tumblr.png" /></a></li>
-                <li><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.cerebropedia.org&description=An%20interactive%203D%20encyclopedia%20of%20the%20human%20brain%20that%20allows%20you%20to%20navigate%20through%20the%20hierarchical%20anatomical%20structure%20of%20the%20brain%20with%20ease." target="_blank" title="Pin it"><img alt="Pin it" src="img/simple_icons/Pinterest.png" /></a></li>
-                <li><a href="https://getpocket.com/save?url=http%3A%2F%2Fwww.cerebropedia.org&title=Cerebropedia" target="_blank" title="Add to Pocket"><img alt="Add to Pocket" src="img/simple_icons/Pocket.png" /></a></li>
-                <li><a href="http://www.reddit.com/submit?url=http%3A%2F%2Fwww.cerebropedia.org&title=Cerebropedia" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="img/simple_icons/Reddit.png" /></a></li>
-                <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.cerebropedia.org&title=Cerebropedia&summary=An%20interactive%203D%20encyclopedia%20of%20the%20human%20brain%20that%20allows%20you%20to%20navigate%20through%20the%20hierarchical%20anatomical%20structure%20of%20the%20brain%20with%20ease.&source=http%3A%2F%2Fwww.cerebropedia.org" target="_blank" title="Share on LinkedIn"><img alt="Share on LinkedIn" src="img/simple_icons/LinkedIn.png" /></a></li>
-                <li><a href="mailto:?subject=Cerebropedia&body=An%20interactive%203D%20encyclopedia%20of%20the%20human%20brain%20that%20allows%20you%20to%20navigate%20through%20the%20hierarchical%20anatomical%20structure%20of%20the%20brain%20with%20ease.:%20http%3A%2F%2Fwww.cerebropedia.org" target="_blank" title="Send email"><img alt="Send email" src="img/simple_icons/Email.png" /></a></li>
-            </ul>
+        <ul class="nav ml-auto share-buttons" style="color:white;">
+            <li style="padding-right:10px;" class="d-flex align-items-center"><a class="" href="https://github.com/danielsabinasz/Cerebropedia" target="new">View source code</a></li>
+            <li style="padding-right:10px;">&bull;</li>
+            <li style="padding-right:10px;" class="d-flex align-items-center"><a class="" href="https://github.com/danielsabinasz/Cerebropedia/issues" target="new">Report an issue</a></li>
+            <li style="padding-right:10px;">&bull;</li>
+            <li><div class="fb-like" data-href="https://www.facebook.com/Cerebropedia/" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div></li>
+
+        </ul>
 
 
         <!--<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
